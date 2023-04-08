@@ -12,7 +12,7 @@ public class MenuKeuangan {
     static ArrayList<Kredit> kredit = new ArrayList<Kredit>();
     static Debit debitt = new Debit();
     static Kredit kreditt = new Kredit();
-    static int totalDebit, totalKredit, Total;
+    static int totalDebit, totalKredit, Total, nomor1, nomor2;
 
 
     public static void main(String[] args) throws Exception{
@@ -77,6 +77,7 @@ public class MenuKeuangan {
                     lihat(debitt);
                     break;
                 case 3:
+                    update(debitt);
                     break;
                 case 4:
                     break;
@@ -112,6 +113,7 @@ public class MenuKeuangan {
                     lihat(kreditt);
                     break;
                 case 3:
+                    update(kreditt);
                     break;
                 case 4:
                     break;
@@ -128,6 +130,8 @@ public class MenuKeuangan {
 
     public static void tambah(Debit debitt) throws IOException{
         String addjenis;
+        nomor1 += 1;
+        String idDebit = nomor1+"D";
         System.out.print("Masukkan Nama Pemasukkan: ");
         String addNama = br.readLine();
         System.out.println("1. Bulanan");
@@ -152,12 +156,14 @@ public class MenuKeuangan {
         String addCatat = br.readLine();
         System.out.print("Masukkan Tanggal Pemasukkan: ");
         String addTanggal = br.readLine();
-        Debit pemasukkan = new Debit(addNama, addJumlah, addTanggal, addCatat, addjenis,null);
+        Debit pemasukkan = new Debit(addNama, addJumlah, addTanggal, addCatat, addjenis,null, idDebit);
         debit.add(pemasukkan);
     }
 
     public static void tambah(Kredit kreditt) throws Exception{
         String addjenis;
+        nomor2 += 1;
+        String idKredit = nomor2+"K";
         System.out.print("Masukkan Nama Pengeluaran: ");
         String addNama = br.readLine();
         System.out.println("1. Makanan");
@@ -182,7 +188,7 @@ public class MenuKeuangan {
         String addCatat = br.readLine();
         System.out.print("Masukkan Tanggal Pengeluaran: ");
         String addTanggal = br.readLine();
-        Kredit pengeluaran = new Kredit(addNama, addJumlah, addTanggal, addCatat, addjenis,null);
+        Kredit pengeluaran = new Kredit(addNama, addJumlah, addTanggal, addCatat, addjenis,null, idKredit);
         kredit.add(pengeluaran);
     }
 
@@ -195,6 +201,7 @@ public class MenuKeuangan {
         else{
             for (int i=0; i <  debit.size(); i++){
                 System.out.println("Kategori           : " + debit.get(i).getKategori());
+                System.out.println("ID                 : " + debit.get(i).getID());
                 System.out.println("Nama Pemasukkan    : " + debit.get(i).getNama());
                 System.out.println("Jumlah Pemasukkan  : " + debit.get(i).getJumlah());
                 System.out.println("Catatan            : " + debit.get(i).getCatatan());
@@ -204,8 +211,9 @@ public class MenuKeuangan {
             }
             for (int i=0; i <  kredit.size(); i++){
                 System.out.println("Kategori           : " + kredit.get(i).getKategori());
-                System.out.println("Nama Pengeluaran    : " + kredit.get(i).getNama());
-                System.out.println("Jumlah Pengeluaran  : " + kredit.get(i).getJumlah());
+                System.out.println("ID                 : " + kredit.get(i).getID());
+                System.out.println("Nama Pengeluaran   : " + kredit.get(i).getNama());
+                System.out.println("Jumlah Pengeluaran : " + kredit.get(i).getJumlah());
                 System.out.println("Catatan            : " + kredit.get(i).getCatatan());
                 System.out.println("Tanggal            : " + kredit.get(i).getTanggal());
                 System.out.println("\n");
@@ -230,8 +238,9 @@ public class MenuKeuangan {
         else{
             for (int i=0; i <  kredit.size(); i++){
                 System.out.println("Kategori           : " + kredit.get(i).getKategori());
-                System.out.println("Nama Pengeluaran    : " + kredit.get(i).getNama());
-                System.out.println("Jumlah Pengeluaran  : " + kredit.get(i).getJumlah());
+                System.out.println("ID                 : " + kredit.get(i).getID());
+                System.out.println("Nama Pengeluaran   : " + kredit.get(i).getNama());
+                System.out.println("Jumlah Pengeluaran : " + kredit.get(i).getJumlah());
                 System.out.println("Catatan            : " + kredit.get(i).getCatatan());
                 System.out.println("Tanggal            : " + kredit.get(i).getTanggal());
                 System.out.println("\n");
@@ -251,6 +260,7 @@ public class MenuKeuangan {
         else{
             for (int i=0; i <  debit.size(); i++){
                 System.out.println("Kategori           : " + debit.get(i).getKategori());
+                System.out.println("ID                 : " + debit.get(i).getID());
                 System.out.println("Nama Pemasukkan    : " + debit.get(i).getNama());
                 System.out.println("Jumlah Pemasukkan  : " + debit.get(i).getJumlah());
                 System.out.println("Catatan            : " + debit.get(i).getCatatan());
@@ -264,19 +274,155 @@ public class MenuKeuangan {
     }
 
     public static void update(Debit debitt) throws Exception{
-
+        lihat(debitt);
+        int kondisi = 0;
+        String addjenis;
+        System.out.print("Masukkan ID Pemasukkan yang ingin diubah: ");
+        String idx = br.readLine();
+        for (int i=0; i <  debit.size(); i++){
+            if (debit.get(i).getID() == idx){
+                System.out.print("Masukkan Nama Pemasukkan: ");
+                String addNama = br.readLine();
+                System.out.println("1. Bulanan");
+                System.out.println("2. Bonus");
+                System.out.println("3. Upah");
+                System.out.println("4. Lainnya");
+                System.out.print("Pilihlah Jenis Pemasukkan: ");
+                int pilih = Integer.parseInt(br.readLine());
+                if (pilih == 1){
+                    addjenis = "Bulanan";
+                }else if (pilih==2) {
+                    addjenis = "Bonus";
+                }  else if(pilih==3){
+                    addjenis = "Upah";
+                } else {
+                    addjenis = "Lainnya"; 
+                }
+                System.out.print("Masukkan Jumlah Pemasukkan: ");
+                int addJumlah = Integer.parseInt(br.readLine());
+                totalDebit += addJumlah;
+                System.out.print("Masukkan Catatan Pemasukkan: ");
+                String addCatat = br.readLine();
+                System.out.print("Masukkan Tanggal Pemasukkan: ");
+                String addTanggal = br.readLine();
+                Debit pemasukkan = new Debit(addNama, addJumlah, addTanggal, addCatat, addjenis,null, idx);
+                debit.add(pemasukkan);
+                kondisi = 1;
+                break;
+            }
+        }
+        if (kondisi == 0){
+            System.out.println("Pemasukkan gagal diubah");
+        }
     }
 
     public static void update(Kredit kreditt) throws Exception{
-        
+        lihat(kreditt);
+        int kondisi = 0;
+        String addjenis;
+        System.out.print("Masukkan ID Pengeluaran yang ingin diubah: ");
+        String idx = br.readLine();
+        for (int i=0; i <  kredit.size(); i++){
+            if (idx == kredit.get(i).getID()){
+                System.out.print("Masukkan Nama Pengeluaran: ");
+                String addNama = br.readLine();
+                System.out.println("1. Makanan");
+                System.out.println("2. Transportasi");
+                System.out.println("3. Pakaian");
+                System.out.println("4. Lainnya");
+                System.out.print("Pilihlah Jenis Pengeluaran: ");
+                int pilih = Integer.parseInt(br.readLine());
+                if (pilih == 1){
+                    addjenis = "Makanan";
+                }else if (pilih==2) {
+                    addjenis = "Transportasi";
+                }  else if(pilih==3){
+                    addjenis = "Pakaian";
+                } else {
+                    addjenis = "Lainnya"; 
+                }
+                System.out.print("Masukkan Jumlah Pengeluaran: ");
+                int addJumlah = Integer.parseInt(br.readLine());
+                totalKredit += addJumlah;
+                System.out.print("Masukkan Catatan Pengeluaran: ");
+                String addCatat = br.readLine();
+                System.out.print("Masukkan Tanggal Pengeluaran: ");
+                String addTanggal = br.readLine();
+                Kredit pengeluaran = new Kredit(addNama, addJumlah, addTanggal, addCatat, addjenis,null, idx);
+                kredit.add(pengeluaran);
+                kondisi = 1;
+                break;
+            }
+        }
+        if (kondisi == 0){
+            System.out.println("Pengeluaran gagal diubah");
+        }
     }
 
     public static void hapus(Debit debitt) throws Exception{
+        lihat(debitt);
+        int kondisi = 0;
+        System.out.print("Masukkan ID Pemasukkan yang ingin dihapus: ");
+        String idx = br.readLine();
+        for (int i=0; i <  debit.size(); i++){
+            if (idx == debit.get(i).getID()){
+                System.out.println("Kategori           : " + debit.get(i).getKategori());
+                System.out.println("ID                 : " + debit.get(i).getID());
+                System.out.println("Nama Pemasukkan    : " + debit.get(i).getNama());
+                System.out.println("Jumlah Pemasukkan  : " + debit.get(i).getJumlah());
+                System.out.println("Catatan            : " + debit.get(i).getCatatan());
+                System.out.println("Tanggal            : " + debit.get(i).getTanggal());
+                System.out.print("Apakah tetap ingin menghapus data Pemasukkan? (0/1) ");
+                int pil = Integer.parseInt(br.readLine());
+                if (pil == 1){
+                    debit.remove(i);
+                    kondisi = 1;
+                    System.out.println("Data pemasukkan berhasil dihapus");
 
+                }
+                else{
+                    kondisi = 0;
+                    break;
+                }
+
+            }
+        }
+        if (kondisi == 0){
+            System.out.println("Data pemasukkan gagal dihapus");
+        }
     }
 
     public static void hapus(Kredit kreditt) throws Exception{
-        
+        lihat(kreditt);
+        int kondisi = 0;
+        System.out.print("Masukkan ID Pengeluaran yang ingin dihapus: ");
+        String idx = br.readLine();
+        for (int i=0; i <  kredit.size(); i++){
+            if (idx == kredit.get(i).getID()){
+                System.out.println("Kategori           : " + kredit.get(i).getKategori());
+                System.out.println("ID                 : " + kredit.get(i).getID());
+                System.out.println("Nama Pengeluaran   : " + kredit.get(i).getNama());
+                System.out.println("Jumlah Pengeluaran : " + kredit.get(i).getJumlah());
+                System.out.println("Catatan            : " + kredit.get(i).getCatatan());
+                System.out.println("Tanggal            : " + kredit.get(i).getTanggal());
+                System.out.print("Apakah tetap ingin menghapus data pengeluaran? (0/1) ");
+                int pil = Integer.parseInt(br.readLine());
+                if (pil == 1){
+                    kredit.remove(i);
+                    kondisi = 1;
+                    System.out.println("Data pengeluaran berhasil dihapus");
+
+                }
+                else{
+                    kondisi = 0;
+                    break;
+                }
+
+            }
+        }
+        if (kondisi == 0){
+            System.out.println("Data pengeluaran gagal dihapus");
+        }
     }
 
 

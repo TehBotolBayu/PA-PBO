@@ -7,13 +7,17 @@ public abstract class  Keuangan {
     protected String tanggal;
     protected String catatan;
     protected String jenis;
+    protected String ID;
 
-    public Keuangan(String nama, int jumlah, String tanggal, String catatan, String jenis) {
+
+    public Keuangan(String nama, int jumlah, String tanggal, String catatan, String jenis, String ID) {
         this.nama = nama;
         this.jumlah = jumlah;
         this.tanggal = tanggal;
         this.catatan = catatan;
         this.jenis = jenis;
+        this.ID = ID;
+
     }
 
     public Keuangan(){
@@ -50,4 +54,14 @@ public abstract class  Keuangan {
     public void setJenis(String jenis) {
         this.jenis = jenis;
     }
+
+    public String getID() {
+        return ID;
+    }
+
+    public void setID(String iD) {
+        ID = iD;
+    }
+
+    
 }
