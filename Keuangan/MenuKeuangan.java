@@ -80,6 +80,7 @@ public class MenuKeuangan {
                     update(debitt);
                     break;
                 case 4:
+                    hapus(debitt);
                     break;
                 case 5:
                     menu();
@@ -116,6 +117,7 @@ public class MenuKeuangan {
                     update(kreditt);
                     break;
                 case 4:
+                    hapus(kreditt);
                     break;
                 case 5:
                     menu();
@@ -280,7 +282,7 @@ public class MenuKeuangan {
         System.out.print("Masukkan ID Pemasukkan yang ingin diubah: ");
         String idx = br.readLine();
         for (int i=0; i <  debit.size(); i++){
-            if (debit.get(i).getID() == idx){
+            if (debit.get(i).getID().equals(idx)){
                 System.out.print("Masukkan Nama Pemasukkan: ");
                 String addNama = br.readLine();
                 System.out.println("1. Bulanan");
@@ -306,7 +308,7 @@ public class MenuKeuangan {
                 System.out.print("Masukkan Tanggal Pemasukkan: ");
                 String addTanggal = br.readLine();
                 Debit pemasukkan = new Debit(addNama, addJumlah, addTanggal, addCatat, addjenis,null, idx);
-                debit.add(pemasukkan);
+                debit.set(i,pemasukkan);
                 kondisi = 1;
                 break;
             }
@@ -323,7 +325,7 @@ public class MenuKeuangan {
         System.out.print("Masukkan ID Pengeluaran yang ingin diubah: ");
         String idx = br.readLine();
         for (int i=0; i <  kredit.size(); i++){
-            if (idx == kredit.get(i).getID()){
+            if (kredit.get(i).getID().equals(idx)){
                 System.out.print("Masukkan Nama Pengeluaran: ");
                 String addNama = br.readLine();
                 System.out.println("1. Makanan");
@@ -349,7 +351,7 @@ public class MenuKeuangan {
                 System.out.print("Masukkan Tanggal Pengeluaran: ");
                 String addTanggal = br.readLine();
                 Kredit pengeluaran = new Kredit(addNama, addJumlah, addTanggal, addCatat, addjenis,null, idx);
-                kredit.add(pengeluaran);
+                kredit.set(i, pengeluaran);
                 kondisi = 1;
                 break;
             }
@@ -365,7 +367,7 @@ public class MenuKeuangan {
         System.out.print("Masukkan ID Pemasukkan yang ingin dihapus: ");
         String idx = br.readLine();
         for (int i=0; i <  debit.size(); i++){
-            if (idx == debit.get(i).getID()){
+            if (debit.get(i).getID().equals(idx)){
                 System.out.println("Kategori           : " + debit.get(i).getKategori());
                 System.out.println("ID                 : " + debit.get(i).getID());
                 System.out.println("Nama Pemasukkan    : " + debit.get(i).getNama());
@@ -375,6 +377,7 @@ public class MenuKeuangan {
                 System.out.print("Apakah tetap ingin menghapus data Pemasukkan? (0/1) ");
                 int pil = Integer.parseInt(br.readLine());
                 if (pil == 1){
+                    totalDebit -= debit.get(i).getJumlah();
                     debit.remove(i);
                     kondisi = 1;
                     System.out.println("Data pemasukkan berhasil dihapus");
@@ -398,7 +401,7 @@ public class MenuKeuangan {
         System.out.print("Masukkan ID Pengeluaran yang ingin dihapus: ");
         String idx = br.readLine();
         for (int i=0; i <  kredit.size(); i++){
-            if (idx == kredit.get(i).getID()){
+            if (kredit.get(i).getID().equals(idx)){
                 System.out.println("Kategori           : " + kredit.get(i).getKategori());
                 System.out.println("ID                 : " + kredit.get(i).getID());
                 System.out.println("Nama Pengeluaran   : " + kredit.get(i).getNama());
@@ -408,6 +411,7 @@ public class MenuKeuangan {
                 System.out.print("Apakah tetap ingin menghapus data pengeluaran? (0/1) ");
                 int pil = Integer.parseInt(br.readLine());
                 if (pil == 1){
+                    totalKredit -= kredit.get(i).getJumlah();
                     kredit.remove(i);
                     kondisi = 1;
                     System.out.println("Data pengeluaran berhasil dihapus");
