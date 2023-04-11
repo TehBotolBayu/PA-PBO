@@ -4,9 +4,20 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.io.IOException;
+import java.sql.*;
+
 
 
 public class MenuKeuangan {
+
+    static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
+    static final String DB_URL = "jdbc:mysql://localhost/dbmoneymanajer";
+    static final String USER = "root";
+    static final String PASS = "";
+    static Connection conn;
+    static Statement stmt;
+    static ResultSet rs;
+
     static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
     static ArrayList<Debit> debit = new ArrayList<Debit>();
     static ArrayList<Kredit> kredit = new ArrayList<Kredit>();
@@ -16,7 +27,25 @@ public class MenuKeuangan {
 
 
     public static void main(String[] args) throws Exception{
-        menu();
+        try {
+            // register driver
+            Class.forName(JDBC_DRIVER);
+
+            conn = DriverManager.getConnection(DB_URL, USER, PASS);
+            stmt = conn.createStatement();
+
+            while (!conn.isClosed()) {
+                move(debitt);
+                move(kreditt);
+                menu();
+            }
+
+            stmt.close();
+            conn.close();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     public static void menu() throws Exception{
@@ -131,38 +160,56 @@ public class MenuKeuangan {
     }
 
     public static void tambah(Debit debitt) throws IOException{
-        String addjenis;
-        nomor1 += 1;
-        String idDebit = nomor1+"D";
-        System.out.print("Masukkan Nama Pemasukkan: ");
-        String addNama = br.readLine();
-        System.out.println("1. Bulanan");
-        System.out.println("2. Bonus");
-        System.out.println("3. Upah");
-        System.out.println("4. Lainnya");
-        System.out.print("Pilihlah Jenis Pemasukkan: ");
-        int pilih = Integer.parseInt(br.readLine());
-        if (pilih == 1){
-             addjenis = "Bulanan";
-        }else if (pilih==2) {
-             addjenis = "Bonus";
-        }  else if(pilih==3){
-             addjenis = "Upah";
-        } else {
-             addjenis = "Lainnya"; 
+        
+        // Debit pemasukkan = new Debit(addNama, addJumlah, addTanggal, addCatat, addjenis,null, idDebit);
+        // debit.add(pemasukkan);
+        try {
+            // ambil input dari user
+            String addjenis;
+            nomor1 += 1;
+            String idDebit = nomor1+"D";
+            System.out.print("Masukkan Nama Pemasukkan: ");
+            String addNama = br.readLine();
+            System.out.println("1. Bulanan");
+            System.out.println("2. Bonus");
+            System.out.println("3. Upah");
+            System.out.println("4. Lainnya");
+            System.out.print("Pilihlah Jenis Pemasukkan: ");
+            int pilih = Integer.parseInt(br.readLine());
+            if (pilih == 1){
+                addjenis = "Bulanan";
+            }else if (pilih==2) {
+                addjenis = "Bonus";
+            }  else if(pilih==3){
+                addjenis = "Upah";
+            } else {
+                addjenis = "Lainnya"; 
+            }
+            System.out.print("Masukkan Jumlah Pemasukkan: ");
+            int addJumlah = Integer.parseInt(br.readLine());
+            totalDebit += addJumlah;
+            System.out.print("Masukkan Catatan Pemasukkan: ");
+            String addCatat = br.readLine();
+            System.out.print("Masukkan Tanggal Pemasukkan: ");
+            String addTanggal = br.readLine();
+            Debit pemasukkan = new Debit(addNama, addJumlah, addTanggal, addCatat, addjenis,null, idDebit);
+            debit.add(pemasukkan);
+ 
+            // query simpan
+            String sql = "INSERT INTO tbkeuangan (id, nama, jenis, jumlah, tanggal, catatan, kategori) VALUE('%s', '%s', '%s', '%s', '%s', '%s', '%s')";
+            sql = String.format(sql, idDebit, addNama, addjenis, addJumlah, addTanggal, addCatat, "Debit" );
+
+            // simpan buku
+            stmt.execute(sql);
+            
+        } catch (Exception e) {
+            e.printStackTrace();
         }
-        System.out.print("Masukkan Jumlah Pemasukkan: ");
-        int addJumlah = Integer.parseInt(br.readLine());
-        totalDebit += addJumlah;
-        System.out.print("Masukkan Catatan Pemasukkan: ");
-        String addCatat = br.readLine();
-        System.out.print("Masukkan Tanggal Pemasukkan: ");
-        String addTanggal = br.readLine();
-        Debit pemasukkan = new Debit(addNama, addJumlah, addTanggal, addCatat, addjenis,null, idDebit);
-        debit.add(pemasukkan);
+
     }
 
     public static void tambah(Kredit kreditt) throws Exception{
+        try {
         String addjenis;
         nomor2 += 1;
         String idKredit = nomor2+"K";
@@ -192,6 +239,69 @@ public class MenuKeuangan {
         String addTanggal = br.readLine();
         Kredit pengeluaran = new Kredit(addNama, addJumlah, addTanggal, addCatat, addjenis,null, idKredit);
         kredit.add(pengeluaran);
+
+         // query simpan
+         String sql = "INSERT INTO tbkeuangan (id, nama, jenis, jumlah, tanggal, catatan, kategori) VALUE('%s', '%s', '%s', '%s', '%s', '%s', '%s')";
+         sql = String.format(sql, idKredit, addNama, addjenis, addJumlah, addTanggal, addCatat, "Kredit" );
+
+         // simpan buku
+         stmt.execute(sql);
+         
+     } catch (Exception e) {
+         e.printStackTrace();
+     }
+    }
+
+    public static void move(Debit debitt) {
+        String sql = "SELECT * FROM tbkeuangan";
+
+        try {
+            rs = stmt.executeQuery(sql);
+
+            while (rs.next()) {
+
+                if(rs.getString("kategori").equals("Debit")){
+                    String id = rs.getString("id");
+                    String nama = rs.getString("nama");
+                    String jenis = rs.getString("jenis");
+                    int jumlah = rs.getInt("jumlah");
+                    String tanggal = rs.getString("tanggal");
+                    String catatan = rs.getString("catatan");
+                    String kategori = rs.getString("kategori");
+                    Debit pemasukkan = new Debit(nama, jumlah, tanggal, catatan, jenis,kategori, id);
+                    debit.add(pemasukkan);
+                }
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void move(Kredit kreditt) {
+        String sql = "SELECT * FROM tbkeuangan";
+
+        try {
+            rs = stmt.executeQuery(sql);
+
+            while (rs.next()) {
+
+                if(rs.getString("kategori").equals("Kredit")){
+                    String id = rs.getString("id");
+                    String nama = rs.getString("nama");
+                    String jenis = rs.getString("jenis");
+                    int jumlah = rs.getInt("jumlah");
+                    String tanggal = rs.getString("tanggal");
+                    String catatan = rs.getString("catatan");
+                    String kategori = rs.getString("kategori");
+                    Kredit pengeluaran = new Kredit(nama, jumlah, tanggal, catatan, jenis,kategori, id);
+                    kredit.add(pengeluaran);
+                }
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     public static void lihat() throws Exception{
@@ -276,6 +386,7 @@ public class MenuKeuangan {
     }
 
     public static void update(Debit debitt) throws Exception{
+        try {
         lihat(debitt);
         int kondisi = 0;
         String addjenis;
@@ -310,15 +421,25 @@ public class MenuKeuangan {
                 Debit pemasukkan = new Debit(addNama, addJumlah, addTanggal, addCatat, addjenis,null, idx);
                 debit.set(i,pemasukkan);
                 kondisi = 1;
+                String sql = "UPDATE tbkeuangan SET nama='%s', jenis='%s', jumlah='%s', tanggal='%s', catatan='%s', kategori='%s' WHERE id=%d";
+                sql = String.format(sql, addNama, addjenis, addJumlah, addTanggal, addCatat, "Debit", idx);
+        
+                
+                stmt.execute(sql);
                 break;
             }
         }
         if (kondisi == 0){
             System.out.println("Pemasukkan gagal diubah");
+        }    
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
     public static void update(Kredit kreditt) throws Exception{
+        try {
+
         lihat(kreditt);
         int kondisi = 0;
         String addjenis;
@@ -353,15 +474,23 @@ public class MenuKeuangan {
                 Kredit pengeluaran = new Kredit(addNama, addJumlah, addTanggal, addCatat, addjenis,null, idx);
                 kredit.set(i, pengeluaran);
                 kondisi = 1;
+                String sql = "UPDATE tbkeuangan SET nama='%s', jenis='%s', jumlah='%s', tanggal='%s', catatan='%s', kategori='%s' WHERE id=%d";
+                sql = String.format(sql, addNama, addjenis, addJumlah, addTanggal, addCatat, "Kredit", idx);
+    
+                stmt.execute(sql);
                 break;
             }
         }
         if (kondisi == 0){
             System.out.println("Pengeluaran gagal diubah");
         }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     public static void hapus(Debit debitt) throws Exception{
+        try {
         lihat(debitt);
         int kondisi = 0;
         System.out.print("Masukkan ID Pemasukkan yang ingin dihapus: ");
@@ -379,6 +508,9 @@ public class MenuKeuangan {
                 if (pil == 1){
                     totalDebit -= debit.get(i).getJumlah();
                     debit.remove(i);
+                    String sql = String.format("DELETE FROM tbkeuangan WHERE id=%d", idx);
+                    // hapus data
+                    stmt.execute(sql);
                     kondisi = 1;
                     System.out.println("Data pemasukkan berhasil dihapus");
 
@@ -393,9 +525,13 @@ public class MenuKeuangan {
         if (kondisi == 0){
             System.out.println("Data pemasukkan gagal dihapus");
         }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     public static void hapus(Kredit kreditt) throws Exception{
+        try {
         lihat(kreditt);
         int kondisi = 0;
         System.out.print("Masukkan ID Pengeluaran yang ingin dihapus: ");
@@ -413,6 +549,9 @@ public class MenuKeuangan {
                 if (pil == 1){
                     totalKredit -= kredit.get(i).getJumlah();
                     kredit.remove(i);
+                    String sql = String.format("DELETE FROM tbkeuangan WHERE id=%d", idx);
+                    // hapus data
+                    stmt.execute(sql);
                     kondisi = 1;
                     System.out.println("Data pengeluaran berhasil dihapus");
 
@@ -426,6 +565,9 @@ public class MenuKeuangan {
         }
         if (kondisi == 0){
             System.out.println("Data pengeluaran gagal dihapus");
+        }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
