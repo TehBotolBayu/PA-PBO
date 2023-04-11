@@ -270,6 +270,7 @@ public class MenuKeuangan {
                     String kategori = rs.getString("kategori");
                     Debit pemasukkan = new Debit(nama, jumlah, tanggal, catatan, jenis,kategori, id);
                     debit.add(pemasukkan);
+                    totalDebit += jumlah;
                 }
             }
 
@@ -296,6 +297,7 @@ public class MenuKeuangan {
                     String kategori = rs.getString("kategori");
                     Kredit pengeluaran = new Kredit(nama, jumlah, tanggal, catatan, jenis,kategori, id);
                     kredit.add(pengeluaran);
+                    totalKredit += jumlah;
                 }
             }
 
