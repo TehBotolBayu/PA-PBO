@@ -1,5 +1,11 @@
-package Goals;
+import java.util.*;
+import java.io.*;
 
+
+static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+static ArrayList<Goals> goals = new ArrayList<>();
+
+package Goals;
 
 public class Goals {
     public String tanggal_dibuat;
