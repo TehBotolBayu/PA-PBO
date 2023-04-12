@@ -60,7 +60,6 @@ public class MenuKeuangan {
             System.out.println("2. Kategori Pengeluaran");
             System.out.println("3. Keseluruhan");
             System.out.println("4. Keluar Program");
-
             System.out.println("=====================================");
             System.out.print("Masukkan pilihan anda: ");
             int pilihan = Integer.parseInt(br.readLine());
