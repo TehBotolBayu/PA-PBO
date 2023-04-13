@@ -1,12 +1,12 @@
-package Goals;
+
 
 public class Goals {
 
-    public String target_tabungan;
+    public int target_tabungan;
     public String nama_goals;
     public String id_goals;
-    // public String id_user;
-    public String nominalPengisian;
+    public String id_user;
+    public int nominalPengisian;
     public String rencanaPengisian;
     public String tanggal;
     public String dana_tercapai;
@@ -14,8 +14,8 @@ public class Goals {
     public int dana_kurang;
 
     
-    public Goals(String target_tabungan, String nama_goals, String id_goals, String nominalPengisian,
-            String rencanaPengisian, String tanggal, String dana_tercapai, int dana_terkumpul, int dana_kurang) {
+    public Goals(int target_tabungan, String nama_goals, String id_goals, int nominalPengisian,
+            String rencanaPengisian, String tanggal, String dana_tercapai, int dana_terkumpul, int dana_kurang, String idlogin) {
         this.target_tabungan = target_tabungan;
         this.nama_goals = nama_goals;
         this.id_goals = id_goals;
@@ -27,10 +27,10 @@ public class Goals {
         this.dana_kurang = dana_kurang;
     }
 
-    public String getTarget_tabungan() {
+    public int getTarget_tabungan() {
         return target_tabungan;
     }
-    public void setTarget_tabungan(String target_tabungan) {
+    public void setTarget_tabungan(int target_tabungan) {
         this.target_tabungan = target_tabungan;
     }
     public String getNama_goals() {
@@ -45,10 +45,10 @@ public class Goals {
     public void setId_goals(String id_goals) {
         this.id_goals = id_goals;
     }
-    public String getNominalPengisian() {
+    public int getNominalPengisian() {
         return nominalPengisian;
     }
-    public void setNominalPengisian(String nominalPengisian) {
+    public void setNominalPengisian(int nominalPengisian) {
         this.nominalPengisian = nominalPengisian;
     }
     public String getRencanaPengisian() {
@@ -80,6 +80,14 @@ public class Goals {
     }
     public void setDana_kurang(int dana_kurang) {
         this.dana_kurang = dana_kurang;
+    }
+
+    public String getId_user() {
+        return id_user;
+    }
+
+    public void setId_user(String id_user) {
+        this.id_user = id_user;
     }
 
         

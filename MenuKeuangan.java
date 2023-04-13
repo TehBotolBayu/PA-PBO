@@ -1,4 +1,4 @@
-package Keuangan;
+
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -26,7 +26,7 @@ public class MenuKeuangan {
     static int totalDebit, totalKredit, Total, nomor1, nomor2;
 
 
-    public static void main(String[] args) throws Exception{
+    public static void Manajemen() throws Exception{
         try {
             // register driver
             Class.forName(JDBC_DRIVER);
@@ -49,7 +49,8 @@ public class MenuKeuangan {
     }
 
     public static void menu() throws Exception{
-        Total = totalDebit-totalKredit;
+        hitung();
+        UserPersonal myclass = new UserPersonal();
         while(true){
             System.out.println(" ");
             System.out.println("     SELAMAT DATANG");
@@ -59,7 +60,7 @@ public class MenuKeuangan {
             System.out.println("1. Kategori Pemasukkan");
             System.out.println("2. Kategori Pengeluaran");
             System.out.println("3. Keseluruhan");
-            System.out.println("4. Keluar Program");
+            System.out.println("4. Kembali");
             System.out.println("=====================================");
             System.out.print("Masukkan pilihan anda: ");
             int pilihan = Integer.parseInt(br.readLine());
@@ -74,7 +75,7 @@ public class MenuKeuangan {
                     lihat();
                     break;
                 case 4:
-                    System.exit(0);
+                    myclass.Menu();
                     break;
                 default:
                     System.out.println("Pilihan tidak ada");
@@ -191,12 +192,12 @@ public class MenuKeuangan {
             String addCatat = br.readLine();
             System.out.print("Masukkan Tanggal Pemasukkan: ");
             String addTanggal = br.readLine();
-            Debit pemasukkan = new Debit(addNama, addJumlah, addTanggal, addCatat, addjenis,null, idDebit);
+            Debit pemasukkan = new Debit(addNama, addJumlah, addTanggal, addCatat, addjenis,null, idDebit, Main.idlogin);
             debit.add(pemasukkan);
  
             // query simpan
-            String sql = "INSERT INTO tbkeuangan (id, nama, jenis, jumlah, tanggal, catatan, kategori) VALUE('%s', '%s', '%s', '%s', '%s', '%s', '%s')";
-            sql = String.format(sql, idDebit, addNama, addjenis, addJumlah, addTanggal, addCatat, "Debit" );
+            String sql = "INSERT INTO tbkeuangan (id, nama, jenis, jumlah, tanggal, catatan, kategori, Id_user) VALUE('%s', '%s', '%s', '%s', '%s', '%s', '%s','%s')";
+            sql = String.format(sql, idDebit, addNama, addjenis, addJumlah, addTanggal, addCatat, "Debit", Main.idlogin );
 
             // simpan buku
             stmt.execute(sql);
@@ -236,12 +237,12 @@ public class MenuKeuangan {
         String addCatat = br.readLine();
         System.out.print("Masukkan Tanggal Pengeluaran: ");
         String addTanggal = br.readLine();
-        Kredit pengeluaran = new Kredit(addNama, addJumlah, addTanggal, addCatat, addjenis,null, idKredit);
+        Kredit pengeluaran = new Kredit(addNama, addJumlah, addTanggal, addCatat, addjenis,null, idKredit, Main.idlogin);
         kredit.add(pengeluaran);
 
          // query simpan
-         String sql = "INSERT INTO tbkeuangan (id, nama, jenis, jumlah, tanggal, catatan, kategori) VALUE('%s', '%s', '%s', '%s', '%s', '%s', '%s')";
-         sql = String.format(sql, idKredit, addNama, addjenis, addJumlah, addTanggal, addCatat, "Kredit" );
+         String sql = "INSERT INTO tbkeuangan (id, nama, jenis, jumlah, tanggal, catatan, kategori, Id_user) VALUE('%s', '%s', '%s', '%s', '%s', '%s', '%s','%s')";
+         sql = String.format(sql, idKredit, addNama, addjenis, addJumlah, addTanggal, addCatat, "Kredit", Main.idlogin );
 
          // simpan buku
          stmt.execute(sql);
@@ -267,9 +268,10 @@ public class MenuKeuangan {
                     String tanggal = rs.getString("tanggal");
                     String catatan = rs.getString("catatan");
                     String kategori = rs.getString("kategori");
-                    Debit pemasukkan = new Debit(nama, jumlah, tanggal, catatan, jenis,kategori, id);
+                    String id_user = rs.getString("Id_user");
+                    Debit pemasukkan = new Debit(nama, jumlah, tanggal, catatan, jenis,kategori, id, id_user);
                     debit.add(pemasukkan);
-                    totalDebit += jumlah;
+
                 }
             }
 
@@ -294,9 +296,9 @@ public class MenuKeuangan {
                     String tanggal = rs.getString("tanggal");
                     String catatan = rs.getString("catatan");
                     String kategori = rs.getString("kategori");
-                    Kredit pengeluaran = new Kredit(nama, jumlah, tanggal, catatan, jenis,kategori, id);
+                    String id_user = rs.getString("Id_user");
+                    Kredit pengeluaran = new Kredit(nama, jumlah, tanggal, catatan, jenis,kategori, id, id_user);
                     kredit.add(pengeluaran);
-                    totalKredit += jumlah;
                 }
             }
 
@@ -313,24 +315,28 @@ public class MenuKeuangan {
         }
         else{
             for (int i=0; i <  debit.size(); i++){
-                System.out.println("Kategori           : " + debit.get(i).getKategori());
-                System.out.println("ID                 : " + debit.get(i).getID());
-                System.out.println("Nama Pemasukkan    : " + debit.get(i).getNama());
-                System.out.println("Jumlah Pemasukkan  : " + debit.get(i).getJumlah());
-                System.out.println("Catatan            : " + debit.get(i).getCatatan());
-                System.out.println("Tanggal            : " + debit.get(i).getTanggal());
-                System.out.println("\n");
-                jumlahDebit += debit.get(i).getJumlah();
+                if (Main.idlogin.equals(debit.get(i).getID_user())){
+                    System.out.println("Kategori           : " + debit.get(i).getKategori());
+                    System.out.println("ID                 : " + debit.get(i).getID());
+                    System.out.println("Nama Pemasukkan    : " + debit.get(i).getNama());
+                    System.out.println("Jumlah Pemasukkan  : " + debit.get(i).getJumlah());
+                    System.out.println("Catatan            : " + debit.get(i).getCatatan());
+                    System.out.println("Tanggal            : " + debit.get(i).getTanggal());
+                    System.out.println("\n");
+                    jumlahDebit += debit.get(i).getJumlah();
+                }
             }
             for (int i=0; i <  kredit.size(); i++){
-                System.out.println("Kategori           : " + kredit.get(i).getKategori());
-                System.out.println("ID                 : " + kredit.get(i).getID());
-                System.out.println("Nama Pengeluaran   : " + kredit.get(i).getNama());
-                System.out.println("Jumlah Pengeluaran : " + kredit.get(i).getJumlah());
-                System.out.println("Catatan            : " + kredit.get(i).getCatatan());
-                System.out.println("Tanggal            : " + kredit.get(i).getTanggal());
-                System.out.println("\n");
-                jumlahKredit += kredit.get(i).getJumlah();
+                if (Main.idlogin.equals(kredit.get(i).getID_user())){
+                    System.out.println("Kategori           : " + kredit.get(i).getKategori());
+                    System.out.println("ID                 : " + kredit.get(i).getID());
+                    System.out.println("Nama Pengeluaran   : " + kredit.get(i).getNama());
+                    System.out.println("Jumlah Pengeluaran : " + kredit.get(i).getJumlah());
+                    System.out.println("Catatan            : " + kredit.get(i).getCatatan());
+                    System.out.println("Tanggal            : " + kredit.get(i).getTanggal());
+                    System.out.println("\n");
+                    jumlahKredit += kredit.get(i).getJumlah();
+                }
             }
             totalDebit = jumlahDebit;
             totalKredit = jumlahKredit;
@@ -343,6 +349,25 @@ public class MenuKeuangan {
         }
     }
 
+    public static void hitung() throws Exception{
+        Integer jumlahDebit = 0;
+         Integer  jumlahKredit =0;
+        for (int i=0; i <  kredit.size(); i++){
+            if (Main.idlogin.equals(kredit.get(i).getID_user())){
+                jumlahKredit += kredit.get(i).getJumlah();
+            }
+        }
+
+        for (int i=0; i <  debit.size(); i++){
+            if (Main.idlogin.equals(debit.get(i).getID_user())){
+                jumlahDebit += debit.get(i).getJumlah();
+            }
+        }
+        totalDebit= jumlahDebit;
+        totalKredit = jumlahKredit;
+        Total = jumlahDebit-jumlahKredit;
+    }
+
     public static void lihat(Kredit kreditt) throws Exception{
         int total =0;
         if (kredit.size()==0){
@@ -350,18 +375,22 @@ public class MenuKeuangan {
         }
         else{
             for (int i=0; i <  kredit.size(); i++){
-                System.out.println("Kategori           : " + kredit.get(i).getKategori());
-                System.out.println("ID                 : " + kredit.get(i).getID());
-                System.out.println("Nama Pengeluaran   : " + kredit.get(i).getNama());
-                System.out.println("Jumlah Pengeluaran : " + kredit.get(i).getJumlah());
-                System.out.println("Catatan            : " + kredit.get(i).getCatatan());
-                System.out.println("Tanggal            : " + kredit.get(i).getTanggal());
-                System.out.println("\n");
-                total += kredit.get(i).getJumlah();
+                if (Main.idlogin.equals(kredit.get(i).getID_user())){
+                    System.out.println("Kategori           : " + kredit.get(i).getKategori());
+                    System.out.println("ID                 : " + kredit.get(i).getID());
+                    System.out.println("Nama Pengeluaran   : " + kredit.get(i).getNama());
+                    System.out.println("Jumlah Pengeluaran : " + kredit.get(i).getJumlah());
+                    System.out.println("Catatan            : " + kredit.get(i).getCatatan());
+                    System.out.println("Tanggal            : " + kredit.get(i).getTanggal());
+                    System.out.println("\n");
+                    total += kredit.get(i).getJumlah();
+                }
 
             }
             totalKredit = total;
             System.out.println("TOTAL PENGELUARAN: "+ totalKredit);
+
+
         }
     }
 
@@ -372,14 +401,17 @@ public class MenuKeuangan {
         }
         else{
             for (int i=0; i <  debit.size(); i++){
-                System.out.println("Kategori           : " + debit.get(i).getKategori());
-                System.out.println("ID                 : " + debit.get(i).getID());
-                System.out.println("Nama Pemasukkan    : " + debit.get(i).getNama());
-                System.out.println("Jumlah Pemasukkan  : " + debit.get(i).getJumlah());
-                System.out.println("Catatan            : " + debit.get(i).getCatatan());
-                System.out.println("Tanggal            : " + debit.get(i).getTanggal());
-                System.out.println("\n");
-                total += debit.get(i).getJumlah();
+                if (Main.idlogin.equals(debit.get(i).getID_user())){
+
+                    System.out.println("Kategori           : " + debit.get(i).getKategori());
+                    System.out.println("ID                 : " + debit.get(i).getID());
+                    System.out.println("Nama Pemasukkan    : " + debit.get(i).getNama());
+                    System.out.println("Jumlah Pemasukkan  : " + debit.get(i).getJumlah());
+                    System.out.println("Catatan            : " + debit.get(i).getCatatan());
+                    System.out.println("Tanggal            : " + debit.get(i).getTanggal());
+                    System.out.println("\n");
+                    total += debit.get(i).getJumlah();
+                }
             }
             totalDebit = total;
             System.out.println("TOTAL PEMASUKKAN: "+ totalDebit);
@@ -394,7 +426,7 @@ public class MenuKeuangan {
         System.out.print("Masukkan ID Pemasukkan yang ingin diubah: ");
         String idx = br.readLine();
         for (int i=0; i <  debit.size(); i++){
-            if (debit.get(i).getID().equals(idx)){
+            if (debit.get(i).getID().equals(idx) && Main.idlogin.equals(debit.get(i).getID_user())){
                 System.out.print("Masukkan Nama Pemasukkan: ");
                 String addNama = br.readLine();
                 System.out.println("1. Bulanan");
@@ -419,11 +451,11 @@ public class MenuKeuangan {
                 String addCatat = br.readLine();
                 System.out.print("Masukkan Tanggal Pemasukkan: ");
                 String addTanggal = br.readLine();
-                Debit pemasukkan = new Debit(addNama, addJumlah, addTanggal, addCatat, addjenis,null, idx);
+                Debit pemasukkan = new Debit(addNama, addJumlah, addTanggal, addCatat, addjenis,null, idx, Main.idlogin);
                 debit.set(i,pemasukkan);
                 kondisi = 1;
-                String sql = "UPDATE tbkeuangan SET nama='%s', jenis='%s', jumlah='%s', tanggal='%s', catatan='%s', kategori='%s' WHERE id=%d";
-                sql = String.format(sql, addNama, addjenis, addJumlah, addTanggal, addCatat, "Debit", idx);
+                String sql = "UPDATE tbkeuangan SET nama='%s', jenis='%s', jumlah='%s', tanggal='%s', catatan='%s', kategori='%s', Id_user='%s' WHERE id=%d";
+                sql = String.format(sql, addNama, addjenis, addJumlah, addTanggal, addCatat, "Debit", Main.idlogin, idx);
         
                 
                 stmt.execute(sql);
@@ -447,7 +479,7 @@ public class MenuKeuangan {
         System.out.print("Masukkan ID Pengeluaran yang ingin diubah: ");
         String idx = br.readLine();
         for (int i=0; i <  kredit.size(); i++){
-            if (kredit.get(i).getID().equals(idx)){
+            if (kredit.get(i).getID().equals(idx) &&  Main.idlogin.equals(kredit.get(i).getID_user())){
                 System.out.print("Masukkan Nama Pengeluaran: ");
                 String addNama = br.readLine();
                 System.out.println("1. Makanan");
@@ -472,11 +504,11 @@ public class MenuKeuangan {
                 String addCatat = br.readLine();
                 System.out.print("Masukkan Tanggal Pengeluaran: ");
                 String addTanggal = br.readLine();
-                Kredit pengeluaran = new Kredit(addNama, addJumlah, addTanggal, addCatat, addjenis,null, idx);
+                Kredit pengeluaran = new Kredit(addNama, addJumlah, addTanggal, addCatat, addjenis,null, idx, Main.idlogin);
                 kredit.set(i, pengeluaran);
                 kondisi = 1;
-                String sql = "UPDATE tbkeuangan SET nama='%s', jenis='%s', jumlah='%s', tanggal='%s', catatan='%s', kategori='%s' WHERE id=%d";
-                sql = String.format(sql, addNama, addjenis, addJumlah, addTanggal, addCatat, "Kredit", idx);
+                String sql = "UPDATE tbkeuangan SET nama='%s', jenis='%s', jumlah='%s', tanggal='%s', catatan='%s', kategori='%s', Id_user = '%s' WHERE id=%d";
+                sql = String.format(sql, addNama, addjenis, addJumlah, addTanggal, addCatat, "Kredit",Main.idlogin, idx);
     
                 stmt.execute(sql);
                 break;
@@ -497,7 +529,7 @@ public class MenuKeuangan {
         System.out.print("Masukkan ID Pemasukkan yang ingin dihapus: ");
         String idx = br.readLine();
         for (int i=0; i <  debit.size(); i++){
-            if (debit.get(i).getID().equals(idx)){
+            if (debit.get(i).getID().equals(idx) &&  Main.idlogin.equals(debit.get(i).getID_user())){
                 System.out.println("Kategori           : " + debit.get(i).getKategori());
                 System.out.println("ID                 : " + debit.get(i).getID());
                 System.out.println("Nama Pemasukkan    : " + debit.get(i).getNama());
@@ -538,7 +570,7 @@ public class MenuKeuangan {
         System.out.print("Masukkan ID Pengeluaran yang ingin dihapus: ");
         String idx = br.readLine();
         for (int i=0; i <  kredit.size(); i++){
-            if (kredit.get(i).getID().equals(idx)){
+            if (kredit.get(i).getID().equals(idx) &&  Main.idlogin.equals(kredit.get(i).getID_user())){
                 System.out.println("Kategori           : " + kredit.get(i).getKategori());
                 System.out.println("ID                 : " + kredit.get(i).getID());
                 System.out.println("Nama Pengeluaran   : " + kredit.get(i).getNama());

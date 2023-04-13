@@ -1,16 +1,16 @@
-package Keuangan;
+
 
 public abstract class Aktor {
     protected String alamat;
-    protected String username;
-    protected String pass;
-    protected String id_user;
+    private String username;
+    private String pass;
+    protected String id;
     protected String nomorhp;
-    public Aktor(String alamat, String username, String pass, String id_user, String nomorhp) {
+    public Aktor(String alamat, String username, String pass, String id, String nomorhp) {
         this.alamat = alamat;
         this.username = username;
         this.pass = pass;
-        this.id_user = id_user;
+        this.id = id;
         this.nomorhp = nomorhp;
     }
     public Aktor(){
@@ -36,10 +36,10 @@ public abstract class Aktor {
         this.pass = pass;
     }
     public String getId_user() {
-        return id_user;
+        return id;
     }
-    public void setId_user(String id_user) {
-        this.id_user = id_user;
+    public void setId_user(String id) {
+        this.id = id;
     }
     public String getNomorhp() {
         return nomorhp;

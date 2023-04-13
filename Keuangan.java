@@ -1,4 +1,4 @@
-package Keuangan;
+
 
 
 public abstract class  Keuangan {
@@ -8,20 +8,33 @@ public abstract class  Keuangan {
     protected String catatan;
     protected String jenis;
     protected String ID;
+    protected String ID_user;
 
 
-    public Keuangan(String nama, int jumlah, String tanggal, String catatan, String jenis, String ID) {
+
+    public Keuangan(String nama, int jumlah, String tanggal, String catatan, String jenis, String ID, String ID_user) {
         this.nama = nama;
         this.jumlah = jumlah;
         this.tanggal = tanggal;
         this.catatan = catatan;
         this.jenis = jenis;
         this.ID = ID;
+        this.ID_user = ID_user;
+
 
     }
 
     public Keuangan(){
         
+    }
+    
+
+    public String getID_user() {
+        return ID_user;
+    }
+
+    public void setID_user(String iD_user) {
+        ID_user = iD_user;
     }
 
     public String getNama() {
