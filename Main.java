@@ -7,8 +7,8 @@ public class Main{
     static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
     static ArrayList<UserPersonal> user = new ArrayList<UserPersonal>();
     static String idlogin;
-    static UserPersonal user1 = new UserPersonal("Asmaba", "user123", "123", "U1","0822", "Herniii");
-    static UserPersonal user2 = new UserPersonal("Asmaba", "user12", "123", "U2","0822", "Herniii");
+    static UserPersonal user1 = new UserPersonal("Asmaba", "user123", "123", "U1","0822", "Herniii", null);
+    static UserPersonal user2 = new UserPersonal("Asmaba", "user12", "123", "U2","0822", "Herniii", null);
 
 
 

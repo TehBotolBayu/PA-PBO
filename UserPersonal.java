@@ -1,11 +1,22 @@
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
 
 public class UserPersonal extends Aktor implements RoleUserPersonal {
     protected String nama;
     protected final String status = "User Personal";
     static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+    static ArrayList<UserPersonal> user = Main.user;
+    static ArrayList<Debit> debit = MenuKeuangan.debit;
+    static ArrayList<Kredit> kredit = MenuKeuangan.kredit;
+    static ArrayList<Goals> goals = MenuGoals.goals;
+
+
+    static int nomor = 2;
+    static Debit debitt = new Debit();
+    static Kredit kreditt = new Kredit();
+
     public String getNama() {
         return nama;
     }
@@ -15,7 +26,7 @@ public class UserPersonal extends Aktor implements RoleUserPersonal {
     public String getStatus() {
         return status;
     }
-    public UserPersonal(String alamat, String username, String pass, String id, String nomorhp, String nama) {
+    public UserPersonal(String alamat, String username, String pass, String id, String nomorhp, String nama, String status) {
         super(alamat, username, pass, id, nomorhp);
         this.nama = nama;
     }
@@ -24,9 +35,30 @@ public class UserPersonal extends Aktor implements RoleUserPersonal {
     }
 
     @Override
-    public void HapusAkun() throws IOException{
-        // TODO Auto-generated method stub
-        
+    public void HapusAkun() throws Exception{
+        for (int i=0; i <  user.size(); i++){
+            if (Main.idlogin.equals(user.get(i).getId_user())){
+                user.remove(i);
+                for (int z=0; z <  debit.size(); i++){
+                    if (Main.idlogin.equals(debit.get(z).getID_user())){
+                        debit.remove(z);
+                    }
+                }
+                for (int z=0; z <  kredit.size(); i++){
+                    if (Main.idlogin.equals(kredit.get(z).getID_user())){
+                        kredit.remove(z);
+                    }
+                }
+                for (int z=0; z <  goals.size(); i++){
+                    if (Main.idlogin.equals(goals.get(z).getId_user())){
+                        goals.remove(z);
+                    }
+                }
+                Main.main(null);
+
+
+            }
+        }
     }
     @Override
     public void KonversiMataUang() throws IOException{
@@ -35,7 +67,16 @@ public class UserPersonal extends Aktor implements RoleUserPersonal {
     }
     @Override
     public void LihatAkun() throws IOException{
-        // TODO Auto-generated method stub
+        for (int i=0; i <  user.size(); i++){
+            if (Main.idlogin.equals(user.get(i).getId_user())){
+                System.out.println("Status      :"+ user.get(i).getStatus());
+                System.out.println("ID          :"+ user.get(i).getId_user());
+                System.out.println("Nama        :"+ user.get(i).getNama());
+                System.out.println("NomorHp     :"+ user.get(i).getNomorhp());
+                System.out.println("Alamat      :"+ user.get(i).getAlamat());
+                System.out.println("Username    :"+ user.get(i).getUsername());
+            }
+        }
         
     }
     @Override
@@ -50,17 +91,42 @@ public class UserPersonal extends Aktor implements RoleUserPersonal {
     }
     @Override
     public void UbahAkun() throws IOException{
-        // TODO Auto-generated method stub
+        for (int i=0; i <  user.size(); i++){
+            if (Main.idlogin.equals(user.get(i).getId_user())){
+                System.out.print("Masukkan Nama: ");
+                String addnama = br.readLine();
+                System.out.print("Masukkan NomorHP: ");
+                String addNomorhp = br.readLine();
+                System.out.print("Masukkan Alamat: ");
+                String addAlamat = br.readLine();
+                System.out.print("Masukkan Username baru: ");
+                String addusername = br.readLine();
+                System.out.print("Masukkan Password Baru: ");
+                String addPass = br.readLine();
+                UserPersonal userUpdate = new UserPersonal(addAlamat, addusername, addPass, Main.idlogin, addNomorhp, addnama, "User Personal");
+                user.set(i, userUpdate);
+
+            }
+        }
         
     }
-    @Override
-    public void login() throws IOException{
-        // TODO Auto-generated method stub
-        
-    }
+    
     @Override
     public void register() throws IOException{
-        // TODO Auto-generated method stub
+        nomor +=1;
+        String id = nomor + "U";
+        System.out.print("Masukkan Nama: ");
+        String addnama = br.readLine();
+        System.out.print("Masukkan NomorHP: ");
+        String addNomorhp = br.readLine();
+        System.out.print("Masukkan Alamat: ");
+        String addAlamat = br.readLine();
+        System.out.print("Masukkan Username baru: ");
+        String addusername = br.readLine();
+        System.out.print("Masukkan Password Baru: ");
+        String addPass = br.readLine();
+        UserPersonal userUpdate = new UserPersonal(addAlamat, addusername, addPass, id, addNomorhp, addnama, "User Personal");
+        user.add(userUpdate);
         
     }
 
@@ -93,7 +159,7 @@ public class UserPersonal extends Aktor implements RoleUserPersonal {
                     KonversiMataUang();
                     break;
                 case 5:
-                   UbahAkun();
+                    UbahAkun();
                     break;
                 case 6:
                     HapusAkun();
