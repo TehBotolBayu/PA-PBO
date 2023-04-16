@@ -40,6 +40,7 @@ public class MenuKeuangan {
                 menu();
             }
 
+
             stmt.close();
             conn.close();
 
@@ -271,6 +272,8 @@ public class MenuKeuangan {
                     String id_user = rs.getString("Id_user");
                     Debit pemasukkan = new Debit(nama, jumlah, tanggal, catatan, jenis,kategori, id, id_user);
                     debit.add(pemasukkan);
+                    nomor1 +=1;
+                
 
                 }
             }
@@ -299,6 +302,8 @@ public class MenuKeuangan {
                     String id_user = rs.getString("Id_user");
                     Kredit pengeluaran = new Kredit(nama, jumlah, tanggal, catatan, jenis,kategori, id, id_user);
                     kredit.add(pengeluaran);
+                    nomor2 +=1;
+
                 }
             }
 
@@ -454,7 +459,7 @@ public class MenuKeuangan {
                 Debit pemasukkan = new Debit(addNama, addJumlah, addTanggal, addCatat, addjenis,null, idx, Main.idlogin);
                 debit.set(i,pemasukkan);
                 kondisi = 1;
-                String sql = "UPDATE tbkeuangan SET nama='%s', jenis='%s', jumlah='%s', tanggal='%s', catatan='%s', kategori='%s', Id_user='%s' WHERE id=%d";
+                String sql = "UPDATE tbkeuangan SET nama='%s', jenis='%s', jumlah='%s', tanggal='%s', catatan='%s', kategori='%s', Id_user='%s' WHERE id='%s'";
                 sql = String.format(sql, addNama, addjenis, addJumlah, addTanggal, addCatat, "Debit", Main.idlogin, idx);
         
                 
@@ -507,7 +512,7 @@ public class MenuKeuangan {
                 Kredit pengeluaran = new Kredit(addNama, addJumlah, addTanggal, addCatat, addjenis,null, idx, Main.idlogin);
                 kredit.set(i, pengeluaran);
                 kondisi = 1;
-                String sql = "UPDATE tbkeuangan SET nama='%s', jenis='%s', jumlah='%s', tanggal='%s', catatan='%s', kategori='%s', Id_user = '%s' WHERE id=%d";
+                String sql = "UPDATE tbkeuangan SET nama='%s', jenis='%s', jumlah='%s', tanggal='%s', catatan='%s', kategori='%s', Id_user = '%s' WHERE id='%s'";
                 sql = String.format(sql, addNama, addjenis, addJumlah, addTanggal, addCatat, "Kredit",Main.idlogin, idx);
     
                 stmt.execute(sql);
@@ -541,7 +546,7 @@ public class MenuKeuangan {
                 if (pil == 1){
                     totalDebit -= debit.get(i).getJumlah();
                     debit.remove(i);
-                    String sql = String.format("DELETE FROM tbkeuangan WHERE id=%d", idx);
+                    String sql = String.format("DELETE FROM tbkeuangan WHERE id='%s'", idx);
                     // hapus data
                     stmt.execute(sql);
                     kondisi = 1;
@@ -582,7 +587,7 @@ public class MenuKeuangan {
                 if (pil == 1){
                     totalKredit -= kredit.get(i).getJumlah();
                     kredit.remove(i);
-                    String sql = String.format("DELETE FROM tbkeuangan WHERE id=%d", idx);
+                    String sql = String.format("DELETE FROM tbkeuangan WHERE id='%s'", idx);
                     // hapus data
                     stmt.execute(sql);
                     kondisi = 1;
