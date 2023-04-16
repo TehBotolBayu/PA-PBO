@@ -6,21 +6,27 @@ import java.util.ArrayList;
 public class Main{
     static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
     static ArrayList<UserPersonal> user = new ArrayList<UserPersonal>();
+    static ArrayList<Admin> admin = new ArrayList<Admin>();
+
     static String idlogin;
     static UserPersonal user1 = new UserPersonal("Asmaba", "user123", "123", "U1","0822", "Herniii", null);
     static UserPersonal user2 = new UserPersonal("Asmaba", "user12", "123", "U2","0822", "Herniii", null);
+    static Admin admin1 = new Admin("Asmaba", "admin", "123", "A2","0822", "Herniii", null);
 
 
 
     public static void main(String[] args) throws Exception {
         user.add(user1);
         user.add(user2);
+        admin.add(admin1);
+
 
         menu_utama();
     }
     public static void menu_utama()throws Exception{
         while(true){
-            System.out.println(" ");
+            try {
+                System.out.println(" ");
             System.out.println("=====================================");
             System.out.println("1. Login");
             System.out.println("2. Registrasi");
@@ -40,6 +46,11 @@ public class Main{
                     break;
             }
 
+            } catch (Exception e) {
+                System.out.println("Jangan Input String");
+                menu_utama();
+            }
+            
         }
     }
 
@@ -62,12 +73,13 @@ public class Main{
             }
         }
 
-        // for(int i=0; i <  admin.size(); i++){
-        //     if (username.equals(admin.get(i).getUsername()) && pass.equals(admin.get(i).getPass())){
-        //         kondisi =1;
-        //         menuAdmin.Menu();
-        //     }
-        // }
+        for(int i=0; i <  admin.size(); i++){
+            if (username.equals(admin.get(i).getUsername()) && pass.equals(admin.get(i).getPass())){
+                kondisi =1;
+                idlogin = admin.get(i).getId_user();
+                menuAdmin.Menu();
+            }
+        }
 
         if (kondisi==0){
             System.out.println("Password dan Username anda salah");

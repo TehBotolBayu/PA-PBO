@@ -5,7 +5,7 @@ import java.io.*;
 
 public class MenuGoals {
     static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-    static ArrayList<Goals> goals = new ArrayList<>();
+    static ArrayList<Goals> goals = new ArrayList<Goals>();
     static int nomor;
 
     public static void Manajemen() throws Exception {
@@ -77,7 +77,7 @@ public class MenuGoals {
         String dana_tercapai = tercapai +" " + addRencana ;
         int addkurang = addTarget;
         int addterkumpul = 0;
-        Goals glsBaru = new Goals(addTarget, addnama, id_goals,addNominal,addRencana,addTanggal,dana_tercapai,addterkumpul,addkurang, Main.idlogin);
+        Goals glsBaru = new Goals(addTarget, addnama, id_goals,addNominal,addRencana,addTanggal,dana_tercapai,addterkumpul,addkurang,Main.idlogin);
         goals.add(glsBaru);
 
     }
@@ -93,6 +93,7 @@ public class MenuGoals {
                 System.out.println("Durasi Goals        : " + goals.get(i).getDana_tercapai());
                 System.out.println("Dana Terkumpul      : " + goals.get(i).getDana_terkumpul());
                 System.out.println("Dana Kurang         : " + goals.get(i).getDana_kurang());
+                System.out.println("Id User         : " + goals.get(i).getId_user());
                 System.out.print("\n");
             }
         }

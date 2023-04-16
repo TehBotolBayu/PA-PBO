@@ -25,6 +25,8 @@ public class Goals {
         this.dana_tercapai = dana_tercapai;
         this.dana_terkumpul = dana_terkumpul;
         this.dana_kurang = dana_kurang;
+        this.id_user = idlogin;
+
     }
 
     public int getTarget_tabungan() {
