@@ -50,6 +50,7 @@ public class MenuKeuangan {
     }
 
     public static void menu() throws Exception{
+        no_urut();
         hitung();
         UserPersonal myclass = new UserPersonal();
         while(true){
@@ -168,7 +169,7 @@ public class MenuKeuangan {
             // ambil input dari user
             String addjenis;
             nomor1 += 1;
-            String idDebit = nomor1+"D";
+            String idDebit =Main.idlogin+"D"+nomor1;
             System.out.print("Masukkan Nama Pemasukkan: ");
             String addNama = br.readLine();
             System.out.println("1. Bulanan");
@@ -213,7 +214,7 @@ public class MenuKeuangan {
         try {
         String addjenis;
         nomor2 += 1;
-        String idKredit = nomor2+"K";
+        String idKredit = Main.idlogin+"K"+nomor2;
         System.out.print("Masukkan Nama Pengeluaran: ");
         String addNama = br.readLine();
         System.out.println("1. Makanan");
@@ -272,9 +273,6 @@ public class MenuKeuangan {
                     String id_user = rs.getString("Id_user");
                     Debit pemasukkan = new Debit(nama, jumlah, tanggal, catatan, jenis,kategori, id, id_user);
                     debit.add(pemasukkan);
-                    nomor1 +=1;
-                
-
                 }
             }
 
@@ -302,13 +300,26 @@ public class MenuKeuangan {
                     String id_user = rs.getString("Id_user");
                     Kredit pengeluaran = new Kredit(nama, jumlah, tanggal, catatan, jenis,kategori, id, id_user);
                     kredit.add(pengeluaran);
-                    nomor2 +=1;
-
                 }
             }
 
         } catch (Exception e) {
             e.printStackTrace();
+        }
+    }
+    public static void no_urut() throws Exception{
+        nomor1=0;
+        nomor2=0;
+        for (int i=0; i <  debit.size(); i++){
+            if (Main.idlogin.equals(debit.get(i).getID_user())){
+                nomor1+=1;
+            }
+        }
+
+        for (int i=0; i <  kredit.size(); i++){
+            if (Main.idlogin.equals(kredit.get(i).getID_user())){
+                nomor2+=1;
+            }
         }
     }
 

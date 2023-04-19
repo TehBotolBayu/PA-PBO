@@ -10,6 +10,7 @@ public class MenuGoals {
 
     public static void Manajemen() throws Exception {
         while (true) {
+            nomor_urut();
             UserPersonal myclass = new UserPersonal();
             System.out.println("   MENU GOALS CELENGANKU       ");
             System.out.println("===============================");
@@ -52,7 +53,7 @@ public class MenuGoals {
         String addRencana;
         nomor +=1;
        
-        String id_goals = nomor + "G";
+        String id_goals = Main.idlogin+"G"+nomor;
         System.out.print("Masukkan Nama Goals Tabungan: ");
         String addnama = br.readLine();
         System.out.print("Masukan Target Goals Tabungan : ");
@@ -81,7 +82,16 @@ public class MenuGoals {
         goals.add(glsBaru);
 
     }
-    
+
+
+    public static void nomor_urut() throws IOException{
+        nomor=0;
+        for (int i= 0; i < goals.size(); i++) {
+            if (Main.idlogin.equals(goals.get(i).getId_user())){
+                nomor+=1;
+            }
+        }
+    }
     public static void lihatGoals() throws IOException{
         for (int i= 0; i < goals.size(); i++) {
             if (Main.idlogin.equals(goals.get(i).getId_user())){
