@@ -4,6 +4,13 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 
 public class UserPersonal extends Aktor implements RoleUserPersonal {
+    
+public static ArrayList<Goal> ListGoal = new ArrayList<Goal>(); 
+ 
+static GoalGUI gg = new GoalGUI();
+
+
+
     protected String nama;
     protected final String status = "User Personal";
     static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -153,7 +160,8 @@ public class UserPersonal extends Aktor implements RoleUserPersonal {
                     ManajemenKeuangan();
                     break;
                 case 3:
-                    ManajemenGoals();
+                    gg.tampil();
+                    gg.setVisible(true);
                     break;
                 case 4:
                     KonversiMataUang();
