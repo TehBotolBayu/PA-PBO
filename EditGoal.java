@@ -22,7 +22,7 @@ public class EditGoal extends javax.swing.JFrame {
     
     public EditGoal(int row) {
         this.row = row;
-        Goal g = PAPBOGUI.ListGoal.get(row);
+        Goal g = UserPersonal.ListGoal.get(row);
         initComponents();
         nama.setText(g.getNama());
         
@@ -173,9 +173,9 @@ public class EditGoal extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        PAPBOGUI.ListGoal.remove(row);
+        UserPersonal.ListGoal.remove(row);
         JOptionPane.showMessageDialog(rootPane, "Terhapus!");
-        PAPBOGUI.gg.tampil();
+        UserPersonal.gg.tampil();
         dispatchEvent(new WindowEvent(this, WindowEvent.WINDOW_CLOSING));
         
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -185,10 +185,10 @@ public class EditGoal extends javax.swing.JFrame {
     }//GEN-LAST:event_tabungActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        int now = PAPBOGUI.ListGoal.get(row).getSaldo();
+        int now = UserPersonal.ListGoal.get(row).getSaldo();
         now += Integer.parseInt(tabung.getText());
-        PAPBOGUI.ListGoal.get(row).setSaldo(now);
-        sisa.setText(Integer.toString(PAPBOGUI.ListGoal.get(row).getTarget() - now));
+        UserPersonal.ListGoal.get(row).setSaldo(now);
+        sisa.setText(Integer.toString(UserPersonal.ListGoal.get(row).getTarget() - now));
         
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton4ActionPerformed
@@ -199,12 +199,12 @@ public class EditGoal extends javax.swing.JFrame {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
-        String id = PAPBOGUI.ListGoal.get(row).getId();
-        String mu = PAPBOGUI.ListGoal.get(row).getIdmatauang();
-        int saldo = PAPBOGUI.ListGoal.get(row).getSaldo();
+        String id = UserPersonal.ListGoal.get(row).getId();
+        String mu = UserPersonal.ListGoal.get(row).getIdmatauang();
+        int saldo = UserPersonal.ListGoal.get(row).getSaldo();
         Goal g = new Goal(ctt.getText(), Integer.parseInt(target.getText()), id, nama.getText(), "tabungan", mu, saldo);
-        PAPBOGUI.ListGoal.set(row, g);
-        PAPBOGUI.gg.tampil();
+        UserPersonal.ListGoal.set(row, g);
+        UserPersonal.gg.tampil();
     }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
