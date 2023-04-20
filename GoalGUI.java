@@ -237,7 +237,7 @@ public class GoalGUI extends javax.swing.JFrame {
     public void tampil(){
         DefaultTableModel dtm = (DefaultTableModel) tabelData.getModel();
         dtm.setRowCount(0);
-        for(Goal g: PAPBOGUI.ListGoal){
+        for(Goal g: UserPersonal.ListGoal){
             dtm.addRow(new Object[]{
                 g.getId(),
                 g.getNama(),
@@ -260,10 +260,10 @@ public class GoalGUI extends javax.swing.JFrame {
         //PAPBOGUI.ListGoal.add(glsBaru);
         
         Goal gl = new Goal(ctt, tgt, "1", nama, "goal", matuang, 0);
-        PAPBOGUI.ListGoal.add(gl);
+        UserPersonal.ListGoal.add(gl);
         //String catatan, int target, String id, String nama, String jenis, String idmatauang, int saldo
         tampil();
-//        for(Goal g: PAPBOGUI.ListGoal){
+//        for(Goal g: UserPersonal.ListGoal){
 //            JOptionPane.showMessageDialog(rootPane, g.getNama());
 //        }
     }//GEN-LAST:event_jButton1ActionPerformed
