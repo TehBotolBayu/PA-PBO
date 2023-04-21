@@ -1,3 +1,4 @@
+package com.mycompany.PAPBO;
 
 
 public abstract class Aktor {

@@ -1,4 +1,4 @@
-
+package com.mycompany.PAPBO;
 
 public interface RoleAdmin {
     public void lihatdataPribadi() throws Exception;

@@ -1,12 +1,25 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
 package com.mycompany.PAPBO;
-
-import javax.swing.JPanel;
-import javax.swing.JOptionPane;
 
 /**
  *
  * @author acer
  */
+public class hehe {
+    
+}
+
+/*
+
+
+package com.mycompany.PAPBO;
+
+import javax.swing.JPanel;
+import javax.swing.JOptionPane;
+
 public class register extends javax.swing.JFrame {
     
     public register() {
@@ -15,7 +28,7 @@ public class register extends javax.swing.JFrame {
     }
 
     @SuppressWarnings("unchecked")
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">                          
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
@@ -238,51 +251,51 @@ public class register extends javax.swing.JFrame {
         );
 
         pack();
-    }// </editor-fold>//GEN-END:initComponents
+    }// </editor-fold>                        
 
-    private void rlogin2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_rlogin2MouseClicked
+    private void rlogin2MouseClicked(java.awt.event.MouseEvent evt) {                                     
         login login = new login();
         login.setVisible(true);
         this.dispose();
-    }//GEN-LAST:event_rlogin2MouseClicked
+    }                                    
 
-    private void rlogin1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rlogin1ActionPerformed
+    private void rlogin1ActionPerformed(java.awt.event.ActionEvent evt) {                                        
         login login = new login();
         login.setVisible(true);
         this.dispose();
-    }//GEN-LAST:event_rlogin1ActionPerformed
+    }                                       
 
-    private void rnamaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rnamaActionPerformed
+    private void rnamaActionPerformed(java.awt.event.ActionEvent evt) {                                      
         // TODO add your handling code here:
-    }//GEN-LAST:event_rnamaActionPerformed
+    }                                     
 
-    private void ralamatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ralamatActionPerformed
+    private void ralamatActionPerformed(java.awt.event.ActionEvent evt) {                                        
 
-    }//GEN-LAST:event_ralamatActionPerformed
+    }                                       
 
-    private void rnohpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rnohpActionPerformed
+    private void rnohpActionPerformed(java.awt.event.ActionEvent evt) {                                      
         // TODO add your handling code here:
-    }//GEN-LAST:event_rnohpActionPerformed
+    }                                     
 
-    private void rselesaiMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_rselesaiMouseClicked
+    private void rselesaiMouseClicked(java.awt.event.MouseEvent evt) {                                      
         jPaneldata.setVisible(false);
         jPanelregist.setVisible(true);
-    }//GEN-LAST:event_rselesaiMouseClicked
+    }                                     
 
-    private void rpasswordMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_rpasswordMouseClicked
+    private void rpasswordMouseClicked(java.awt.event.MouseEvent evt) {                                       
         rpassword.setText("");
-    }//GEN-LAST:event_rpasswordMouseClicked
+    }                                      
 
-    private void rusername1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_rusername1MouseClicked
+    private void rusername1MouseClicked(java.awt.event.MouseEvent evt) {                                        
         rusername1.setText("");
-    }//GEN-LAST:event_rusername1MouseClicked
+    }                                       
 
-    private void rdatadiriActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdatadiriActionPerformed
+    private void rdatadiriActionPerformed(java.awt.event.ActionEvent evt) {                                          
         jPanelregist.setVisible(false);
         jPaneldata.setVisible(true);        
-    }//GEN-LAST:event_rdatadiriActionPerformed
+    }                                         
 
-    private void rregister2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rregister2ActionPerformed
+    private void rregister2ActionPerformed(java.awt.event.ActionEvent evt) {                                           
 
         if(rusername1.getText().equals("") || rpassword.getText().equals("")){
             JOptionPane.showMessageDialog(rootPane, "data diri harus diisi", "WARNING", 0);
@@ -294,7 +307,7 @@ public class register extends javax.swing.JFrame {
         else{
             JOptionPane.showMessageDialog(rootPane, "berhasil mendaftar");
         }
-    }//GEN-LAST:event_rregister2ActionPerformed
+    }                                          
 
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -305,7 +318,7 @@ public class register extends javax.swing.JFrame {
         
     }
 
-    // Variables declaration - do not modify//GEN-BEGIN:variables
+    // Variables declaration - do not modify                     
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -327,6 +340,8 @@ public class register extends javax.swing.JFrame {
     private java.awt.Button rregister2;
     private java.awt.Button rselesai;
     private java.awt.TextField rusername1;
-    // End of variables declaration//GEN-END:variables
+    // End of variables declaration                   
 
 }
+
+*/

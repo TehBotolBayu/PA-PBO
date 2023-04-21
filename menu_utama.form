@@ -164,7 +164,7 @@
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/catatan_pengeluaran/gambar/bg3.png"/>
+              <Image iconType="2" name="F:\pabaru\baru\src\main\java\com\mycompany\PAPBO\bg3.png"/>
             </Property>
             <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[1000, 1000]"/>

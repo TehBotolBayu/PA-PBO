@@ -2,11 +2,12 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package papbogui;
+package com.mycompany.PAPBO;
 
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Dimension;
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
@@ -15,15 +16,16 @@ import javax.swing.table.DefaultTableModel;
  * @author acer
  */
 public class GoalGUI extends javax.swing.JFrame {
+    public static ArrayList<Goal> ListGoal = new ArrayList<Goal>();
 
     /**
      * Creates new form Goal
      */
     public GoalGUI() {
-        //tampil();
         initComponents();
         setResizable(false);
         tampil();
+        
 //        p.add(pb);
 //        add(p);
     }
@@ -55,8 +57,12 @@ public class GoalGUI extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         tabelData = new javax.swing.JTable();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(0, 204, 153));
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosed(java.awt.event.WindowEvent evt) {
+                closed(evt);
+            }
+        });
 
         jPanel1.setBackground(new java.awt.Color(148, 198, 231));
         jPanel1.setPreferredSize(new java.awt.Dimension(1280, 50));
@@ -237,7 +243,7 @@ public class GoalGUI extends javax.swing.JFrame {
     public void tampil(){
         DefaultTableModel dtm = (DefaultTableModel) tabelData.getModel();
         dtm.setRowCount(0);
-        for(Goal g: UserPersonal.ListGoal){
+        for(Goal g: ListGoal){
             dtm.addRow(new Object[]{
                 g.getId(),
                 g.getNama(),
@@ -257,13 +263,12 @@ public class GoalGUI extends javax.swing.JFrame {
         String matuang = jComboBox1.getSelectedItem().toString();
         int tgt = Integer.parseInt(target);
         //JOptionPane.showMessageDialog(rootPane, matuang);
-        //PAPBOGUI.ListGoal.add(glsBaru);
         
         Goal gl = new Goal(ctt, tgt, "1", nama, "goal", matuang, 0);
-        UserPersonal.ListGoal.add(gl);
+        ListGoal.add(gl);
         //String catatan, int target, String id, String nama, String jenis, String idmatauang, int saldo
         tampil();
-//        for(Goal g: UserPersonal.ListGoal){
+//        for(Goal g: ListGoal){
 //            JOptionPane.showMessageDialog(rootPane, g.getNama());
 //        }
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -285,6 +290,11 @@ public class GoalGUI extends javax.swing.JFrame {
        eg.getContentPane().setBackground(new Color(148,198,231));
        eg.setVisible(true);  
     }//GEN-LAST:event_tabelDataMouseClicked
+
+    private void closed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_closed
+        // TODO add your handling code here:
+        asfszgsd
+    }//GEN-LAST:event_closed
 
 
     public static void main(String args[]) {

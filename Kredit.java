@@ -1,4 +1,4 @@
-
+package com.mycompany.PAPBO;
 
 public class Kredit extends Keuangan {
     private final String kategori = "Kredit";

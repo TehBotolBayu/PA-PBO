@@ -1,5 +1,6 @@
+package com.mycompany.PAPBO;
 
-package catatan_pengeluaran;
+
 
 public class menu_admin extends javax.swing.JFrame {
     public menu_admin() {

@@ -1,23 +1,20 @@
+package com.mycompany.PAPBO;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 
-public class UserPersonal extends Aktor implements RoleUserPersonal {
+ public class UserPersonal extends Aktor implements RoleUserPersonal {
     
-public static ArrayList<Goal> ListGoal = new ArrayList<Goal>(); 
- 
-static GoalGUI gg = new GoalGUI();
-
-
-
+    public static ArrayList<Goal> ListGoal = new ArrayList<Goal>(); 
+    static GoalGUI gg = new GoalGUI();
     protected String nama;
     protected final String status = "User Personal";
     static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
     static ArrayList<UserPersonal> user = Main.user;
     static ArrayList<Debit> debit = MenuKeuangan.debit;
     static ArrayList<Kredit> kredit = MenuKeuangan.kredit;
-    static ArrayList<Goals> goals = MenuGoals.goals;
 
 
     static int nomor = 2;
@@ -56,11 +53,6 @@ static GoalGUI gg = new GoalGUI();
                         kredit.remove(z);
                     }
                 }
-                for (int z=0; z <  goals.size(); i++){
-                    if (Main.idlogin.equals(goals.get(z).getId_user())){
-                        goals.remove(z);
-                    }
-                }
                 Main.main(null);
 
 
@@ -84,11 +76,6 @@ static GoalGUI gg = new GoalGUI();
                 System.out.println("Username    :"+ user.get(i).getUsername());
             }
         }
-        
-    }
-    @Override
-    public void ManajemenGoals() throws Exception {
-        MenuGoals.Manajemen();
         
     }
     @Override

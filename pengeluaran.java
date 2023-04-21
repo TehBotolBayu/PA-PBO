@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package catatan_pengeluaran;
+package com.mycompany.PAPBO;
 
 /**
  *
@@ -225,7 +225,6 @@ public class pengeluaran extends javax.swing.JFrame {
                 "No", "Pengeluaran", "Tanggal"
             }
         ));
-        jTable1.setRowHeight(20);
         jScrollPane1.setViewportView(jTable1);
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
@@ -313,10 +312,6 @@ public class pengeluaran extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
@@ -326,12 +321,8 @@ public class pengeluaran extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField7;
-    private java.awt.Label label1;
-    private java.awt.Label label2;
     private java.awt.Label label3;
     private java.awt.Label label4;
-    private java.awt.Button rregister5;
-    private java.awt.Button rregister6;
     private java.awt.Button rregister7;
     private java.awt.Button rregister8;
     // End of variables declaration//GEN-END:variables

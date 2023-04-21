@@ -1,4 +1,4 @@
-
+package com.mycompany.PAPBO;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;

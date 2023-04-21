@@ -1,5 +1,7 @@
+package com.mycompany.PAPBO;
 
-package catatan_pengeluaran;
+
+
 
 
 public class login extends javax.swing.JFrame {

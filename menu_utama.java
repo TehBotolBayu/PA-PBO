@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package catatan_pengeluaran;
+package com.mycompany.PAPBO;
 
 import java.awt.Event;
 import java.awt.Image;
@@ -17,16 +17,16 @@ public class menu_utama extends javax.swing.JFrame {
     
     public menu_utama() {
         initComponents();
-        scaleimage();
+//        scaleimage();
     }
     
-public void scaleimage(){
-        ImageIcon icon = new ImageIcon("C:\\Users\\USER\\Documents\\netbeans projek\\catatan pengeluaran\\catatan_pengeluaran\\src\\catatan_pengeluaran\\gambar\\bg3.png");
-        Image img = icon.getImage();
-        Image imgscale = img.getScaledInstance(450,450,100);
-        ImageIcon scaleicon = new ImageIcon(imgscale);
-        micon.setIcon(scaleicon);
-}
+//public void scaleimage(){
+//        ImageIcon icon = new ImageIcon("C:\\Users\\USER\\Documents\\netbeans projek\\catatan pengeluaran\\catatan_pengeluaran\\src\\catatan_pengeluaran\\gambar\\bg3.png");
+//        Image img = icon.getImage();
+//        Image imgscale = img.getScaledInstance(450,450,100);
+//        ImageIcon scaleicon = new ImageIcon(imgscale);
+//        micon.setIcon(scaleicon);
+//}
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -107,7 +107,7 @@ public void scaleimage(){
         );
 
         micon.setBackground(new java.awt.Color(255, 255, 255));
-        micon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/catatan_pengeluaran/gambar/bg3.png"))); // NOI18N
+        micon.setIcon(new javax.swing.ImageIcon("F:\\pabaru\\baru\\src\\main\\java\\com\\mycompany\\PAPBO\\bg3.png")); // NOI18N
         micon.setMaximumSize(new java.awt.Dimension(1000, 1000));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);

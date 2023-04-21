@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package catatan_pengeluaran;
+package com.mycompany.PAPBO;
 
 /**
  *
@@ -257,7 +257,6 @@ public class pemasukan extends javax.swing.JFrame {
                 "Id", "Tanggal", "Nama", "Pemasukan", "Catatan"
             }
         ));
-        jTable1.setRowHeight(20);
         jScrollPane1.setViewportView(jTable1);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);

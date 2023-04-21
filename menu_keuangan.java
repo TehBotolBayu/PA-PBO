@@ -1,10 +1,10 @@
+package com.mycompany.PAPBO;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package catatan_pengeluaran;
-
 /**
  *
  * @author USER
@@ -46,8 +46,6 @@ public class menu_keuangan extends javax.swing.JFrame {
         tb1 = new javax.swing.JTable();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
-
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(166, 215, 232));
 

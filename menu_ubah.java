@@ -1,9 +1,11 @@
+package com.mycompany.PAPBO;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package catatan_pengeluaran;
+
 
 /**
  *
@@ -50,8 +52,6 @@ public class menu_ubah extends javax.swing.JFrame {
         jTextField7 = new javax.swing.JTextField();
         rregister6 = new java.awt.Button();
         jTextField4 = new javax.swing.JTextField();
-
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(166, 215, 232));
 

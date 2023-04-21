@@ -1,4 +1,4 @@
-package papbogui;
+package com.mycompany.PAPBO;
 
 import java.awt.Color;
 import java.util.ArrayList;

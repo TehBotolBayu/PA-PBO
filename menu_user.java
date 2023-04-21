@@ -1,5 +1,5 @@
 
-package catatan_pengeluaran;
+package com.mycompany.PAPBO;
 
 import java.awt.Color;
 import java.awt.ComponentOrientation;
@@ -75,6 +75,11 @@ public class menu_user extends javax.swing.JFrame {
         rregister5.setForeground(new java.awt.Color(0, 0, 0));
         rregister5.setLabel("LOGOUT");
         rregister5.setName("mlogout"); // NOI18N
+        rregister5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rregister5ActionPerformed(evt);
+            }
+        });
 
         label2.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -120,6 +125,14 @@ public class menu_user extends javax.swing.JFrame {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 mgoalsMouseEntered(evt);
             }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                mgoalsMouseExited(evt);
+            }
+        });
+        mgoals.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mgoalsActionPerformed(evt);
+            }
         });
 
         mubah.setBackground(new java.awt.Color(25, 55, 109));
@@ -131,6 +144,14 @@ public class menu_user extends javax.swing.JFrame {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 mubahMouseEntered(evt);
             }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                mubahMouseExited(evt);
+            }
+        });
+        mubah.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mubahActionPerformed(evt);
+            }
         });
 
         mkeuangan.setBackground(new java.awt.Color(25, 55, 109));
@@ -140,6 +161,14 @@ public class menu_user extends javax.swing.JFrame {
         mkeuangan.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 mkeuanganMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                mkeuanganMouseExited(evt);
+            }
+        });
+        mkeuangan.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mkeuanganActionPerformed(evt);
             }
         });
 
@@ -151,6 +180,9 @@ public class menu_user extends javax.swing.JFrame {
         mkurs.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 mkursMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                mkursMouseExited(evt);
             }
         });
         mkurs.addActionListener(new java.awt.event.ActionListener() {
@@ -167,6 +199,14 @@ public class menu_user extends javax.swing.JFrame {
         mhapus.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 mhapusMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                mhapusMouseExited(evt);
+            }
+        });
+        mhapus.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mhapusActionPerformed(evt);
             }
         });
 
@@ -320,7 +360,7 @@ public class menu_user extends javax.swing.JFrame {
     }//GEN-LAST:event_mubahMouseEntered
 
     private void mkursActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mkursActionPerformed
-
+    
     }//GEN-LAST:event_mkursActionPerformed
 
     private void mkursMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mkursMouseEntered
@@ -329,7 +369,7 @@ public class menu_user extends javax.swing.JFrame {
     }//GEN-LAST:event_mkursMouseEntered
 
     private void mlihatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mlihatActionPerformed
-
+        new menu_akun().setVisible(true);
     }//GEN-LAST:event_mlihatActionPerformed
 
     private void mlihatMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mlihatMouseEntered
@@ -343,8 +383,61 @@ public class menu_user extends javax.swing.JFrame {
     }//GEN-LAST:event_mkeuanganMouseEntered
 
     private void mlihatMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mlihatMouseExited
-
+        mlihat.setBackground(new Color(25,55,109));
     }//GEN-LAST:event_mlihatMouseExited
+
+    private void mgoalsMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mgoalsMouseExited
+        // TODO add your handling code here:
+        mgoals.setBackground(new Color(25,55,109));
+    }//GEN-LAST:event_mgoalsMouseExited
+
+    private void mubahMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mubahMouseExited
+        // TODO add your handling code here:
+        mubah.setBackground(new Color(25,55,109));
+    }//GEN-LAST:event_mubahMouseExited
+
+    private void mkeuanganMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mkeuanganMouseExited
+        // TODO add your handling code here:
+        mkeuangan.setBackground(new Color(25,55,109));
+    }//GEN-LAST:event_mkeuanganMouseExited
+
+    private void mkursMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mkursMouseExited
+        // TODO add your handling code here:
+        mkurs.setBackground(new Color(25,55,109));
+    }//GEN-LAST:event_mkursMouseExited
+
+    private void mhapusMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mhapusMouseExited
+        // TODO add your handling code here:
+        mhapus.setBackground(new Color(25,55,109));
+    }//GEN-LAST:event_mhapusMouseExited
+
+    private void mgoalsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mgoalsActionPerformed
+
+        // TODO add your handling code here:
+        new GoalGUI().setVisible(true);
+        
+        
+    }//GEN-LAST:event_mgoalsActionPerformed
+
+    private void mubahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mubahActionPerformed
+        // TODO add your handling code here:
+        new menu_ubah().setVisible(true);
+    }//GEN-LAST:event_mubahActionPerformed
+
+    private void mkeuanganActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mkeuanganActionPerformed
+        // TODO add your handling code here:
+        new menu_keuangan().setVisible(true);
+    }//GEN-LAST:event_mkeuanganActionPerformed
+
+    private void mhapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mhapusActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_mhapusActionPerformed
+
+    private void rregister5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rregister5ActionPerformed
+        // TODO add your handling code here:
+        dispose();
+    }//GEN-LAST:event_rregister5ActionPerformed
 
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {

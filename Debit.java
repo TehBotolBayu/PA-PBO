@@ -1,4 +1,4 @@
-
+package com.mycompany.PAPBO;
 
 public class Debit extends Keuangan {
     private final String kategori = "Debit";
