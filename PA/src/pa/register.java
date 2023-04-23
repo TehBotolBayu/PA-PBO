@@ -1,5 +1,8 @@
 package pa;
 
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JPanel;
 import javax.swing.JOptionPane;
 
@@ -293,7 +296,13 @@ public class register extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(rootPane, "data diri harus diisi", "WARNING", 0);
         }
         else{
-            JOptionPane.showMessageDialog(rootPane, "berhasil mendaftar");
+            UserPersonal userr = new UserPersonal();
+            try {
+                userr.register();
+            } catch (IOException ex) {
+                Logger.getLogger(register.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            JOptionPane.showMessageDialog(rootPane, "Berhasil mendaftar");
         }
     }//GEN-LAST:event_rregister2ActionPerformed
 
@@ -317,17 +326,17 @@ public class register extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPaneldata;
     private javax.swing.JPanel jPanelregist;
-    private java.awt.TextField ralamat;
+    public static java.awt.TextField ralamat;
     private java.awt.Button rdatadiri;
     private java.awt.Button rlogin1;
     private javax.swing.JLabel rlogin2;
-    private java.awt.TextField rnama;
-    private java.awt.TextField rnohp;
-    private java.awt.TextField rpassword;
+    public static java.awt.TextField rnama;
+    public static java.awt.TextField rnohp;
+    public static java.awt.TextField rpassword;
     private java.awt.Button rregister1;
     private java.awt.Button rregister2;
     private java.awt.Button rselesai;
-    private java.awt.TextField rusername1;
+    public static java.awt.TextField rusername1;
     // End of variables declaration//GEN-END:variables
 
 }

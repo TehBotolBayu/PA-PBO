@@ -16,9 +16,11 @@ import java.util.ArrayList;
     static ArrayList<UserPersonal> user = Main.user;
     static ArrayList<Debit> debit = MenuKeuangan.debit;
     static ArrayList<Kredit> kredit = MenuKeuangan.kredit;
+    static MyDB db = new MyDB();
 
 
-    static int nomor = 2;
+
+    static int nomor;
     static Debit debitt = new Debit();
     static Kredit kreditt = new Kredit();
 
@@ -39,21 +41,45 @@ import java.util.ArrayList;
     
     }
 
+    
+     public static void no_urut(){
+        nomor=0;
+        
+        for (int i=0; i <  user.size(); i++){
+            if ("User".equals(user.get(i).getStatus())){
+                String id = user.get(i).getId_user();
+                nomor = Integer.parseInt(id.substring(1))+1;
+            }   
+        }
+        if (user.size()==0){
+            nomor=1;
+        }
+    }
+    
     @Override
     public void HapusAkun() throws Exception{
         for (int i=0; i <  user.size(); i++){
             if (Main.idlogin.equals(user.get(i).getId_user())){
                 user.remove(i);
-                for (int z=0; z <  debit.size(); i++){
-                    if (Main.idlogin.equals(debit.get(z).getID_user())){
-                        debit.remove(z);
+                MyDB.hapusAkun(Main.idlogin);
+                if (debit.size()>0){
+                    for (int z=0; z <  debit.size(); i++){
+                        if (Main.idlogin.equals(debit.get(z).getID_user())){
+                            MyDB.hapusKeuangan(debit.get(z).getID());
+                             debit.remove(z);
+                        }
                     }
                 }
-                for (int z=0; z <  kredit.size(); i++){
-                    if (Main.idlogin.equals(kredit.get(z).getID_user())){
-                        kredit.remove(z);
+                if (kredit.size()>0){
+                     for (int z=0; z <  kredit.size(); i++){
+                        if (Main.idlogin.equals(kredit.get(z).getID_user())){
+                            MyDB.hapusKeuangan(kredit.get(z).getID());
+                            kredit.remove(z);
+                        }
                     }
                 }
+                
+               
             }
         }
     }
@@ -72,6 +98,7 @@ import java.util.ArrayList;
                 menu_akun.txtNomorHp.setText(user.get(i).getNomorhp());
                 menu_akun.txtAlamat.setText(user.get(i).getAlamat());
                 menu_akun.txtUsername.setText(user.get(i).getUsername());
+            
             }
         }
     }
@@ -91,28 +118,25 @@ import java.util.ArrayList;
                 String addPass = menu_ubah.txtpass.getText();
                 UserPersonal userUpdate = new UserPersonal(addAlamat, addusername, addPass, Main.idlogin, addNomorhp, addnama, "User");
                 user.set(i, userUpdate);
-                
-
+                MyDB.updateAkun(Main.idlogin, addnama, addAlamat, addNomorhp, "User", addusername, addPass);
+                Main.namaLogin = addnama;
             }
         }
     }
     
     @Override
     public void register() throws IOException{
-        nomor +=1;
+//        nomor +=1;
         String id = nomor + "U";
-        System.out.print("Masukkan Nama: ");
-        String addnama = br.readLine();
-        System.out.print("Masukkan NomorHP: ");
-        String addNomorhp = br.readLine();
-        System.out.print("Masukkan Alamat: ");
-        String addAlamat = br.readLine();
-        System.out.print("Masukkan Username baru: ");
-        String addusername = br.readLine();
-        System.out.print("Masukkan Password Baru: ");
-        String addPass = br.readLine();
-        UserPersonal userUpdate = new UserPersonal(addAlamat, addusername, addPass, id, addNomorhp, addnama, "User Personal");
+        String addnama = register.rnama.getText();
+        String addNomorhp = register.rnohp.getText();
+        String addAlamat = register.ralamat.getText();
+        String addusername = register.rusername1.getText();
+        String addPass = register.rpassword.getText();
+        UserPersonal userUpdate = new UserPersonal(addAlamat, addusername, addPass, id, addNomorhp, addnama, "User");
         user.add(userUpdate);
+        MyDB.insertAkun(id, addnama, addAlamat, addNomorhp, "User", addusername, addPass);
+        nomor+=1;
         
     }
 

@@ -24,16 +24,19 @@ public class Main{
     static ArrayList<Admin> admin = new ArrayList<Admin>();
 
     static String idlogin,namaLogin;
-    static UserPersonal user1 = new UserPersonal("Asmaba", "user123", "123", "U1","0822", "Herniii", null);
-    static UserPersonal user2 = new UserPersonal("Asmaba", "user12", "123", "U2","0822", "Herniii", null);
-    static Admin admin1 = new Admin("Asmaba", "admin", "123", "A2","0822", "Herniii", null);
+    static UserPersonal user1 = new UserPersonal();
+    static MyDB db = new MyDB();
+
 
 
 
     public static void main(String[] args) throws Exception {
-        user.add(user1);
-        user.add(user2);
-        admin.add(admin1);
+        
+        
+        MyDB.move(debitt);
+        MyDB.move(kreditt);
+        MyDB.move(user1);
+
         new menu_utama().setVisible(true);        
     }
    

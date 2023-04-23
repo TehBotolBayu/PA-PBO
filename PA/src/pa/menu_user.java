@@ -466,6 +466,8 @@ public class menu_user extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(this,"Anda berhasil menghapus data pribadi anda");
         new menu_utama().setVisible(true);
         this.dispose();
+
+        
         
     }//GEN-LAST:event_mhapusActionPerformed
 

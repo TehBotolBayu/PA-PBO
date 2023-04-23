@@ -8,6 +8,8 @@ package pa;
 import java.sql.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import static pa.Main.admin;
+import static pa.Main.user;
 import static pa.MenuKeuangan.debit;
 import static pa.MenuKeuangan.kredit;
 
@@ -86,6 +88,44 @@ public class MyDB {
                     String id_user = rs.getString("Id_user");
                     Kredit pengeluaran = new Kredit(nama, jumlah, tanggal, catatan, jenis,kategori, id, id_user);
                     kredit.add(pengeluaran);
+                }
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    
+     public static void move(UserPersonal Userr) {
+        String sql = "SELECT * FROM tbakun";
+
+        try {
+            rs = stmt.executeQuery(sql);
+
+            while (rs.next()) {
+
+                if(rs.getString("status").equals("User")){
+                    String id = rs.getString("id_user");
+                    String nama = rs.getString("nama");
+                    String alamat = rs.getString("alamat");
+                    String nomorhp = rs.getString("nomorHp");
+                    String status = rs.getString("status");
+                    String username = rs.getString("username");
+                    String pass = rs.getString("pass");
+                    UserPersonal userr = new UserPersonal(alamat, username,  pass,  id,  nomorhp,  nama, status);
+                    user.add(userr);
+                }
+                else if (rs.getString("status").equals("Admin")){
+                    String id = rs.getString("id_user");
+                    String nama = rs.getString("nama");
+                    String alamat = rs.getString("alamat");
+                    String nomorhp = rs.getString("nomorHp");
+                    String status = rs.getString("status");
+                    String username = rs.getString("username");
+                    String pass = rs.getString("pass");
+                    Admin adminn = new Admin(alamat, username,  pass,  id,  nomorhp,  nama, status);
+                    admin.add(adminn);
+
                 }
             }
 

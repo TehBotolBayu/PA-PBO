@@ -19,8 +19,7 @@ public class menu_utama extends javax.swing.JFrame {
     
     public menu_utama() {
         new MyDB();
-        MyDB.move(debitt);
-        MyDB.move(kreditt);
+        
 
         initComponents();
 //        scaleimage();

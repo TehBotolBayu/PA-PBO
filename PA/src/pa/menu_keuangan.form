@@ -55,7 +55,7 @@
                                   <Component id="jScrollPane2" min="-2" pref="772" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
                                   <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace pref="21" max="32767" attributes="0"/>
+                                  <EmptySpace pref="23" max="32767" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
@@ -158,12 +158,12 @@
                               <Component id="btnKredit" min="-2" pref="83" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace pref="69" max="32767" attributes="0"/>
+                      <EmptySpace pref="70" max="32767" attributes="0"/>
                   </Group>
                   <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
-                          <Component id="rregister6" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnBack" min="-2" max="-2" attributes="0"/>
                           <EmptySpace pref="265" max="32767" attributes="0"/>
                       </Group>
                   </Group>
@@ -201,7 +201,7 @@
                   <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="1" attributes="0">
                           <EmptySpace pref="375" max="32767" attributes="0"/>
-                          <Component id="rregister6" min="-2" pref="33" max="-2" attributes="0"/>
+                          <Component id="btnBack" min="-2" pref="33" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
                       </Group>
                   </Group>
@@ -274,7 +274,7 @@
                 <Property name="text" type="java.lang.String" value="MONEY MANAGER"/>
               </Properties>
             </Component>
-            <Component class="java.awt.Button" name="rregister6">
+            <Component class="java.awt.Button" name="btnBack">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="99" red="99" type="rgb"/>
@@ -285,9 +285,12 @@
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="0" green="0" red="0" type="rgb"/>
                 </Property>
-                <Property name="label" type="java.lang.String" value="LOGOUT"/>
+                <Property name="label" type="java.lang.String" value="KEMBALI"/>
                 <Property name="name" type="java.lang.String" value="mlogout" noResource="true"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnBackActionPerformed"/>
+              </Events>
             </Component>
             <Component class="java.awt.Button" name="btnKredit">
               <Properties>
