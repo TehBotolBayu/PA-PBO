@@ -10,6 +10,7 @@ import javax.swing.JOptionPane;
 public class register extends javax.swing.JFrame {
     
     public register() {
+        new MyDB();
         initComponents();
         jPaneldata.setVisible(false);
     }

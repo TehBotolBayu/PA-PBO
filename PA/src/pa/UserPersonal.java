@@ -54,9 +54,6 @@ import java.util.ArrayList;
                         kredit.remove(z);
                     }
                 }
-               
-
-
             }
         }
     }
@@ -77,11 +74,10 @@ import java.util.ArrayList;
                 menu_akun.txtUsername.setText(user.get(i).getUsername());
             }
         }
-        
     }
     @Override
     public void ManajemenKeuangan() throws Exception {
-        MenuKeuangan.Manajemen();
+//        MenuKeuangan.Manajemen();
         
     }
     @Override
@@ -99,7 +95,6 @@ import java.util.ArrayList;
 
             }
         }
-        
     }
     
     @Override

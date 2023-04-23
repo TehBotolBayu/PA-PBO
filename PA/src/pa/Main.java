@@ -13,6 +13,10 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import static pa.MenuKeuangan.debitt;
+import static pa.MenuKeuangan.kreditt;
+import static pa.MyDB.conn;
+import static pa.MyDB.stmt;
 
 public class Main{
     static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -30,10 +34,7 @@ public class Main{
         user.add(user1);
         user.add(user2);
         admin.add(admin1);
-//
-//
-        //menu_utama();
-          new menu_utama().setVisible(true);
+        new menu_utama().setVisible(true);        
     }
    
     public static void menu_utama()throws Exception{

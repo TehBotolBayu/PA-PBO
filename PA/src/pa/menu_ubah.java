@@ -23,6 +23,7 @@ public class menu_ubah extends javax.swing.JFrame {
      * Creates new form menu_ubah
      */
     public menu_ubah() {
+        new MyDB();
         initComponents();
         LabelNama.setText(Main.namaLogin.toUpperCase());
     }

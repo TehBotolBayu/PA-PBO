@@ -4,6 +4,7 @@ package pa;
 
 public class menu_admin extends javax.swing.JFrame {
     public menu_admin() {
+        new MyDB();
         initComponents();
     }
     @SuppressWarnings("unchecked")
@@ -61,6 +62,11 @@ public class menu_admin extends javax.swing.JFrame {
         mgoals.setFont(new java.awt.Font("Comic Sans MS", 1, 14)); // NOI18N
         mgoals.setForeground(new java.awt.Color(255, 255, 255));
         mgoals.setLabel("Data User");
+        mgoals.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mgoalsActionPerformed(evt);
+            }
+        });
 
         mlihat.setBackground(new java.awt.Color(25, 55, 109));
         mlihat.setFont(new java.awt.Font("Comic Sans MS", 1, 14)); // NOI18N
@@ -178,6 +184,10 @@ public class menu_admin extends javax.swing.JFrame {
     private void mkursActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mkursActionPerformed
 
     }//GEN-LAST:event_mkursActionPerformed
+
+    private void mgoalsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mgoalsActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_mgoalsActionPerformed
 
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {

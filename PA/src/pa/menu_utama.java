@@ -8,6 +8,8 @@ package pa;
 import java.awt.Event;
 import java.awt.Image;
 import javax.swing.ImageIcon;
+import static pa.MenuKeuangan.debitt;
+import static pa.MenuKeuangan.kreditt;
 
 /**
  *
@@ -16,6 +18,10 @@ import javax.swing.ImageIcon;
 public class menu_utama extends javax.swing.JFrame {
     
     public menu_utama() {
+        new MyDB();
+        MyDB.move(debitt);
+        MyDB.move(kreditt);
+
         initComponents();
 //        scaleimage();
     }
@@ -107,7 +113,7 @@ public class menu_utama extends javax.swing.JFrame {
         );
 
         micon.setBackground(new java.awt.Color(255, 255, 255));
-        micon.setIcon(new javax.swing.ImageIcon("D:\\Dunia Perkuliahan\\Semester 4\\Pratikum\\PBO\\PA\\src\\pa\\bg3.png")); // NOI18N
+        micon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pa/bg3.png"))); // NOI18N
         micon.setMaximumSize(new java.awt.Dimension(1000, 1000));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);

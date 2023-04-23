@@ -17,6 +17,7 @@ public class menu_akun extends javax.swing.JFrame {
      * Creates new form menu_akun
      */
     public menu_akun() {
+        new MyDB();
         initComponents();
          LabelNama.setText(Main.namaLogin.toUpperCase());
     }

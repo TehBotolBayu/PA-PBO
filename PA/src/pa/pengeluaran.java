@@ -24,6 +24,7 @@ public class pengeluaran extends javax.swing.JFrame {
      * Creates new form pengeluaran
      */
     public pengeluaran() {
+        new MyDB();
         initComponents();
         MenuKeuangan.lihat(kreditt);
         LabelNama.setText(Main.namaLogin.toUpperCase());

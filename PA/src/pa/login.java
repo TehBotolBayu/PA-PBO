@@ -14,13 +14,14 @@ public class login extends javax.swing.JFrame {
     static ArrayList<Admin> admin = Main.admin;
     
     public login() {
+        new MyDB();
         initComponents();
         
     }
     
     public void navigatelogin(){
-//        register register = new register();
-//        register.setVisible(true);
+        register register = new register();
+        register.setVisible(true);
         this.setVisible(false);
     }
 
@@ -35,7 +36,7 @@ public class login extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         llogin1 = new java.awt.Button();
         lregister1 = new java.awt.Button();
-        lregister2 = new javax.swing.JLabel();
+        txtRegistrasi = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         lpass = new javax.swing.JPasswordField();
 
@@ -82,14 +83,14 @@ public class login extends javax.swing.JFrame {
             }
         });
 
-        lregister2.setBackground(new java.awt.Color(87, 108, 189));
-        lregister2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        lregister2.setForeground(new java.awt.Color(87, 108, 189));
-        lregister2.setText("DAFTAR SEKARANG");
-        lregister2.setToolTipText("");
-        lregister2.addMouseListener(new java.awt.event.MouseAdapter() {
+        txtRegistrasi.setBackground(new java.awt.Color(87, 108, 189));
+        txtRegistrasi.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        txtRegistrasi.setForeground(new java.awt.Color(87, 108, 189));
+        txtRegistrasi.setText("DAFTAR SEKARANG");
+        txtRegistrasi.setToolTipText("");
+        txtRegistrasi.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                lregister2MouseClicked(evt);
+                txtRegistrasiMouseClicked(evt);
             }
         });
 
@@ -118,7 +119,7 @@ public class login extends javax.swing.JFrame {
                         .addGap(156, 156, 156)
                         .addComponent(jLabel3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lregister2)))
+                        .addComponent(txtRegistrasi)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap(57, Short.MAX_VALUE)
@@ -151,7 +152,7 @@ public class login extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 80, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel3)
-                    .addComponent(lregister2))
+                    .addComponent(txtRegistrasi))
                 .addContainerGap())
         );
 
@@ -194,9 +195,9 @@ public class login extends javax.swing.JFrame {
         navigatelogin();
     }//GEN-LAST:event_lregister1ActionPerformed
 
-    private void lregister2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lregister2MouseClicked
+    private void txtRegistrasiMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtRegistrasiMouseClicked
         navigatelogin();
-    }//GEN-LAST:event_lregister2MouseClicked
+    }//GEN-LAST:event_txtRegistrasiMouseClicked
 
     private void llogin2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_llogin2ActionPerformed
         int kondisi=0;
@@ -262,7 +263,7 @@ public class login extends javax.swing.JFrame {
     private java.awt.Button llogin2;
     public javax.swing.JPasswordField lpass;
     private java.awt.Button lregister1;
-    private javax.swing.JLabel lregister2;
     public java.awt.TextField lusername;
+    private javax.swing.JLabel txtRegistrasi;
     // End of variables declaration//GEN-END:variables
 }

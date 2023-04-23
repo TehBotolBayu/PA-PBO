@@ -20,6 +20,7 @@ public class EditKeuangan extends javax.swing.JDialog {
 
     /** Creates new form EditKeuangan */
     public EditKeuangan() {
+        new MyDB();
         initComponents();
     }
 

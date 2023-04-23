@@ -21,6 +21,7 @@ import static pa.UserPersonal.user;
 public class menu_user extends javax.swing.JFrame {
     static  UserPersonal userr = new UserPersonal();
     public menu_user() {
+        new MyDB();
         initComponents();
         LabelNama.setText(Main.namaLogin.toUpperCase());
 //        scaleimage();

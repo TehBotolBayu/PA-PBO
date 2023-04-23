@@ -18,6 +18,7 @@ public class menu_keuangan extends javax.swing.JFrame {
      * Creates new form menu_keuangan
      */
     public menu_keuangan() {
+        new MyDB();
         initComponents();
         MenuKeuangan.lihat();
     }

@@ -4,7 +4,6 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.io.IOException;
-import java.sql.*;
 import javax.swing.table.DefaultTableModel;
 import static pa.pemasukan.txtIDDEBIT;
 import static pa.pengeluaran.txtIDKredit;
@@ -13,45 +12,17 @@ import static pa.pengeluaran.txtIDKredit;
 
 public class MenuKeuangan {
 
-    static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
-    static final String DB_URL = "jdbc:mysql://localhost/dbmoneymanajer";
-    static final String USER = "root";
-    static final String PASS = "";
-    static Connection conn;
-    static Statement stmt;
-    static ResultSet rs;
-
+    
     static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
     static ArrayList<Debit> debit = new ArrayList<Debit>();
     static ArrayList<Kredit> kredit = new ArrayList<Kredit>();
     static Debit debitt = new Debit();
     static Kredit kreditt = new Kredit();
     static int totalDebit, totalKredit, Total, nomor1, nomor2;
+    static MyDB db = new MyDB();
+
+
     
-
-
-    public static void Manajemen() throws Exception{
-        try {
-            // register driver
-            Class.forName(JDBC_DRIVER);
-
-            conn = DriverManager.getConnection(DB_URL, USER, PASS);
-            stmt = conn.createStatement();
-
-            while (!conn.isClosed()) {
-                move(debitt);
-                move(kreditt);
-                menu();
-            }
-
-
-            stmt.close();
-            conn.close();
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
 
     public static void menu() throws Exception{
         no_urut();
@@ -166,11 +137,6 @@ public class MenuKeuangan {
     }
 
     public static void tambah(Debit debitt) throws IOException{
-        
-        // Debit pemasukkan = new Debit(addNama, addJumlah, addTanggal, addCatat, addjenis,null, idDebit);
-        // debit.add(pemasukkan);
-//        try {
-            // ambil input dari user
             
             
             String idDebit = pemasukan.txtIDDEBIT.getText();
@@ -186,16 +152,7 @@ public class MenuKeuangan {
             String idDebitt = Main.idlogin+"D"+nomor1;
             txtIDDEBIT.setText(idDebitt);
  
-            // query simpan
-//            String sql = "INSERT INTO tbkeuangan (id, nama, jenis, jumlah, tanggal, catatan, kategori, Id_user) VALUE('%s', '%s', '%s', '%s', '%s', '%s', '%s','%s')";
-//            sql = String.format(sql, idDebit, addNama, addjenis, addJumlah, addTanggal, addCatat, "Debit", Main.idlogin );
-//
-//            // simpan buku
-//            stmt.execute(sql);
-//            
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
+            MyDB.insertKeuangan(idDebit, addNama, addjenis, addJumlah, addTanggal, addCatat, "Debit", Main.idlogin);
 
     }
 
@@ -214,71 +171,11 @@ public class MenuKeuangan {
         String idKreditt = Main.idlogin+"K"+nomor2;
         txtIDKredit.setText(idKreditt);
 
-         // query simpan
-//         String sql = "INSERT INTO tbkeuangan (id, nama, jenis, jumlah, tanggal, catatan, kategori, Id_user) VALUE('%s', '%s', '%s', '%s', '%s', '%s', '%s','%s')";
-//         sql = String.format(sql, idKredit, addNama, addjenis, addJumlah, addTanggal, addCatat, "Kredit", Main.idlogin );
-//
-//         // simpan buku
-//         stmt.execute(sql);
-//         
-//     } catch (Exception e) {
-//         e.printStackTrace();
-//     }
+        MyDB.insertKeuangan(idKredit, addNama, addjenis, addJumlah, addTanggal, addCatat, "Kredit", Main.idlogin);
     }
 
-    public static void move(Debit debitt) {
-        String sql = "SELECT * FROM tbkeuangan";
-
-        try {
-            rs = stmt.executeQuery(sql);
-
-            while (rs.next()) {
-
-                if(rs.getString("kategori").equals("Debit")){
-                    String id = rs.getString("id");
-                    String nama = rs.getString("nama");
-                    String jenis = rs.getString("jenis");
-                    int jumlah = rs.getInt("jumlah");
-                    String tanggal = rs.getString("tanggal");
-                    String catatan = rs.getString("catatan");
-                    String kategori = rs.getString("kategori");
-                    String id_user = rs.getString("Id_user");
-                    Debit pemasukkan = new Debit(nama, jumlah, tanggal, catatan, jenis,kategori, id, id_user);
-                    debit.add(pemasukkan);
-                }
-            }
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    public static void move(Kredit kreditt) {
-        String sql = "SELECT * FROM tbkeuangan";
-
-        try {
-            rs = stmt.executeQuery(sql);
-
-            while (rs.next()) {
-
-                if(rs.getString("kategori").equals("Kredit")){
-                    String id = rs.getString("id");
-                    String nama = rs.getString("nama");
-                    String jenis = rs.getString("jenis");
-                    int jumlah = rs.getInt("jumlah");
-                    String tanggal = rs.getString("tanggal");
-                    String catatan = rs.getString("catatan");
-                    String kategori = rs.getString("kategori");
-                    String id_user = rs.getString("Id_user");
-                    Kredit pengeluaran = new Kredit(nama, jumlah, tanggal, catatan, jenis,kategori, id, id_user);
-                    kredit.add(pengeluaran);
-                }
-            }
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
+  
+    
     public static void no_urut(){
         nomor1=0;
         nomor2=0;
@@ -287,9 +184,7 @@ public class MenuKeuangan {
                 String idDebitt = debit.get(i).getID();
                 nomor1 = Integer.parseInt(idDebitt.substring(3))+1;
             }
-            else{
-                nomor1=1;
-            }
+        
            
         }
         if (debit.size()==0){
@@ -302,9 +197,6 @@ public class MenuKeuangan {
                 String idKredit = kredit.get(i).getID();
                 nomor2 = Integer.parseInt(idKredit.substring(3))+1;
                
-            }
-            else{
-                nomor2=1;
             }
            
         }
@@ -469,11 +361,6 @@ public class MenuKeuangan {
     } 
 
     public static void update(Debit debitt) throws Exception{
-//        try {
-//        lihat(debitt);
-        int kondisi = 0;
-//        String addjenis;
-//        System.out.print("Masukkan ID Pemasukkan yang ingin diubah: ");
         String idx = EditKeuangan.txtIDDEBIT.getText();
         for (int i=0; i <  debit.size(); i++){
             if (debit.get(i).getID().equals(idx) && Main.idlogin.equals(debit.get(i).getID_user())){
@@ -486,30 +373,12 @@ public class MenuKeuangan {
                 totalDebit += addJumlah;
                 Debit pemasukkan = new Debit(addNama, addJumlah, addTanggal, addCatat, addjenis,null, idx, Main.idlogin);
                 debit.set(i,pemasukkan);
-                kondisi = 1;
-//                String sql = "UPDATE tbkeuangan SET nama='%s', jenis='%s', jumlah='%s', tanggal='%s', catatan='%s', kategori='%s', Id_user='%s' WHERE id='%s'";
-//                sql = String.format(sql, addNama, addjenis, addJumlah, addTanggal, addCatat, "Debit", Main.idlogin, idx);
-//        
-//                
-//                stmt.execute(sql);
-//                break;
+                MyDB.updateKeuangan(idx, addNama, addjenis, addJumlah, addTanggal, addCatat, "Debit", Main.idlogin);
             }
         }
-//        if (kondisi == 0){
-//            System.out.println("Pemasukkan gagal diubah");
-//        }    
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
     }
 
     public static void update(Kredit kreditt) throws Exception{
-//        try {
-
-//        lihat(kreditt);
-        int kondisi = 0;
-//        String addjenis;
-//        System.out.print("Masukkan ID Pengeluaran yang ingin diubah: ");
          String idx = EditKeuangan.txtIDDEBIT.getText();
         for (int i=0; i <  kredit.size(); i++){
             if (kredit.get(i).getID().equals(idx) && Main.idlogin.equals(kredit.get(i).getID_user())){
@@ -520,83 +389,38 @@ public class MenuKeuangan {
                 String addCatat = EditKeuangan.txtCatat.getText();
                 String addTanggal = EditKeuangan.txtTanggal.getText();
                 totalKredit += addJumlah;
-                kondisi = 1;
                 Kredit pengeluaran = new Kredit(addNama, addJumlah, addTanggal, addCatat, addjenis,null, idx, Main.idlogin);
                 kredit.set(i, pengeluaran);
-                kondisi = 1;
-//                String sql = "UPDATE tbkeuangan SET nama='%s', jenis='%s', jumlah='%s', tanggal='%s', catatan='%s', kategori='%s', Id_user = '%s' WHERE id='%s'";
-//                sql = String.format(sql, addNama, addjenis, addJumlah, addTanggal, addCatat, "Kredit",Main.idlogin, idx);
-//    
-//                stmt.execute(sql);
-//                break;
+                MyDB.updateKeuangan(idx, addNama, addjenis, addJumlah, addTanggal, addCatat, "Kredit", Main.idlogin);
             }
-        }
-//        if (kondisi == 0){
-//            System.out.println("Pengeluaran gagal diubah");
-//        }
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
+        } 
     }
+    
 
     public static void hapus(Debit debitt) throws Exception{
-//        try {
-//        lihat(debitt);
-//        int kondisi = 0;
-//        System.out.print("Masukkan ID Pemasukkan yang ingin dihapus: ");
         String idx =  EditKeuangan.txtIDDEBIT.getText();
         for (int i=0; i <  debit.size(); i++){
             if (debit.get(i).getID().equals(idx) &&  Main.idlogin.equals(debit.get(i).getID_user())){
                     totalDebit -= debit.get(i).getJumlah();
                     debit.remove(i);
-//                    String sql = String.format("DELETE FROM tbkeuangan WHERE id='%s'", idx);
-//                    // hapus data
-//                    stmt.execute(sql);
-//                    kondisi = 1;
-//                    System.out.println("Data pemasukkan berhasil dihapus");
-
-                }
-//                else{
-//                    kondisi = 0;
-//                    break;
-//                }
+                    MyDB.hapusKeuangan(idx);
 
             }
+
         }
-//        if (kondisi == 0){
-//            System.out.println("Data pemasukkan gagal dihapus");
-//        }
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
-    
+    }
 
     public static void hapus(Kredit kreditt) throws Exception{
-//        try {
         String idx =  EditKeuangan.txtIDDEBIT.getText();
         for (int i=0; i <  kredit.size(); i++){
             if (kredit.get(i).getID().equals(idx) &&  Main.idlogin.equals(kredit.get(i).getID_user())){
                     totalKredit -= kredit.get(i).getJumlah();
                     kredit.remove(i);
-//                    String sql = String.format("DELETE FROM tbkeuangan WHERE id='%s'", idx);
-//                    // hapus data
-//                    stmt.execute(sql);
-//                    kondisi = 1;
-//                    System.out.println("Data pengeluaran berhasil dihapus");
+                    MyDB.hapusKeuangan(idx);
+//                   
 //
-                }
-//                else{
-//                    kondisi = 0;
-//                    break;
+            }
         }
-
-//            }
-//        }
-//        if (kondisi == 0){
-//            System.out.println("Data pengeluaran gagal dihapus");
-//        }
-//        } catch (Exception e) {
-//            e.printStackTrace();
     }
 }
 

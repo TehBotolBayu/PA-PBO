@@ -23,6 +23,7 @@ public class pemasukan extends javax.swing.JFrame {
      * Creates new form pemasukan
      */
     public pemasukan() {
+        new MyDB();
         initComponents();
         MenuKeuangan.lihat(debitt);
         LabelNama.setText(Main.namaLogin.toUpperCase());
