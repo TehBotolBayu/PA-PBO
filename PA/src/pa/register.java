@@ -1,5 +1,6 @@
 package pa;
 
+import java.awt.event.KeyEvent;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -73,6 +74,11 @@ public class register extends javax.swing.JFrame {
         rnohp.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 rnohpActionPerformed(evt);
+            }
+        });
+        rnohp.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                rnohpKeyTyped(evt);
             }
         });
         jPaneldata.add(rnohp, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 130, 240, 30));
@@ -305,6 +311,16 @@ public class register extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(rootPane, "Berhasil mendaftar");
         }
     }//GEN-LAST:event_rregister2ActionPerformed
+
+    private void rnohpKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_rnohpKeyTyped
+        // TODO add your handling code here:
+        char karakter = evt.getKeyChar();
+        if(!(((karakter >= '0') && (karakter <= '9') || (karakter == KeyEvent.VK_BACK_SPACE) || (karakter == KeyEvent.VK_DELETE)))){
+            getToolkit().beep();
+            evt.consume();
+             JOptionPane.showMessageDialog(rootPane, "Harap Masukkan Angka");
+        }
+    }//GEN-LAST:event_rnohpKeyTyped
 
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {

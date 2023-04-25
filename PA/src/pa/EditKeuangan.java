@@ -6,6 +6,7 @@
 
 package pa;
 
+import java.awt.event.KeyEvent;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -58,6 +59,12 @@ public class EditKeuangan extends javax.swing.JDialog {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
+
+        txtJumlahDebit.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtJumlahDebitKeyTyped(evt);
+            }
+        });
 
         cmbJenis.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Bulanan", "Gaji", "Tabungan", "Lainnya" }));
 
@@ -274,6 +281,11 @@ public class EditKeuangan extends javax.swing.JDialog {
     }//GEN-LAST:event_btnBackActionPerformed
 
     private void btnEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditActionPerformed
+        if (txtIDDEBIT.getText().isEmpty() || txtNamaDebit.getText().isEmpty() || txtJumlahDebit.getText().isEmpty() || txtCatat.getText().isEmpty() || txtTanggal.getText().isEmpty() || txtKategori.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Harap isi semua kolom.", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        
         if (txtKategori.getText().equals("Debit")){
             try {
                 MenuKeuangan.update(debitt);
@@ -326,6 +338,16 @@ public class EditKeuangan extends javax.swing.JDialog {
 
          this.dispose();
     }//GEN-LAST:event_btnHapusActionPerformed
+
+    private void txtJumlahDebitKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtJumlahDebitKeyTyped
+        // TODO add your handling code here:
+        char karakter = evt.getKeyChar();
+        if(!(((karakter >= '0') && (karakter <= '9') || (karakter == KeyEvent.VK_BACK_SPACE) || (karakter == KeyEvent.VK_DELETE)))){
+            getToolkit().beep();
+            evt.consume();
+             JOptionPane.showMessageDialog(rootPane, "Harap Masukkan Angka");
+        }
+    }//GEN-LAST:event_txtJumlahDebitKeyTyped
 
     /**
      * @param args the command line arguments

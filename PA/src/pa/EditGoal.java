@@ -5,6 +5,7 @@
 package pa;
 
 import java.awt.Color;
+import java.awt.event.KeyEvent;
 import java.awt.event.WindowEvent;
 import javax.swing.JOptionPane;
 import pa.UserPersonal;
@@ -62,6 +63,11 @@ public class EditGoal extends javax.swing.JFrame {
                 targetActionPerformed(evt);
             }
         });
+        target.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                targetKeyTyped(evt);
+            }
+        });
 
         nama.setText("Nama");
         nama.addActionListener(new java.awt.event.ActionListener() {
@@ -97,6 +103,11 @@ public class EditGoal extends javax.swing.JFrame {
         tabung.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tabungActionPerformed(evt);
+            }
+        });
+        tabung.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                tabungKeyTyped(evt);
             }
         });
 
@@ -186,6 +197,11 @@ public class EditGoal extends javax.swing.JFrame {
     }//GEN-LAST:event_tabungActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        if (tabung.getText().isEmpty() || target.getText().isEmpty() || ctt.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Harap isi semua kolom.", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        
         int now = UserPersonal.ListGoal.get(row).getSaldo();
         now += Integer.parseInt(tabung.getText());
         UserPersonal.ListGoal.get(row).setSaldo(now);
@@ -200,6 +216,11 @@ public class EditGoal extends javax.swing.JFrame {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
+        if (tabung.getText().isEmpty() || target.getText().isEmpty() || ctt.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Harap isi semua kolom.", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        
         String id = UserPersonal.ListGoal.get(row).getId();
         String mu = UserPersonal.ListGoal.get(row).getIdmatauang();
         int saldo = UserPersonal.ListGoal.get(row).getSaldo();
@@ -207,6 +228,26 @@ public class EditGoal extends javax.swing.JFrame {
         UserPersonal.ListGoal.set(row, g);
         UserPersonal.gg.tampil();
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void targetKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_targetKeyTyped
+        // TODO add your handling code here:
+        char karakter = evt.getKeyChar();
+        if(!(((karakter >= '0') && (karakter <= '9') || (karakter == KeyEvent.VK_BACK_SPACE) || (karakter == KeyEvent.VK_DELETE)))){
+            getToolkit().beep();
+            evt.consume();
+             JOptionPane.showMessageDialog(rootPane, "Harap Masukkan Angka");
+        }
+    }//GEN-LAST:event_targetKeyTyped
+
+    private void tabungKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tabungKeyTyped
+        // TODO add your handling code here:
+        char karakter = evt.getKeyChar();
+        if(!(((karakter >= '0') && (karakter <= '9') || (karakter == KeyEvent.VK_BACK_SPACE) || (karakter == KeyEvent.VK_DELETE)))){
+            getToolkit().beep();
+            evt.consume();
+             JOptionPane.showMessageDialog(rootPane, "Harap Masukkan Angka");
+        }
+    }//GEN-LAST:event_tabungKeyTyped
 
     /**
      * @param args the command line arguments

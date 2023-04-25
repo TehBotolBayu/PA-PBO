@@ -1,5 +1,6 @@
 package pa;
 
+import java.awt.event.KeyEvent;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -190,6 +191,12 @@ public class menu_ubah extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        txtNomorHp.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtNomorHpKeyTyped(evt);
+            }
+        });
+
         btnUbah.setBackground(new java.awt.Color(153, 153, 255));
         btnUbah.setFont(new java.awt.Font("Dialog", 0, 11)); // NOI18N
         btnUbah.setForeground(new java.awt.Color(0, 0, 0));
@@ -274,7 +281,13 @@ public class menu_ubah extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    
     private void btnUbahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUbahActionPerformed
+        // Validasi input sebelum memanggil userr.UbahAkun()
+        if (txtNama.getText().isEmpty() || txtAlamat.getText().isEmpty() || txtNomorHp.getText().isEmpty() || txtUsername.getText().isEmpty() || txtpass.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Harap isi semua kolom.", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
         try {
             userr.UbahAkun();
         } catch (IOException ex) {
@@ -284,12 +297,23 @@ public class menu_ubah extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(this,"Anda berhasil mengubah data pribadi anda");
         new menu_user().setVisible(true);
         this.dispose();
+        
     }//GEN-LAST:event_btnUbahActionPerformed
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         new menu_user().setVisible(true);
         this.dispose();                    
     }//GEN-LAST:event_btnBackActionPerformed
+
+    private void txtNomorHpKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNomorHpKeyTyped
+        // TODO add your handling code here:
+        char karakter = evt.getKeyChar();
+        if(!(((karakter >= '0') && (karakter <= '9') || (karakter == KeyEvent.VK_BACK_SPACE) || (karakter == KeyEvent.VK_DELETE)))){
+            getToolkit().beep();
+            evt.consume();
+             JOptionPane.showMessageDialog(rootPane, "Harap Masukkan Angka");
+        }
+    }//GEN-LAST:event_txtNomorHpKeyTyped
 
     /**
      * @param args the command line arguments

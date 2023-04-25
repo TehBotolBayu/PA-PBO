@@ -5,9 +5,11 @@
  */
 package pa;
 
+import java.awt.event.KeyEvent;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import static pa.MenuKeuangan.kredit;
 import static pa.MenuKeuangan.kreditt;
 import javax.swing.table.DefaultTableModel;
@@ -382,6 +384,12 @@ public class pengeluaran extends javax.swing.JFrame {
             }
         });
 
+        txtJumlahKredit.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtJumlahKreditKeyTyped(evt);
+            }
+        });
+
         cmbJenisK.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Makanan", "Transportasi", "Pakaian", "Lainnya", " " }));
 
         javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
@@ -559,6 +567,11 @@ public class pengeluaran extends javax.swing.JFrame {
     }
     private void btnSimpanKActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSimpanKActionPerformed
         // TODO add your handling code here:
+         if (txtIDKredit.getText().isEmpty() || txtNamaKredit.getText().isEmpty() || txtJumlahKredit.getText().isEmpty() || txtCatatK.getText().isEmpty() || txtTanggalK.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Harap isi semua kolom.", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        
         MenuKeuangan menu = new MenuKeuangan();
         
         try {
@@ -580,6 +593,16 @@ public class pengeluaran extends javax.swing.JFrame {
         new menu_keuangan().setVisible(true);
         this.dispose();        // TODO add your handling code here:
     }//GEN-LAST:event_btnBackActionPerformed
+
+    private void txtJumlahKreditKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtJumlahKreditKeyTyped
+        // TODO add your handling code here
+        char karakter = evt.getKeyChar();
+        if(!(((karakter >= '0') && (karakter <= '9') || (karakter == KeyEvent.VK_BACK_SPACE) || (karakter == KeyEvent.VK_DELETE)))){
+            getToolkit().beep();
+            evt.consume();
+             JOptionPane.showMessageDialog(rootPane, "Harap Masukkan Angka");
+        }
+    }//GEN-LAST:event_txtJumlahKreditKeyTyped
 
     /**
      * @param args the command line arguments
