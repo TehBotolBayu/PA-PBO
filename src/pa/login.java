@@ -6,6 +6,7 @@ import javax.swing.JOptionPane;
 public class login extends javax.swing.JFrame {
     static ArrayList<UserPersonal> user = Main.user;
     static ArrayList<Admin> admin = Main.admin;
+    static ArrayList<Bisnis> bisnis = Main.bisnis;
     
     public login() {
         new MyDB();
@@ -204,6 +205,7 @@ public class login extends javax.swing.JFrame {
                 Main.idlogin = user.get(i).getId_user();
                 Main.namaLogin = user.get(i).getNama();
                 menu_user menuuser = new menu_user();
+                 Main.statusLogin = user.get(i).getStatus();
                 menuuser.setVisible(true);
                 this.dispose();                
             }
@@ -214,10 +216,23 @@ public class login extends javax.swing.JFrame {
                 kondisi =1;
                 Main.idlogin = admin.get(i).getId_user();
                 Main.namaLogin = admin.get(i).getNamaAdmin();
+                 Main.statusLogin = admin.get(i).getStatus();
                 new menu_admin().setVisible(true);
                 this.dispose();
             }
         }
+        
+        for(int i=0; i <  bisnis.size(); i++){
+            if (username.equals(bisnis.get(i).getUsername()) && pass.equals(bisnis.get(i).getPass())){
+                kondisi =1;
+                Main.idlogin = bisnis.get(i).getId_user();
+                Main.namaLogin = bisnis.get(i).getNamaBisnis();
+                Main.statusLogin = bisnis.get(i).getStatus();
+                new menu_bisnis().setVisible(true);
+                this.dispose();
+            }
+        }
+
 
         if (kondisi==0){
             JOptionPane.showMessageDialog(this,"Password dan Username anda salah");

@@ -52,7 +52,7 @@ public class menu_akun extends javax.swing.JFrame {
         label2 = new java.awt.Label();
         jLabel2 = new javax.swing.JLabel();
         LabelNama = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
+        txtDataLogin = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         txtStatus = new javax.swing.JTextField();
@@ -195,9 +195,9 @@ public class menu_akun extends javax.swing.JFrame {
         LabelNama.setForeground(new java.awt.Color(255, 255, 255));
         LabelNama.setText("NAMA USER");
 
-        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel4.setText("USER");
+        txtDataLogin.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        txtDataLogin.setForeground(new java.awt.Color(255, 255, 255));
+        txtDataLogin.setText("USER");
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
@@ -220,7 +220,7 @@ public class menu_akun extends javax.swing.JFrame {
                     .addComponent(label2, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2)
                     .addComponent(LabelNama)
-                    .addComponent(jLabel4))
+                    .addComponent(txtDataLogin))
                 .addContainerGap(32, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -235,7 +235,7 @@ public class menu_akun extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(label2, javax.swing.GroupLayout.PREFERRED_SIZE, 4, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(2, 2, 2)
-                        .addComponent(jLabel4))
+                        .addComponent(txtDataLogin))
                     .addComponent(label1, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel5)
@@ -382,7 +382,15 @@ public class menu_akun extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void BackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackActionPerformed
-//     new menu_user().setVisible(true);
+      if(Main.statusLogin.equals("User")){
+           new menu_user().setVisible(true);
+       }
+       else if (Main.statusLogin.equals("Admin")){
+           new menu_admin().setVisible(true);
+       }
+        else if (Main.statusLogin.equals("Bisnis")){
+           new menu_bisnis().setVisible(true);
+       }
        this.dispose();
     }//GEN-LAST:event_BackActionPerformed
 
@@ -434,7 +442,6 @@ public class menu_akun extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
@@ -450,6 +457,7 @@ public class menu_akun extends javax.swing.JFrame {
     private java.awt.Label label2;
     public static javax.swing.JTextField txtAlamat;
     public static javax.swing.JTextField txtAlamat1;
+    public static javax.swing.JLabel txtDataLogin;
     public static javax.swing.JTextField txtID;
     public static javax.swing.JTextField txtID1;
     public static javax.swing.JTextField txtNama;

@@ -199,7 +199,7 @@
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="USER"/>
+                <Property name="text" type="java.lang.String" value="USER BISNIS"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel5">
@@ -210,7 +210,7 @@
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="PEMASUKKAN"/>
+                <Property name="text" type="java.lang.String" value="DEBIT"/>
               </Properties>
             </Component>
           </SubComponents>
@@ -442,6 +442,10 @@
               </AuxValues>
             </Component>
             <Component class="javax.swing.JTextField" name="txtJumlahDebit">
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtJumlahDebitActionPerformed"/>
+                <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtJumlahDebitKeyTyped"/>
+              </Events>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
               </AuxValues>
@@ -449,11 +453,10 @@
             <Component class="javax.swing.JComboBox" name="cmbJenis">
               <Properties>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                  <StringArray count="4">
-                    <StringItem index="0" value="Bulanan"/>
-                    <StringItem index="1" value="Gaji"/>
-                    <StringItem index="2" value="Tabungan"/>
-                    <StringItem index="3" value="Lainnya"/>
+                  <StringArray count="3">
+                    <StringItem index="0" value="Modal Awal"/>
+                    <StringItem index="1" value="Laba Produksi"/>
+                    <StringItem index="2" value="Lainnya"/>
                   </StringArray>
                 </Property>
               </Properties>
@@ -484,7 +487,7 @@
                     <Column editable="false" title="Nama" type="java.lang.Object"/>
                     <Column editable="false" title="Jenis" type="java.lang.Object"/>
                     <Column editable="false" title="Jumlah" type="java.lang.Object"/>
-                    <Column editable="true" title="Catatan" type="java.lang.Object"/>
+                    <Column editable="false" title="Catatan" type="java.lang.Object"/>
                     <Column editable="false" title="Tanggal" type="java.lang.Object"/>
                   </Table>
                 </Property>
@@ -543,7 +546,7 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="66" green="0" red="0" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="TOTAL PEMASUKKAN"/>
+            <Property name="text" type="java.lang.String" value="TOTAL DEBIT"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="txtTotalDebit">

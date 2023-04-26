@@ -147,6 +147,9 @@
           </AuxValues>
         </Component>
         <Component class="javax.swing.JTextField" name="txtJumlahDebit">
+          <Events>
+            <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtJumlahDebitKeyTyped"/>
+          </Events>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
           </AuxValues>
@@ -154,11 +157,12 @@
         <Component class="javax.swing.JComboBox" name="cmbJenis">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="4">
-                <StringItem index="0" value="Makanan"/>
-                <StringItem index="1" value="Transportasi"/>
-                <StringItem index="2" value="Pakaian"/>
-                <StringItem index="3" value="Lainnya"/>
+              <StringArray count="5">
+                <StringItem index="0" value="Kredit Konsumsi"/>
+                <StringItem index="1" value="Kredit Usaha"/>
+                <StringItem index="2" value="Kredit Produksi"/>
+                <StringItem index="3" value="Kredit Konsumtif"/>
+                <StringItem index="4" value="Lainnya"/>
               </StringArray>
             </Property>
           </Properties>

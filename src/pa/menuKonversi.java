@@ -143,6 +143,15 @@ public class menuKonversi extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
+        int Jumlah = Integer.parseInt(tnominal.getText());
+        
+        if (Jumlah<=1){
+            JOptionPane.showMessageDialog(rootPane, "Nominal tidak boleh kurang dari Rp.1");
+        }
+        else{
+            
+        
+
         // TODO add your handling code here:
         if(!Main.isNumeric(tnominal.getText())){
             JOptionPane.showMessageDialog(rootPane, "Masukkan nominal dalam format angka!");
@@ -165,6 +174,7 @@ public class menuKonversi extends javax.swing.JFrame {
         //String nilai = Double.toString(formattedValue);
         System.out.println(nilai);
         hasil.setText(tujuankurs+" "+nilai);
+        }
     }//GEN-LAST:event_jToggleButton1ActionPerformed
 
     /**

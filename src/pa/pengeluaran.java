@@ -5,9 +5,11 @@
  */
 package pa;
 
+import java.awt.event.KeyEvent;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import static pa.MenuKeuangan.kredit;
 import static pa.MenuKeuangan.kreditt;
 import javax.swing.table.DefaultTableModel;
@@ -248,11 +250,11 @@ public class pengeluaran extends javax.swing.JFrame {
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel4.setText("USER");
+        jLabel4.setText("USER BISNiS");
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel5.setText("PENGELUARAN");
+        jLabel5.setText("KREDIT");
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
@@ -382,7 +384,13 @@ public class pengeluaran extends javax.swing.JFrame {
             }
         });
 
-        cmbJenisK.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Makanan", "Transportasi", "Pakaian", "Lainnya", " " }));
+        txtJumlahKredit.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtJumlahKreditKeyTyped(evt);
+            }
+        });
+
+        cmbJenisK.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Kredit Konsumsi", "Kredit Usaha", "Kredit Produksi", "Kredit Konsumtif", "Lainnya", " " }));
 
         javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
         jPanel9.setLayout(jPanel9Layout);
@@ -442,7 +450,7 @@ public class pengeluaran extends javax.swing.JFrame {
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, true, false
+                false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -458,7 +466,7 @@ public class pengeluaran extends javax.swing.JFrame {
 
         jLabel20.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel20.setForeground(new java.awt.Color(0, 0, 102));
-        jLabel20.setText("TOTAL PENGELUARAN");
+        jLabel20.setText("TOTAL KREDIT");
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -541,14 +549,12 @@ public class pengeluaran extends javax.swing.JFrame {
                 //                    EditKredit.cmbJenis.getSelectedItem() = debit.get(z).getJenis();
                 String jenis = kredit.get(z).getJenis();
           
+                if("Kredit Konsumsi".equals(jenis)){ EditKredit.cmbJenis.setSelectedItem(EditKredit.cmbJenis.getItemAt(0)); }
+                else if("Kredit Usaha".equals(jenis)) { EditKredit.cmbJenis.setSelectedItem(EditKredit.cmbJenis.getItemAt(1)); }
+                else if("Kredit Produksi".equals(jenis)) { EditKredit.cmbJenis.setSelectedItem(EditKredit.cmbJenis.getItemAt(2)); }
+                else if("Kredit Konsumtif".equals(jenis)) { EditKredit.cmbJenis.setSelectedItem(EditKredit.cmbJenis.getItemAt(3)); }
+                else if("Lainnya".equals(jenis)) { EditKredit.cmbJenis.setSelectedItem(EditKredit.cmbJenis.getItemAt(4)); }
 
-
-
-          
-        if("Makanan".equals(jenis)){ EditKredit.cmbJenis.setSelectedItem(EditKredit.cmbJenis.getItemAt(0)); }
-        else if("Transportasi".equals(jenis)) { EditKredit.cmbJenis.setSelectedItem(EditKredit.cmbJenis.getItemAt(1)); }
-        else if("Pakaian".equals(jenis)) { EditKredit.cmbJenis.setSelectedItem(EditKredit.cmbJenis.getItemAt(2)); }
-        else if("Lainnya".equals(jenis)) { EditKredit.cmbJenis.setSelectedItem(EditKredit.cmbJenis.getItemAt(3)); }
                 
                 EditKredit.txtJumlahDebit.setText(Integer.toString(kredit.get(z).getJumlah()));
                 EditKredit.txtCatat.setText(kredit.get(z).getCatatan());
@@ -569,20 +575,27 @@ public class pengeluaran extends javax.swing.JFrame {
        
     }
     private void btnSimpanKActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSimpanKActionPerformed
-        // TODO add your handling code here:
+        int Jumlah = Integer.parseInt(txtJumlahKredit.getText());
+        
+        if (Jumlah<=1){
+            JOptionPane.showMessageDialog(rootPane, "Kredit tidak boleh kurang dari 1");
+        }
+        else{
+// TODO add your handling code here:
         MenuKeuangan menu = new MenuKeuangan();
         
-        try {
-            menu.tambah(kreditt);
-        } catch (Exception ex) {
-            Logger.getLogger(pengeluaran.class.getName()).log(Level.SEVERE, null, ex);
-        }
-       
-        
-        try {
-            menu.lihat(kreditt);
-        } catch (Exception ex) {
-            Logger.getLogger(pemasukan.class.getName()).log(Level.SEVERE, null, ex);
+            try {
+                menu.tambah(kreditt);
+            } catch (Exception ex) {
+                Logger.getLogger(pengeluaran.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
+
+            try {
+                menu.lihat(kreditt);
+            } catch (Exception ex) {
+                Logger.getLogger(pemasukan.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
         clear();
     }//GEN-LAST:event_btnSimpanKActionPerformed
@@ -591,6 +604,16 @@ public class pengeluaran extends javax.swing.JFrame {
         new menu_keuangan().setVisible(true);
         this.dispose();        // TODO add your handling code here:
     }//GEN-LAST:event_btnBackActionPerformed
+
+    private void txtJumlahKreditKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtJumlahKreditKeyTyped
+ char karakter = evt.getKeyChar();
+        if(!(((karakter >= '0') && (karakter <= '9') || (karakter == KeyEvent.VK_BACK_SPACE) || (karakter == KeyEvent.VK_DELETE)))){
+            getToolkit().beep();
+            evt.consume();
+             JOptionPane.showMessageDialog(rootPane, "Harap Masukin Angka");
+        }
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtJumlahKreditKeyTyped
 
     /**
      * @param args the command line arguments

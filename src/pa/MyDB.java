@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import static pa.Main.admin;
+import static pa.Main.bisnis;
 import static pa.Main.user;
 import static pa.MenuKeuangan.debit;
 import static pa.MenuKeuangan.kredit;
@@ -126,6 +127,18 @@ public class MyDB {
                     String pass = rs.getString("pass");
                     Admin adminn = new Admin(alamat, username,  pass,  id,  nomorhp,  nama, status);
                     admin.add(adminn);
+
+                }
+                else if (rs.getString("status").equals("Bisnis")){
+                    String id = rs.getString("id_user");
+                    String nama = rs.getString("nama");
+                    String alamat = rs.getString("alamat");
+                    String nomorhp = rs.getString("nomorHp");
+                    String status = rs.getString("status");
+                    String username = rs.getString("username");
+                    String pass = rs.getString("pass");
+                    Bisnis bisniss = new Bisnis(nama,alamat, username, pass, id, nomorhp, status);
+                    bisnis.add(bisniss);
 
                 }
             }

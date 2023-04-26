@@ -73,7 +73,7 @@ public class menu_utama extends javax.swing.JFrame {
 
         mkeluar.setBackground(new java.awt.Color(240, 240, 240));
         mkeluar.setForeground(new java.awt.Color(0, 0, 0));
-        mkeluar.setLabel("keluar");
+        mkeluar.setLabel("Keluar");
         mkeluar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 mkeluarActionPerformed(evt);

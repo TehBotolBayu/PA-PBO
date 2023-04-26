@@ -76,7 +76,15 @@ public class menu_transaksi extends javax.swing.JFrame {
             new String [] {
                 "nama", "jumlah", "kategori", "dompet", "catatan"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, true
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         tabelData.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tabelDataMouseClicked(evt);
@@ -90,9 +98,20 @@ public class menu_transaksi extends javax.swing.JFrame {
 
         jLabel3.setText("Jumlah");
 
+        tjumlah.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tjumlahActionPerformed(evt);
+            }
+        });
+
         jLabel4.setText("Kategori");
 
         ckategori.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Pengeluaran", "Pemasukan" }));
+        ckategori.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ckategoriActionPerformed(evt);
+            }
+        });
 
         tcatatan.setColumns(20);
         tcatatan.setRows(5);
@@ -124,6 +143,11 @@ public class menu_transaksi extends javax.swing.JFrame {
         jLabel6.setText("Dompet");
 
         cdompet.setModel(new javax.swing.DefaultComboBoxModel<>(arr));
+        cdompet.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cdompetActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -205,6 +229,12 @@ public class menu_transaksi extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        int Jumlah = Integer.parseInt(tjumlah.getText());
+        
+        if (Jumlah<=1){
+            JOptionPane.showMessageDialog(rootPane, "Jumlah tidak boleh kurang dari RP.1");
+        }
+        else{
         // TODO add your handling code here:
         if(!Main.isNumeric(tjumlah.getText())){
             JOptionPane.showMessageDialog(rootPane, "Masukkan jumlah dalam format angka!");
@@ -223,9 +253,16 @@ public class menu_transaksi extends javax.swing.JFrame {
         int jumlah = Integer.parseInt(tjumlah.getText());
         MyDB.addTransaksi(nama, catatan, jumlah, kategori, iddompet, iduser ,idmatauang);
         tampil();
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
     static int row;
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    int Jumlah = Integer.parseInt(tjumlah.getText());
+        
+        if (Jumlah<=1){
+            JOptionPane.showMessageDialog(rootPane, "Jumlah tidak boleh kurang dari RP.1");
+        }
+        else{
         // TODO add your handling code here:
         Transaksi t = Main.listtransaksi.get(row);
         String id = t.getId();
@@ -238,6 +275,7 @@ public class menu_transaksi extends javax.swing.JFrame {
         int jumlah = Integer.parseInt(tjumlah.getText());
         MyDB.updateTransaksi(id, nama, catatan, jumlah, kategori, iddompet, iduser ,idmatauang);
         tampil();
+        }
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
@@ -263,6 +301,18 @@ public class menu_transaksi extends javax.swing.JFrame {
         // TODO add your handling code here:
         new menu_user().setVisible(true);
     }//GEN-LAST:event_formWindowClosed
+
+    private void ckategoriActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ckategoriActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ckategoriActionPerformed
+
+    private void cdompetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cdompetActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cdompetActionPerformed
+
+    private void tjumlahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tjumlahActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tjumlahActionPerformed
     
     public static String filterdompet(String id){
         for(Dompet x: Main.listdompet){

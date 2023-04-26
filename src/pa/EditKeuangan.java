@@ -6,6 +6,7 @@
 
 package pa;
 
+import java.awt.event.KeyEvent;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -59,7 +60,18 @@ public class EditKeuangan extends javax.swing.JDialog {
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
 
-        cmbJenis.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Bulanan", "Gaji", "Tabungan", "Lainnya" }));
+        txtJumlahDebit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtJumlahDebitActionPerformed(evt);
+            }
+        });
+        txtJumlahDebit.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtJumlahDebitKeyTyped(evt);
+            }
+        });
+
+        cmbJenis.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Modal Awal", "Laba Produksi", "Lainnya" }));
 
         btnEdit.setBackground(new java.awt.Color(153, 153, 255));
         btnEdit.setFont(new java.awt.Font("Dialog", 0, 11)); // NOI18N
@@ -263,45 +275,36 @@ public class EditKeuangan extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
-       if (txtKategori.getText().equals("Debit")){
+      
            new pemasukan().setVisible(true);
        
-       }
-       else{
-           new pengeluaran().setVisible(true);
-       }
+       
          this.dispose();
     }//GEN-LAST:event_btnBackActionPerformed
 
     private void btnEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditActionPerformed
-        if (txtKategori.getText().equals("Debit")){
-            try {
-                MenuKeuangan.update(debitt);
-            } catch (Exception ex) {
-                Logger.getLogger(EditKeuangan.class.getName()).log(Level.SEVERE, null, ex);
-            }
-            JOptionPane.showMessageDialog(this,"Anda berhasil mengubah pemasukkan anda");
-            new pemasukan().setVisible(true);
-            
-        }
-        else{
-            try {
-                MenuKeuangan.update(kreditt);
-            } catch (Exception ex) {
-                Logger.getLogger(EditKeuangan.class.getName()).log(Level.SEVERE, null, ex);
-            }
-            JOptionPane.showMessageDialog(this,"Anda berhasil mengubah pengeluaran anda");
-           new pengeluaran().setVisible(true);
-        }
-          
+                    int Jumlah = Integer.parseInt(txtJumlahDebit.getText());
         
+            if (Jumlah<=1){
+                JOptionPane.showMessageDialog(rootPane, "Debit tidak boleh kurang dari 1");
+            }
+            else{
+                try {
+                    MenuKeuangan.update(debitt);
+                } catch (Exception ex) {
+                    Logger.getLogger(EditKeuangan.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                JOptionPane.showMessageDialog(this,"Anda berhasil mengubah pemasukkan anda");
+                new pemasukan().setVisible(true);
 
+            }
+        
          this.dispose();
     }//GEN-LAST:event_btnEditActionPerformed
 
     private void btnHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHapusActionPerformed
         // TODO add your handling code here:
-        if (txtKategori.getText().equals("Debit")){
+        
             try {
                 MenuKeuangan.hapus(debitt);
                 JOptionPane.showMessageDialog(this,"Anda berhasil menghapus pemasukkan anda");
@@ -310,22 +313,26 @@ public class EditKeuangan extends javax.swing.JDialog {
                 Logger.getLogger(EditKeuangan.class.getName()).log(Level.SEVERE, null, ex);
             }
              new pemasukan().setVisible(true);
-        }
-        else{
-            try {
-                MenuKeuangan.hapus(kreditt);
-                JOptionPane.showMessageDialog(this,"Anda berhasil menghapus pengeluaran anda");
-
-            } catch (Exception ex) {
-                Logger.getLogger(EditKeuangan.class.getName()).log(Level.SEVERE, null, ex);
-            }
-             new pengeluaran().setVisible(true);
-        }
+       
         
        
 
          this.dispose();
     }//GEN-LAST:event_btnHapusActionPerformed
+
+    private void txtJumlahDebitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtJumlahDebitActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtJumlahDebitActionPerformed
+
+    private void txtJumlahDebitKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtJumlahDebitKeyTyped
+         char karakter = evt.getKeyChar();
+        if(!(((karakter >= '0') && (karakter <= '9') || (karakter == KeyEvent.VK_BACK_SPACE) || (karakter == KeyEvent.VK_DELETE)))){
+            getToolkit().beep();
+            evt.consume();
+             JOptionPane.showMessageDialog(rootPane, "Harap Masukin Angka");
+        }
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtJumlahDebitKeyTyped
 
     /**
      * @param args the command line arguments

@@ -414,6 +414,7 @@ public class menu_user extends javax.swing.JFrame {
         } catch (IOException ex) {
             Logger.getLogger(menu_user.class.getName()).log(Level.SEVERE, null, ex);
         }
+        this.dispose();
                     
     }//GEN-LAST:event_mlihatActionPerformed
 
@@ -450,6 +451,7 @@ public class menu_user extends javax.swing.JFrame {
 
         // TODO add your handling code here:
         new GoalGUI().setVisible(true);
+//        this.dispose();
         
         
     }//GEN-LAST:event_mgoalsActionPerformed
@@ -468,6 +470,7 @@ public class menu_user extends javax.swing.JFrame {
 
             }
         }
+        this.dispose();
     }//GEN-LAST:event_mubahActionPerformed
 
     private void mhapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mhapusActionPerformed
@@ -515,11 +518,17 @@ public class menu_user extends javax.swing.JFrame {
     }//GEN-LAST:event_mhapus2MouseExited
 
     private void mhapus2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mhapus2ActionPerformed
+        if (Main.listdompet.size()==0){
+            JOptionPane.showMessageDialog(rootPane, "Anda tidak memiliki dompett");
+        }
+        else{
+            menu_transaksi eg = new menu_transaksi();
+            eg.getContentPane().setBackground(new Color(148,198,231));
+            eg.setVisible(true);
+            this.dispose();
+        }
         // TODO add your handling code here:
-        menu_transaksi eg = new menu_transaksi();
-        eg.getContentPane().setBackground(new Color(148,198,231));
-        eg.setVisible(true);
-        this.dispose();
+       
     }//GEN-LAST:event_mhapus2ActionPerformed
 
     public static void main(String args[]) {

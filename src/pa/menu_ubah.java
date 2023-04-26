@@ -1,9 +1,13 @@
 package pa;
 
+import java.awt.event.KeyEvent;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import static pa.Main.bisnis;
+import static pa.Main.user;
+import static pa.menu_bisnis.bisniss;
 import static pa.menu_user.userr;
 
 /*
@@ -44,7 +48,7 @@ public class menu_ubah extends javax.swing.JFrame {
         label2 = new java.awt.Label();
         jLabel2 = new javax.swing.JLabel();
         LabelNama = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
+        txtDataLogin = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         txtAlamat = new javax.swing.JTextField();
@@ -87,9 +91,9 @@ public class menu_ubah extends javax.swing.JFrame {
         LabelNama.setForeground(new java.awt.Color(255, 255, 255));
         LabelNama.setText("NAMA USER");
 
-        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel4.setText("USER");
+        txtDataLogin.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        txtDataLogin.setForeground(new java.awt.Color(255, 255, 255));
+        txtDataLogin.setText("USER");
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
@@ -112,7 +116,7 @@ public class menu_ubah extends javax.swing.JFrame {
                     .addComponent(label2, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2)
                     .addComponent(LabelNama)
-                    .addComponent(jLabel4))
+                    .addComponent(txtDataLogin))
                 .addContainerGap(32, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -127,7 +131,7 @@ public class menu_ubah extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(label2, javax.swing.GroupLayout.PREFERRED_SIZE, 4, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(2, 2, 2)
-                        .addComponent(jLabel4))
+                        .addComponent(txtDataLogin))
                     .addComponent(label1, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel5)
@@ -189,6 +193,12 @@ public class menu_ubah extends javax.swing.JFrame {
                 .addComponent(jLabel8)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
+
+        txtNomorHp.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtNomorHpKeyTyped(evt);
+            }
+        });
 
         btnUbah.setBackground(new java.awt.Color(153, 153, 255));
         btnUbah.setFont(new java.awt.Font("Dialog", 0, 11)); // NOI18N
@@ -304,21 +314,73 @@ public class menu_ubah extends javax.swing.JFrame {
             this.dispose();
             return;
         }
-        try {
-            userr.UbahAkun();
-        } catch (IOException ex) {
-            Logger.getLogger(menu_user.class.getName()).log(Level.SEVERE, null, ex);
-        }        // TODO add your handling code here:
+        for(int i=0; i <  user.size(); i++){
+            if ("User".equals(user.get(i).getStatus())){
+                 try {
+                    userr.UbahAkun();
+                } catch (IOException ex) {
+                    Logger.getLogger(menu_user.class.getName()).log(Level.SEVERE, null, ex);
+                }  
+            }
+        }
+        
+        for(int i=0; i <  bisnis.size(); i++){
+            if ("Bisnis".equals(bisnis.get(i).getStatus())){
+                try {
+                    bisniss.UbahAkun();
+                } catch (IOException ex) {
+                    Logger.getLogger(menu_user.class.getName()).log(Level.SEVERE, null, ex);
+                }  
+                
+            }
+        }
+        
+             // TODO add your handling code here:
         
         JOptionPane.showMessageDialog(this,"Anda berhasil mengubah data pribadi anda");
         //new menu_user().setVisible(true);
-        this.dispose();
+      
+         if(Main.statusLogin.equals("User")){
+           new menu_user().setVisible(true);
+           this.dispose();    
+       }
+       else if (Main.statusLogin.equals("Admin")){
+           new menu_admin().setVisible(true);
+           this.dispose();    
+       }
+        else if (Main.statusLogin.equals("Bisnis")){
+           new menu_bisnis().setVisible(true);
+           this.dispose();    
+       }
     }//GEN-LAST:event_btnUbahActionPerformed
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
-       // new menu_user().setVisible(true);
-        this.dispose();                    
+       if(Main.statusLogin.equals("User")){
+           new menu_user().setVisible(true);
+           this.dispose();    
+       }
+       else if (Main.statusLogin.equals("Admin")){
+           new menu_admin().setVisible(true);
+           this.dispose();    
+       }
+        else if (Main.statusLogin.equals("Bisnis")){
+           new menu_bisnis().setVisible(true);
+           this.dispose();    
+       }
+        
+        
+                        
     }//GEN-LAST:event_btnBackActionPerformed
+
+    private void txtNomorHpKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNomorHpKeyTyped
+         char karakter = evt.getKeyChar();
+        if(!(((karakter >= '0') && (karakter <= '9') || (karakter == KeyEvent.VK_BACK_SPACE) || (karakter == KeyEvent.VK_DELETE)))){
+            getToolkit().beep();
+            evt.consume();
+             JOptionPane.showMessageDialog(rootPane, "Harap Masukin Angka");
+        }
+// TODO add your handling code here:
+    }//GEN-LAST:event_txtNomorHpKeyTyped
 
     /**
      * @param args the command line arguments
@@ -361,7 +423,6 @@ public class menu_ubah extends javax.swing.JFrame {
     private java.awt.Button btnUbah;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
@@ -374,6 +435,7 @@ public class menu_ubah extends javax.swing.JFrame {
     private java.awt.Label label1;
     private java.awt.Label label2;
     public static javax.swing.JTextField txtAlamat;
+    public static javax.swing.JLabel txtDataLogin;
     public static javax.swing.JTextField txtNama;
     public static javax.swing.JTextField txtNomorHp;
     public static javax.swing.JTextField txtUsername;

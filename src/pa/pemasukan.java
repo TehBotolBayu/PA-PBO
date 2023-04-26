@@ -5,9 +5,11 @@
  */
 package pa;
 
+import java.awt.event.KeyEvent;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import static pa.MenuKeuangan.debit;
 import static pa.MenuKeuangan.nomor1;
@@ -102,11 +104,11 @@ public class pemasukan extends javax.swing.JFrame {
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel4.setText("USER");
+        jLabel4.setText("USER BISNIS");
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel5.setText("PEMASUKKAN");
+        jLabel5.setText("DEBIT");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -236,7 +238,18 @@ public class pemasukan extends javax.swing.JFrame {
             }
         });
 
-        cmbJenis.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Bulanan", "Gaji", "Tabungan", "Lainnya" }));
+        txtJumlahDebit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtJumlahDebitActionPerformed(evt);
+            }
+        });
+        txtJumlahDebit.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtJumlahDebitKeyTyped(evt);
+            }
+        });
+
+        cmbJenis.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Modal Awal", "Laba Produksi", "Lainnya" }));
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -298,7 +311,7 @@ public class pemasukan extends javax.swing.JFrame {
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, true, false
+                false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -314,7 +327,7 @@ public class pemasukan extends javax.swing.JFrame {
 
         jLabel11.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(0, 0, 102));
-        jLabel11.setText("TOTAL PEMASUKKAN");
+        jLabel11.setText("TOTAL DEBIT");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -368,20 +381,29 @@ public class pemasukan extends javax.swing.JFrame {
        txtTanggal.setText("");
     }
     private void btnSimpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSimpanActionPerformed
-        // TODO add your handling code here:
-        MenuKeuangan menu = new MenuKeuangan();
-        try {
-            menu.tambah(debitt);
-        } catch (IOException ex) {
-            Logger.getLogger(pemasukan.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        int Jumlah = Integer.parseInt(txtJumlahDebit.getText());
         
-        try {
-            menu.lihat(debitt);
-        } catch (Exception ex) {
-            Logger.getLogger(pemasukan.class.getName()).log(Level.SEVERE, null, ex);
+        if (Jumlah<=1){
+            JOptionPane.showMessageDialog(rootPane, "Debit tidak boleh kurang dari 1");
+        }
+        else{
+            MenuKeuangan menu = new MenuKeuangan();
+            try {
+                menu.tambah(debitt);
+            } catch (IOException ex) {
+                Logger.getLogger(pemasukan.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
+            try {
+                menu.lihat(debitt);
+            } catch (Exception ex) {
+                Logger.getLogger(pemasukan.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
         }
         clear();
+        // TODO add your handling code here:
+        
     }//GEN-LAST:event_btnSimpanActionPerformed
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
@@ -401,10 +423,9 @@ public class pemasukan extends javax.swing.JFrame {
                     
                     String jenis = debit.get(z).getJenis();
                     
-        if("Bulanan".equals(jenis)){ EditKeuangan.cmbJenis.setSelectedItem(EditKeuangan.cmbJenis.getItemAt(0)); }
-        else if("Gaji".equals(jenis)) { EditKeuangan.cmbJenis.setSelectedItem(EditKeuangan.cmbJenis.getItemAt(1)); }
-        else if("Tabungan".equals(jenis)) { EditKeuangan.cmbJenis.setSelectedItem(EditKeuangan.cmbJenis.getItemAt(2)); }
-        else if("Lainnya".equals(jenis)) { EditKeuangan.cmbJenis.setSelectedItem(EditKeuangan.cmbJenis.getItemAt(3)); }
+                    if("Modal Awal".equals(jenis)){ EditKeuangan.cmbJenis.setSelectedItem(EditKeuangan.cmbJenis.getItemAt(0)); }
+                    else if("Laba Produksi".equals(jenis)) { EditKeuangan.cmbJenis.setSelectedItem(EditKeuangan.cmbJenis.getItemAt(1)); }
+                    else if("Lainnya".equals(jenis)) { EditKeuangan.cmbJenis.setSelectedItem(EditKeuangan.cmbJenis.getItemAt(2)); }
                     
                     
                     EditKeuangan.txtJumlahDebit.setText(Integer.toString(debit.get(z).getJumlah()));
@@ -416,6 +437,24 @@ public class pemasukan extends javax.swing.JFrame {
         
         this.setVisible(false);
     }//GEN-LAST:event_tabelDebitMouseClicked
+
+    private void txtJumlahDebitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtJumlahDebitActionPerformed
+                
+    }//GEN-LAST:event_txtJumlahDebitActionPerformed
+
+    private void txtJumlahDebitKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtJumlahDebitKeyTyped
+       
+        
+
+        
+        char karakter = evt.getKeyChar();
+        if(!(((karakter >= '0') && (karakter <= '9') || (karakter == KeyEvent.VK_BACK_SPACE) || (karakter == KeyEvent.VK_DELETE)))){
+            getToolkit().beep();
+            evt.consume();
+             JOptionPane.showMessageDialog(rootPane, "Harap Masukin Angka");
+        }
+        
+    }//GEN-LAST:event_txtJumlahDebitKeyTyped
 
     /**
      * @param args the command line arguments

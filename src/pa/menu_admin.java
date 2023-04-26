@@ -5,6 +5,7 @@ import java.awt.ComponentOrientation;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import static pa.menu_bisnis.bisniss;
 import static pa.menu_user.userr;
 
 
@@ -13,6 +14,8 @@ public class menu_admin extends javax.swing.JFrame {
     public menu_admin() {
         new MyDB();
         initComponents();
+        LabelNama.setText(Main.namaLogin.toUpperCase());
+
     }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -24,13 +27,13 @@ public class menu_admin extends javax.swing.JFrame {
         rregister5 = new java.awt.Button();
         label2 = new java.awt.Label();
         jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
+        LabelNama = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        mgoals = new java.awt.Button();
+        DataUserBisnis = new java.awt.Button();
         mlihat = new java.awt.Button();
         mkurs = new java.awt.Button();
-        mkeuangan = new java.awt.Button();
+        mgoals1 = new java.awt.Button();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -55,35 +58,35 @@ public class menu_admin extends javax.swing.JFrame {
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("Selamat datang");
+        jLabel2.setText("Selamat Datang");
 
-        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 19)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("nama admin");
+        LabelNama.setFont(new java.awt.Font("Tahoma", 1, 19)); // NOI18N
+        LabelNama.setForeground(new java.awt.Color(255, 255, 255));
+        LabelNama.setText("NAMA ADMIN");
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel4.setText("admin");
+        jLabel4.setText("ADMIN");
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel5.setText("menu utama");
+        jLabel5.setText("MENU UTAMA");
 
-        mgoals.setActionCommand("Data User");
-        mgoals.setBackground(new java.awt.Color(25, 55, 109));
-        mgoals.setFont(new java.awt.Font("Comic Sans MS", 1, 14)); // NOI18N
-        mgoals.setForeground(new java.awt.Color(255, 255, 255));
-        mgoals.setLabel("Data User");
-        mgoals.addActionListener(new java.awt.event.ActionListener() {
+        DataUserBisnis.setActionCommand("Data User");
+        DataUserBisnis.setBackground(new java.awt.Color(25, 55, 109));
+        DataUserBisnis.setFont(new java.awt.Font("Comic Sans MS", 1, 14)); // NOI18N
+        DataUserBisnis.setForeground(new java.awt.Color(255, 255, 255));
+        DataUserBisnis.setLabel("Data User Bisnis");
+        DataUserBisnis.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                mgoalsActionPerformed(evt);
+                DataUserBisnisActionPerformed(evt);
             }
         });
 
         mlihat.setBackground(new java.awt.Color(25, 55, 109));
         mlihat.setFont(new java.awt.Font("Comic Sans MS", 1, 14)); // NOI18N
         mlihat.setForeground(new java.awt.Color(255, 255, 255));
-        mlihat.setLabel("lihat akun");
+        mlihat.setLabel("LIHAT AKUN");
         mlihat.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 mlihatActionPerformed(evt);
@@ -101,21 +104,14 @@ public class menu_admin extends javax.swing.JFrame {
             }
         });
 
-        mkeuangan.setBackground(new java.awt.Color(25, 55, 109));
-        mkeuangan.setFont(new java.awt.Font("Comic Sans MS", 1, 14)); // NOI18N
-        mkeuangan.setForeground(new java.awt.Color(255, 255, 255));
-        mkeuangan.setLabel("PEMBUKUAN");
-        mkeuangan.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                mkeuanganMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                mkeuanganMouseExited(evt);
-            }
-        });
-        mkeuangan.addActionListener(new java.awt.event.ActionListener() {
+        mgoals1.setActionCommand("Data User");
+        mgoals1.setBackground(new java.awt.Color(25, 55, 109));
+        mgoals1.setFont(new java.awt.Font("Comic Sans MS", 1, 14)); // NOI18N
+        mgoals1.setForeground(new java.awt.Color(255, 255, 255));
+        mgoals1.setLabel("Data User");
+        mgoals1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                mkeuanganActionPerformed(evt);
+                mgoals1ActionPerformed(evt);
             }
         });
 
@@ -125,16 +121,16 @@ public class menu_admin extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(18, 18, 18)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                 .addComponent(label1, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(mkurs, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(mlihat, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(mgoals, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel5)))
+                                    .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(mgoals1, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(mlihat, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addGap(2, 2, 2)
                                 .addComponent(rregister5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -142,11 +138,9 @@ public class menu_admin extends javax.swing.JFrame {
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(label2, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel2)
-                            .addComponent(jLabel3)
+                            .addComponent(LabelNama)
                             .addComponent(jLabel4)))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(mkeuangan, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(90, 90, 90)))
+                    .addComponent(DataUserBisnis, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -157,7 +151,7 @@ public class menu_admin extends javax.swing.JFrame {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel3)
+                        .addComponent(LabelNama)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(label2, javax.swing.GroupLayout.PREFERRED_SIZE, 4, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(2, 2, 2)
@@ -165,15 +159,15 @@ public class menu_admin extends javax.swing.JFrame {
                     .addComponent(label1, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(25, 25, 25)
                 .addComponent(jLabel5)
-                .addGap(23, 23, 23)
-                .addComponent(mgoals, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(32, 32, 32)
+                .addComponent(mgoals1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(mlihat, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(mkurs, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(mkeuangan, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
-                .addGap(62, 62, 62)
+                .addComponent(DataUserBisnis, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 65, Short.MAX_VALUE)
                 .addComponent(rregister5, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(34, 34, 34))
         );
@@ -207,17 +201,10 @@ public class menu_admin extends javax.swing.JFrame {
 
     private void mlihatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mlihatActionPerformed
         MyDB.move(userr);
-        new menu_ubah().setVisible(true);
-        for (int i=0; i <  Main.admin.size(); i++){
-            if (Main.idlogin.equals(Main.admin.get(i).getId_user())){               
-                menu_ubah.txtNama.setText(Main.admin.get(i).getNamaAdmin());
-                menu_ubah.txtNomorHp.setText(Main.admin.get(i).getNomorhp());
-                menu_ubah.txtAlamat.setText(Main.admin.get(i).getAlamat());
-                menu_ubah.txtUsername.setText(Main.admin.get(i).getUsername());
-                menu_ubah.txtpass.setText(Main.admin.get(i).getPass());
-
-            }
-        }
+        new menu_akun().setVisible(true);
+        menu_akun.txtDataLogin.setText("Admin".toUpperCase());
+        Admin.LihatAkun();
+        this.dispose();
         
     }//GEN-LAST:event_mlihatActionPerformed
 
@@ -226,31 +213,24 @@ public class menu_admin extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_mkursActionPerformed
 
-    private void mgoalsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mgoalsActionPerformed
+    private void DataUserBisnisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DataUserBisnisActionPerformed
         // TODO add your handling code here:
-        new daftar_user().setVisible(true);
-    }//GEN-LAST:event_mgoalsActionPerformed
+        new data_user().setVisible(true);
+        data_user.tampil(bisniss);
+        this.dispose();
+    }//GEN-LAST:event_DataUserBisnisActionPerformed
 
     private void rregister5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rregister5ActionPerformed
         // TODO add your handling code here:
         new menu_utama().setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_rregister5ActionPerformed
 
-    private void mkeuanganMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mkeuanganMouseEntered
-//        jabout.setText("merupakan menu yang akan akan berisi fitur fitur untuk memanajement keuangan");
-        jabout.setComponentOrientation(ComponentOrientation.LEFT_TO_RIGHT);mkeuangan.setBackground(Color.WHITE);
-    }//GEN-LAST:event_mkeuanganMouseEntered
-
-    private void mkeuanganMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mkeuanganMouseExited
-        // TODO add your handling code here:
-        mkeuangan.setBackground(new Color(25,55,109));
-    }//GEN-LAST:event_mkeuanganMouseExited
-
-    private void mkeuanganActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mkeuanganActionPerformed
-        // TODO add your handling code here:
-        new menu_keuangan().setVisible(true);
+    private void mgoals1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mgoals1ActionPerformed
+       new data_user().setVisible(true);
+        data_user.tampil(userr);
         this.dispose();
-    }//GEN-LAST:event_mkeuanganActionPerformed
+    }//GEN-LAST:event_mgoals1ActionPerformed
 
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -261,16 +241,16 @@ public class menu_admin extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private java.awt.Button DataUserBisnis;
+    private static javax.swing.JLabel LabelNama;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private java.awt.Label label1;
     private java.awt.Label label2;
-    private java.awt.Button mgoals;
-    private java.awt.Button mkeuangan;
+    private java.awt.Button mgoals1;
     private java.awt.Button mkurs;
     private java.awt.Button mlihat;
     private java.awt.Button rregister5;

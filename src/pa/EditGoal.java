@@ -5,6 +5,7 @@
 package pa;
 
 import java.awt.Color;
+import java.awt.event.KeyEvent;
 import java.awt.event.WindowEvent;
 import javax.swing.JOptionPane;
 import pa.UserPersonal;
@@ -62,6 +63,11 @@ public class EditGoal extends javax.swing.JFrame {
         target.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 targetActionPerformed(evt);
+            }
+        });
+        target.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                targetKeyTyped(evt);
             }
         });
 
@@ -190,13 +196,20 @@ public class EditGoal extends javax.swing.JFrame {
     }//GEN-LAST:event_tabungActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        int Jumlah = Integer.parseInt(target.getText());
+        int Jumlah1 = Integer.parseInt(tabung.getText());
+
         
+        if (Jumlah<=1 || Jumlah1 <=1){
+            JOptionPane.showMessageDialog(rootPane, "Target atau tabungan tidak boleh kurang dari 1");
+        }
+        else{
         if(!Main.isNumeric(target.getText())){
             JOptionPane.showMessageDialog(rootPane, "Masukkan target dalam format angka!");
             return;
         }
         if(!Main.isNumeric(tabung.getText())){
-            JOptionPane.showMessageDialog(rootPane, "Masukkan target dalam format angka!");
+            JOptionPane.showMessageDialog(rootPane, "Masukkan tabungan dalam format angka!");
             return;
         }
         if(nama.getText().equals("")){
@@ -208,6 +221,7 @@ public class EditGoal extends javax.swing.JFrame {
         now += Integer.parseInt(tabung.getText());
         GoalGUI.ListGoal.get(row).setSaldo(now);
         sisa.setText(Integer.toString(GoalGUI.ListGoal.get(row).getTarget() - now));
+        }
         
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton4ActionPerformed
@@ -217,7 +231,12 @@ public class EditGoal extends javax.swing.JFrame {
     }//GEN-LAST:event_targetActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
+        int Jumlah = Integer.parseInt(target.getText());
+        
+        if (Jumlah<=1){
+            JOptionPane.showMessageDialog(rootPane, "Target tidak boleh kurang dari RP.1");
+        }
+        else{        // TODO add your handling code here:
         String id = GoalGUI.ListGoal.get(row).getId();
         String mu = GoalGUI.ListGoal.get(row).getIdmatauang();
         int saldo = GoalGUI.ListGoal.get(row).getSaldo();
@@ -225,7 +244,14 @@ public class EditGoal extends javax.swing.JFrame {
         GoalGUI.ListGoal.set(row, g);
         GoalGUI.db.updateGoal(g);
         GoalGUI.tampil();
+        }
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void targetKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_targetKeyTyped
+ char karakter = evt.getKeyChar();
+        
+        // TODO add your handling code here:
+    }//GEN-LAST:event_targetKeyTyped
 
     /**
      * @param args the command line arguments

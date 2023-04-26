@@ -48,16 +48,21 @@ import static pa.MyDB.stmt;
     
      public static void no_urut(){
         nomor=0;
-        
+//        System.out.println(user.size());
         for (int i=0; i <  user.size(); i++){
-            if ("User".equals(user.get(i).getStatus())){
+            if (i == user.size()-1){
+//                System.out.println(i);
                 String id = user.get(i).getId_user();
-                nomor = Integer.parseInt(id.substring(1))+1;
-            }   
+//                System.out.println(id);
+
+                nomor = Integer.parseInt(id.substring(1));
+//                System.out.println(nomor);
+
+            }
+            
+               
         }
-        if (user.size()==0){
-            nomor=1;
-        }
+        
     }
     
     @Override
@@ -69,13 +74,13 @@ import static pa.MyDB.stmt;
                 if (Main.listtransaksi.size()>0){
                     for (int z=0; z <  Main.listtransaksi.size(); z++){
                         if (Main.idlogin.equals(Main.listtransaksi.get(z).getIduser())){
-//                           String sql = String.format("DELETE FROM tbtransaksi INNER JOIN tbakun ON tbtransaksi.iduser=tbakun.id_user;    WHERE id_user='%s'", id);
-//                        try {
-//                            stmt.execute(sql);
-//                        } catch (SQLException ex) {
-//                            Logger.getLogger(MyDB.class.getName()).log(Level.SEVERE, null, ex);
-//                        }
-//                             Main.listtransaksi.remove(z);
+                           String sql = String.format("DELETE FROM tbtransaksi INNER JOIN tbakun ON tbtransaksi.iduser=tbakun.id_user;    WHERE id_user='%s'", id);
+                        try {
+                            stmt.execute(sql);
+                        } catch (SQLException ex) {
+                            Logger.getLogger(MyDB.class.getName()).log(Level.SEVERE, null, ex);
+                        }
+                             Main.listtransaksi.remove(z);
                         }
                     }
                 }
@@ -102,11 +107,7 @@ import static pa.MyDB.stmt;
             }
         }
     }
-    @Override
-    public void KonversiMataUang() throws IOException{
-        // TODO Auto-generated method stub
-        
-    }
+   
     @Override
     public void LihatAkun() throws IOException{
         for (int i=0; i <  user.size(); i++){
@@ -121,11 +122,7 @@ import static pa.MyDB.stmt;
             }
         }
     }
-    @Override
-    public void ManajemenKeuangan() throws Exception {
-//        MenuKeuangan.Manajemen();
-        
-    }
+   
     @Override
     public void UbahAkun() throws IOException{
         for (int i=0; i <  user.size(); i++){
@@ -145,7 +142,7 @@ import static pa.MyDB.stmt;
     
     @Override
     public void register() throws IOException{
-        nomor +=1;
+       nomor+=1;
         String id = "U"+ nomor;
         String addnama = register.rnama.getText();
         String addNomorhp = register.rnohp.getText();
@@ -158,54 +155,12 @@ import static pa.MyDB.stmt;
         
     }
 
-    public void Menu() throws Exception{
-        while(true){
-            System.out.println(" ");
-            System.out.println("    Selamat Datang di Menu User ");
-            System.out.println("=====================================");
-            System.out.println("1. Lihat Akun");
-            System.out.println("2. Manajemen Keuanganr");
-            System.out.println("3. Catat Goals Tabungan");
-            System.out.println("4. Konversi Mata Uang");
-            System.out.println("5. Ubah Akun");
-            System.out.println("6. Hapus Akun");
-            System.out.println("7. Logout");
-            System.out.println("=====================================");
-            System.out.print("Masukkan pilihan anda: ");
-            int pilihan = Integer.parseInt(br.readLine());
-            switch(pilihan){
-                case 1:
-                    LihatAkun();
-                    break;
-                case 2:
-                    ManajemenKeuangan();
-                    break;
-                case 3:
-                    gg.tampil();
-                    gg.setVisible(true);
-                    break;
-                case 4:
-                    KonversiMataUang();
-                    break;
-                case 5:
-                    UbahAkun();
-                    break;
-                case 6:
-                    HapusAkun();
-                    break;
-                case 7:
-                    Main.main(null);
-                    break;
-                default:
-                    System.out.println("Pilihan tidak ada");
-                    break;
-            }
-        }
-    }
+    
+ }
 
     
 
     
     
     
-}
+

@@ -25,8 +25,9 @@ public class Main{
     static ArrayList<Admin> admin = new ArrayList<Admin>();
     static ArrayList<Dompet> listdompet = new ArrayList<Dompet>();
     static ArrayList<Transaksi> listtransaksi = new ArrayList<Transaksi>();
+    static ArrayList<Bisnis> bisnis = new ArrayList<Bisnis>();
     static Dompet dpt = new Dompet(null, null, null, null, 0, null);
-    static String idlogin ,namaLogin;
+    static String idlogin ,namaLogin,statusLogin;
     static UserPersonal user1 = new UserPersonal();
     static MyDB db = new MyDB();
 
@@ -37,7 +38,7 @@ public class Main{
         MyDB.move(kreditt);
         MyDB.move(user1);
         MyDB.move(dpt);
-       no_urut();
+        no_urut();
 
         new menu_utama().setVisible(true);        
     }

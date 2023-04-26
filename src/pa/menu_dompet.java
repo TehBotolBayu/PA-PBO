@@ -172,7 +172,12 @@ public class menu_dompet extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+        int Jumlah = Integer.parseInt(tsaldo.getText());
+        
+        if (Jumlah<=1){
+            JOptionPane.showMessageDialog(rootPane, "Saldo tidak boleh kurang dari RP.1");
+        }
+        else{
         
         if(!Main.isNumeric(tsaldo.getText())){
             JOptionPane.showMessageDialog(rootPane, "Masukkan saldo dalam format angka!");
@@ -189,6 +194,7 @@ public class menu_dompet extends javax.swing.JFrame {
         String iduser = Main.idlogin;
         MyDB.insertDompet( nama,  kategori,  idmatauang,  saldo,  iduser);
         tampil();
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
     static int row; 
     
@@ -222,7 +228,12 @@ public class menu_dompet extends javax.swing.JFrame {
     }//GEN-LAST:event_formWindowClosed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
+int Jumlah = Integer.parseInt(tsaldo.getText());
+        
+        if (Jumlah<=1){
+            JOptionPane.showMessageDialog(rootPane, "Saldo tidak boleh kurang dari RP.1");
+        }
+        else{        // TODO add your handling code here:
         String nama, jenis, idmatauang, iduser, id;
         nama = tnama.getText();
         jenis = ckategori.getSelectedItem().toString();
@@ -232,6 +243,7 @@ public class menu_dompet extends javax.swing.JFrame {
         id = Main.listdompet.get(row).getId();
         MyDB.updateDompet(nama, jenis, idmatauang, saldo, iduser, id);
         tampil();
+        }
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed

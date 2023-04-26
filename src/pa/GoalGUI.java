@@ -261,6 +261,13 @@ public class GoalGUI extends javax.swing.JFrame {
     }
     
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        int Jumlah = Integer.parseInt(jTextField3.getText());
+        
+        if (Jumlah<=1){
+            JOptionPane.showMessageDialog(rootPane, "Target tidak boleh kurang dari RP.1");
+        }
+        else{
+
         // TODO add your handling code here:
         //JOptionPane.showMessageDialog(rootPane, "tes");
         if(!Main.isNumeric(jTextField3.getText())){
@@ -284,6 +291,7 @@ public class GoalGUI extends javax.swing.JFrame {
         //ListGoal.add(gl);
         //String catatan, int target, String id, String nama, String jenis, String idmatauang, int saldo
         tampil();
+        }
 //        for(Goal g: ListGoal){
 //            JOptionPane.showMessageDialog(rootPane, g.getNama());
 //        }
