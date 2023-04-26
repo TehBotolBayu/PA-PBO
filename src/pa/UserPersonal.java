@@ -70,11 +70,10 @@ import static pa.MyDB.stmt;
         for (int i=0; i <  user.size(); i++){
             if (Main.idlogin.equals(user.get(i).getId_user())){
                 user.remove(i);
-                
                 if (Main.listtransaksi.size()>0){
                     for (int z=0; z <  Main.listtransaksi.size(); z++){
                         if (Main.idlogin.equals(Main.listtransaksi.get(z).getIduser())){
-                           String sql = String.format("DELETE FROM tbtransaksi INNER JOIN tbakun ON tbtransaksi.iduser=tbakun.id_user;    WHERE id_user='%s'", id);
+                           String sql = String.format("DELETE tbtransaksi FROM tbtransaksi JOIN tbakun ON tbakun.id_user = tbtransaksi.iduser WHERE tbtransaksi.iduser='%s';", Main.idlogin);
                         try {
                             stmt.execute(sql);
                         } catch (SQLException ex) {
@@ -87,24 +86,36 @@ import static pa.MyDB.stmt;
                 if (Main.listdompet.size()>0){
                      for (int z=0; z <  Main.listdompet.size(); z++){
                         if (Main.idlogin.equals(Main.listdompet.get(z).getId_user())){
-                            MyDB.deleteDompet(Main.listdompet.get(z).getId());
-//                            Main.listdompet.remove(z);
+                            String sql = String.format("DELETE tbdompet FROM tbdompet JOIN tbakun ON tbakun.id_user = tbdompet.iduser WHERE tbdompet.iduser='%s';", Main.idlogin);
+                        try {
+                            stmt.execute(sql);
+                        } catch (SQLException ex) {
+                            Logger.getLogger(MyDB.class.getName()).log(Level.SEVERE, null, ex);
+                        }
+                         Main.listdompet.remove(z);
                         }
                     }
                 }
                 
-//                if (GoalGUI.ListGoal.size()>0){
-//                     for (int z=0; z <  GoalGUI.ListGoal.size(); z++){
-//                        if (Main.idlogin.equals(GoalGUI.ListGoal.get(z).getId_user())){
-//                            MyDB.deleteGoal(GoalGUI.ListGoal.get(z).getId());
-//                            GoalGUI.ListGoal.remove(z);
-//                        }
-//                    }
-//                }
+                if (GoalGUI.ListGoal.size()>0){
+                     for (int z=0; z <  GoalGUI.ListGoal.size(); z++){
+                        if (Main.idlogin.equals(GoalGUI.ListGoal.get(z).getId_user())){
+                            if (Main.idlogin.equals(GoalGUI.ListGoal.get(z).getId_user())){
+                            String sql = String.format("DELETE tbgoal FROM tbgoal JOIN tbakun ON tbakun.id_user = tbgoal.iduser WHERE tbgoal.iduser='%s';", Main.idlogin);
+                        try {
+                            stmt.execute(sql);
+                        } catch (SQLException ex) {
+                            Logger.getLogger(MyDB.class.getName()).log(Level.SEVERE, null, ex);
+                        }
+                            GoalGUI.ListGoal.remove(z);
+                        }
+                    }
+                }
                 MyDB.hapusAkun(Main.idlogin);
                 
 
             }
+        }
         }
     }
    

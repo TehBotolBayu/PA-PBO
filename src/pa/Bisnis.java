@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import static pa.MenuKeuangan.debit;
+import static pa.MenuKeuangan.kredit;
 import static pa.MyDB.stmt;
 
 
@@ -130,24 +131,25 @@ public class Bisnis extends Aktor implements RoleBisnis{
                 if (debit.size()>0){
                     for (int z=0; z <  debit.size(); z++){
                         if (Main.idlogin.equals(debit.get(z).getID_user())){
-                           String sql = String.format("DELETE FROM tbkeuangan INNER JOIN tbakun ON tbakun.id_user = tbkeuangan.Id_user WHERE tbkeuangan.Id_user='%s'", Main.idlogin);
+                           
+                             debit.remove(z);
+                        }
+                    }
+                }
+                if (kredit.size()>0){
+                    for (int z=0; z <  kredit.size(); z++){
+                        if (Main.idlogin.equals(kredit.get(z).getID_user())){
+                           
+                             kredit.remove(z);
+                        }
+                    }
+                }
+                String sql = String.format("DELETE tbkeuangan FROM tbkeuangan JOIN tbakun ON tbakun.id_user = tbkeuangan.Id_user WHERE tbkeuangan.Id_user='%s';", Main.idlogin);
                         try {
                             stmt.execute(sql);
                         } catch (SQLException ex) {
                             Logger.getLogger(MyDB.class.getName()).log(Level.SEVERE, null, ex);
                         }
-                             debit.remove(z);
-                        }
-                    }
-                }
-//                if (Main.listdompet.size()>0){
-//                     for (int z=0; z <  Main.listdompet.size(); z++){
-//                        if (Main.idlogin.equals(Main.listdompet.get(z).getId_user())){
-//                            MyDB.deleteDompet(Main.listdompet.get(z).getId());
-////                            Main.listdompet.remove(z);
-//                        }
-//                    }
-//                }
                 MyDB.hapusAkun(Main.idlogin);
                 
 

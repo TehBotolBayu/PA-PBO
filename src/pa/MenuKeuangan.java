@@ -27,8 +27,6 @@ public class MenuKeuangan {
     
     
     public static void tambah(Debit debitt) throws IOException{
-            
-            
             String idDebit = pemasukan.txtIDDEBIT.getText();
             String addNama =  pemasukan.txtNamaDebit.getText();
             String addjenis =  (String) pemasukan.cmbJenis.getSelectedItem();
@@ -41,7 +39,6 @@ public class MenuKeuangan {
             nomor1 += 1;
             String idDebitt = Main.idlogin+"D"+nomor1;
             txtIDDEBIT.setText(idDebitt);
- 
             MyDB.insertKeuangan(idDebit, addNama, addjenis, addJumlah, addTanggal, addCatat, "Debit", Main.idlogin);
 
     }
@@ -333,7 +330,7 @@ public class MenuKeuangan {
     }
 
     public static void update(Kredit kreditt) throws Exception{
-         String idx = EditKeuangan.txtIDDEBIT.getText();
+         String idx = EditKredit.txtIDDEBIT.getText();
         for (int i=0; i <  kredit.size(); i++){
             if (kredit.get(i).getID().equals(idx) && Main.idlogin.equals(kredit.get(i).getID_user())){
                 String idDebit = EditKeuangan.txtIDDEBIT.getText();
