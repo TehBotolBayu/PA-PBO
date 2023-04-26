@@ -22,5 +22,5 @@ Final Project Object Oriented Programming
 |-----------------------|---------------------------------|
 | Bahasa Yang Digunakan | Java                            |
 | GUI Yang Digunakan    | Java GUI                        |
-| Penjelasan            | Program Ini Merupakan Sistem Berbasis Java Yang Berfungsi Untuk Melakukan Manajemen Keuangan Seperti Menghitung Pemasukan dan Pengeluaran, Menabung dan, Konversi Mata Uang dan sebagainya|
+| Penjelasan            | Program Ini Merupakan Sistem Berbasis Java Yang Berfungsi Untuk Melakukan Manajemen Keuangan Seperti Menghitung Pemasukan dan Pengeluaran, Menabung, Konversi Mata Uang dan sebagainya|
 
