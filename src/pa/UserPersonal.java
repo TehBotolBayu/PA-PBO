@@ -3,7 +3,11 @@ package pa;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import static pa.MyDB.stmt;
 
 
  public class UserPersonal extends Aktor implements RoleUserPersonal {
@@ -61,25 +65,40 @@ import java.util.ArrayList;
         for (int i=0; i <  user.size(); i++){
             if (Main.idlogin.equals(user.get(i).getId_user())){
                 user.remove(i);
-                MyDB.hapusAkun(Main.idlogin);
-                if (debit.size()>0){
-                    for (int z=0; z <  debit.size(); i++){
-                        if (Main.idlogin.equals(debit.get(z).getID_user())){
-                            MyDB.hapusKeuangan(debit.get(z).getID());
-                             debit.remove(z);
+                
+                if (Main.listtransaksi.size()>0){
+                    for (int z=0; z <  Main.listtransaksi.size(); z++){
+                        if (Main.idlogin.equals(Main.listtransaksi.get(z).getIduser())){
+//                           String sql = String.format("DELETE FROM tbtransaksi INNER JOIN tbakun ON tbtransaksi.iduser=tbakun.id_user;    WHERE id_user='%s'", id);
+//                        try {
+//                            stmt.execute(sql);
+//                        } catch (SQLException ex) {
+//                            Logger.getLogger(MyDB.class.getName()).log(Level.SEVERE, null, ex);
+//                        }
+//                             Main.listtransaksi.remove(z);
                         }
                     }
                 }
-                if (kredit.size()>0){
-                     for (int z=0; z <  kredit.size(); i++){
-                        if (Main.idlogin.equals(kredit.get(z).getID_user())){
-                            MyDB.hapusKeuangan(kredit.get(z).getID());
-                            kredit.remove(z);
+                if (Main.listdompet.size()>0){
+                     for (int z=0; z <  Main.listdompet.size(); z++){
+                        if (Main.idlogin.equals(Main.listdompet.get(z).getId_user())){
+                            MyDB.deleteDompet(Main.listdompet.get(z).getId());
+//                            Main.listdompet.remove(z);
                         }
                     }
                 }
                 
-               
+//                if (GoalGUI.ListGoal.size()>0){
+//                     for (int z=0; z <  GoalGUI.ListGoal.size(); z++){
+//                        if (Main.idlogin.equals(GoalGUI.ListGoal.get(z).getId_user())){
+//                            MyDB.deleteGoal(GoalGUI.ListGoal.get(z).getId());
+//                            GoalGUI.ListGoal.remove(z);
+//                        }
+//                    }
+//                }
+                MyDB.hapusAkun(Main.idlogin);
+                
+
             }
         }
     }
