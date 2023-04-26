@@ -1,0 +1,42 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Project/Maven2/JavaApp/src/main/java/${packagePath}/${mainClassName}.java to edit this template
+ */
+package pa;
+
+/**
+ *
+ * @author acer
+ */
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+import static pa.MenuKeuangan.debitt;
+import static pa.MenuKeuangan.kreditt;
+import static pa.MyDB.conn;
+import static pa.MyDB.stmt;
+
+public class Main{
+    static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+    static ArrayList<UserPersonal> user = new ArrayList<UserPersonal>();
+    static ArrayList<Admin> admin = new ArrayList<Admin>();
+    static ArrayList<Dompet> listdompet = new ArrayList<Dompet>();
+    static ArrayList<Transaksi> listtransaksi = new ArrayList<Transaksi>();
+    static Dompet dpt = new Dompet(null, null, null, null, 0, null);
+    static String idlogin ,namaLogin;
+    static UserPersonal user1 = new UserPersonal();
+    static MyDB db = new MyDB();
+
+    public static void main(String[] args) throws Exception { 
+        Admin a = new Admin("", "admin", "123", "-1", "","admin", "admin");
+        admin.add(a);
+        MyDB.move(debitt);
+        MyDB.move(kreditt);
+        MyDB.move(user1);
+        MyDB.move(dpt);
+        new menu_utama().setVisible(true);        
+    }
+}
+

@@ -1,0 +1,527 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
+  <Properties>
+    <Property name="defaultCloseOperation" type="int" value="2"/>
+    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+      <Color blue="e8" green="d7" red="a6" type="rgb"/>
+    </Property>
+  </Properties>
+  <SyntheticProperties>
+    <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
+    <SyntheticProperty name="generateCenter" type="boolean" value="false"/>
+  </SyntheticProperties>
+  <AuxValues>
+    <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_generateFQN" type="java.lang.Boolean" value="true"/>
+    <AuxValue name="FormSettings_generateMnemonicsCode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_i18nAutoMode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_layoutCodeTarget" type="java.lang.Integer" value="1"/>
+    <AuxValue name="FormSettings_listenerGenerationStyle" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_variablesLocal" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_variablesModifier" type="java.lang.Integer" value="2"/>
+  </AuxValues>
+
+  <Layout>
+    <DimensionLayout dim="0">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" alignment="0" attributes="0">
+              <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+          </Group>
+      </Group>
+    </DimensionLayout>
+    <DimensionLayout dim="1">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Component id="jPanel1" alignment="0" max="32767" attributes="0"/>
+      </Group>
+    </DimensionLayout>
+  </Layout>
+  <SubComponents>
+    <Container class="javax.swing.JPanel" name="jPanel1">
+      <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="e8" green="d7" red="a6" type="rgb"/>
+        </Property>
+      </Properties>
+
+      <Layout>
+        <DimensionLayout dim="0">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="hasil" alignment="0" max="32767" attributes="0"/>
+                      <Group type="102" attributes="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" attributes="0">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="label3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="label2" min="-2" max="-2" attributes="0"/>
+                                      <Component id="label5" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                      <Component id="tujuan" max="32767" attributes="0"/>
+                                      <Component id="tnominal" max="32767" attributes="0"/>
+                                      <Component id="asal" max="32767" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <Component id="jToggleButton1" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="hasil1" alignment="0" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace pref="25" max="32767" attributes="0"/>
+                      </Group>
+                  </Group>
+              </Group>
+              <Group type="102" alignment="1" attributes="0">
+                  <EmptySpace max="32767" attributes="0"/>
+                  <Component id="label4" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="148" max="-2" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+        <DimensionLayout dim="1">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+                  <Component id="label4" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="tnominal" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="label3" alignment="0" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="label2" min="-2" max="-2" attributes="0"/>
+                      <Component id="asal" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="label5" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="tujuan" alignment="0" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Component id="jToggleButton1" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="hasil1" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="hasil" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace pref="21" max="32767" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+      </Layout>
+      <SubComponents>
+        <Component class="javax.swing.JComboBox" name="asal">
+          <Properties>
+            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+              <StringArray count="168">
+                <StringItem index="0" value="AED (United Arab Emirates Dirham)"/>
+                <StringItem index="1" value="AFN (Afghan Afghani)"/>
+                <StringItem index="2" value="ALL (Albanian Lek)"/>
+                <StringItem index="3" value="AMD (Armenian Dram)"/>
+                <StringItem index="4" value="ANG (Netherlands Antillean Guilder)"/>
+                <StringItem index="5" value="AOA (Angolan Kwanza)"/>
+                <StringItem index="6" value="ARS (Argentine Peso)"/>
+                <StringItem index="7" value="AUD (Australian Dollar)"/>
+                <StringItem index="8" value="AWG (Aruban Florin)"/>
+                <StringItem index="9" value="AZN (Azerbaijani Manat)"/>
+                <StringItem index="10" value="BAM (Bosnia-Herzegovina Convertible Mark)"/>
+                <StringItem index="11" value="BBD (Barbadian Dollar)"/>
+                <StringItem index="12" value="BDT (Bangladeshi Taka)"/>
+                <StringItem index="13" value="BGN (Bulgarian Lev)"/>
+                <StringItem index="14" value="BHD (Bahraini Dinar)"/>
+                <StringItem index="15" value="BIF (Burundian Franc)"/>
+                <StringItem index="16" value="BMD (Bermudan Dollar)"/>
+                <StringItem index="17" value="BND (Brunei Dollar)"/>
+                <StringItem index="18" value="BOB (Bolivian Boliviano)"/>
+                <StringItem index="19" value="BRL (Brazilian Real)"/>
+                <StringItem index="20" value="BSD (Bahamian Dollar)"/>
+                <StringItem index="21" value="BTC (Bitcoin)"/>
+                <StringItem index="22" value="BTN (Bhutanese Ngultrum)"/>
+                <StringItem index="23" value="BWP (Botswanan Pula)"/>
+                <StringItem index="24" value="BYN (Belarusian Ruble)"/>
+                <StringItem index="25" value="BYR (Belarusian Ruble)"/>
+                <StringItem index="26" value="BZD (Belize Dollar)"/>
+                <StringItem index="27" value="CAD (Canadian Dollar)"/>
+                <StringItem index="28" value="CDF (Congolese Franc)"/>
+                <StringItem index="29" value="CHF (Swiss Franc)"/>
+                <StringItem index="30" value="CLF (Chilean Unit of Account (UF))"/>
+                <StringItem index="31" value="CLP (Chilean Peso)"/>
+                <StringItem index="32" value="CNY (Chinese Yuan)"/>
+                <StringItem index="33" value="COP (Colombian Peso)"/>
+                <StringItem index="34" value="CRC (Costa Rican Col&#xf3;n)"/>
+                <StringItem index="35" value="CUC (Cuban Convertible Peso)"/>
+                <StringItem index="36" value="CUP (Cuban Peso)"/>
+                <StringItem index="37" value="CVE (Cape Verdean Escudo)"/>
+                <StringItem index="38" value="CZK (Czech Republic Koruna)"/>
+                <StringItem index="39" value="DJF (Djiboutian Franc)"/>
+                <StringItem index="40" value="DKK (Danish Krone)"/>
+                <StringItem index="41" value="DOP (Dominican Peso)"/>
+                <StringItem index="42" value="DZD (Algerian Dinar)"/>
+                <StringItem index="43" value="EGP (Egyptian Pound)"/>
+                <StringItem index="44" value="ERN (Eritrean Nakfa)"/>
+                <StringItem index="45" value="ETB (Ethiopian Birr)"/>
+                <StringItem index="46" value="EUR (Euro)"/>
+                <StringItem index="47" value="FJD (Fijian Dollar)"/>
+                <StringItem index="48" value="FKP (Falkland Islands Pound)"/>
+                <StringItem index="49" value="GBP (British Pound Sterling)"/>
+                <StringItem index="50" value="GEL (Georgian Lari)"/>
+                <StringItem index="51" value="GGP (Guernsey Pound)"/>
+                <StringItem index="52" value="GHS (Ghanaian Cedi)"/>
+                <StringItem index="53" value="GIP (Gibraltar Pound)"/>
+                <StringItem index="54" value="GMD (Gambian Dalasi)"/>
+                <StringItem index="55" value="GNF (Guinean Franc)"/>
+                <StringItem index="56" value="GTQ (Guatemalan Quetzal)"/>
+                <StringItem index="57" value="GYD (Guyanaese Dollar)"/>
+                <StringItem index="58" value="HKD (Hong Kong Dollar)"/>
+                <StringItem index="59" value="HNL (Honduran Lempira)"/>
+                <StringItem index="60" value="HRK (Croatian Kuna)"/>
+                <StringItem index="61" value="HTG (Haitian Gourde)"/>
+                <StringItem index="62" value="HUF (Hungarian Forint)"/>
+                <StringItem index="63" value="IDR (Indonesian Rupiah)"/>
+                <StringItem index="64" value="ILS (Israeli New Sheqel)"/>
+                <StringItem index="65" value="IMP (Manx pound)"/>
+                <StringItem index="66" value="INR (Indian Rupee)"/>
+                <StringItem index="67" value="IQD (Iraqi Dinar)"/>
+                <StringItem index="68" value="IRR (Iranian Rial)"/>
+                <StringItem index="69" value="ISK (Icelandic Kr&#xf3;na)"/>
+                <StringItem index="70" value="JEP (Jersey Pound)"/>
+                <StringItem index="71" value="JMD (Jamaican Dollar)"/>
+                <StringItem index="72" value="JOD (Jordanian Dinar)"/>
+                <StringItem index="73" value="JPY (Japanese Yen)"/>
+                <StringItem index="74" value="KES (Kenyan Shilling)"/>
+                <StringItem index="75" value="KGS (Kyrgystani Som)"/>
+                <StringItem index="76" value="KHR (Cambodian Riel)"/>
+                <StringItem index="77" value="KMF (Comorian Franc)"/>
+                <StringItem index="78" value="KPW (North Korean Won)"/>
+                <StringItem index="79" value="KRW (South Korean Won)"/>
+                <StringItem index="80" value="KWD (Kuwaiti Dinar)"/>
+                <StringItem index="81" value="KYD (Cayman Islands Dollar)"/>
+                <StringItem index="82" value="KZT (Kazakhstani Tenge)"/>
+                <StringItem index="83" value="LAK (Laotian Kip)"/>
+                <StringItem index="84" value="LBP (Lebanese Pound)"/>
+                <StringItem index="85" value="LKR (Sri Lankan Rupee)"/>
+                <StringItem index="86" value="LRD (Liberian Dollar)"/>
+                <StringItem index="87" value="LSL (Lesotho Loti)"/>
+                <StringItem index="88" value="LYD (Libyan Dinar)"/>
+                <StringItem index="89" value="MAD (Moroccan Dirham)"/>
+                <StringItem index="90" value="MDL (Moldovan Leu)"/>
+                <StringItem index="91" value="MGA (Malagasy Ariary)"/>
+                <StringItem index="92" value="MKD (Macedonian Denar)"/>
+                <StringItem index="93" value="MMK (Myanmar Kyat)"/>
+                <StringItem index="94" value="MNT (Mongolian Tugrik)"/>
+                <StringItem index="95" value="MOP (Macanese Pataca)"/>
+                <StringItem index="96" value="MRO (Mauritanian Ouguiya)"/>
+                <StringItem index="97" value="MUR (Mauritian Rupee)"/>
+                <StringItem index="98" value="MVR (Maldivian Rufiyaa)"/>
+                <StringItem index="99" value="MWK (Malawian Kwacha)"/>
+                <StringItem index="100" value="MXN (Mexican Peso)"/>
+                <StringItem index="101" value="MYR (Malaysian Ringgit)"/>
+                <StringItem index="102" value="MZN (Mozambican Metical)"/>
+                <StringItem index="103" value="NAD (Namibian Dollar)"/>
+                <StringItem index="104" value="NGN (Nigerian Naira)"/>
+                <StringItem index="105" value="NIO (Nicaraguan C&#xf3;rdoba)"/>
+                <StringItem index="106" value="NOK (Norwegian Krone)"/>
+                <StringItem index="107" value="NPR (Nepalese Rupee)"/>
+                <StringItem index="108" value="NZD (New Zealand Dollar)"/>
+                <StringItem index="109" value="OMR (Omani Rial)"/>
+                <StringItem index="110" value="PAB (Panamanian Balboa)"/>
+                <StringItem index="111" value="PEN (Peruvian Sol)"/>
+                <StringItem index="112" value="PGK (Papua New Guinean Kina)"/>
+                <StringItem index="113" value="PHP (Philippine Peso)"/>
+                <StringItem index="114" value="PKR (Pakistani Rupee)"/>
+                <StringItem index="115" value="PLN (Polish Zloty)"/>
+                <StringItem index="116" value="PYG (Paraguayan Guarani)"/>
+                <StringItem index="117" value="QAR (Qatari Riyal)"/>
+                <StringItem index="118" value="RON (Romanian Leu)"/>
+                <StringItem index="119" value="RSD (Serbian Dinar)"/>
+                <StringItem index="120" value="RUB (Russian Ruble)"/>
+                <StringItem index="121" value="RWF (Rwandan Franc)"/>
+                <StringItem index="122" value="SAR (Saudi Riyal)"/>
+                <StringItem index="123" value="SBD (Solomon Islands Dollar)"/>
+                <StringItem index="124" value="SCR (Seychellois Rupee)"/>
+                <StringItem index="125" value="SDG (Sudanese Pound)"/>
+                <StringItem index="126" value="SEK (Swedish Krona)"/>
+                <StringItem index="127" value="SGD (Singapore Dollar)"/>
+                <StringItem index="128" value="SHP (Saint Helena Pound)"/>
+                <StringItem index="129" value="SLL (Sierra Leonean Leone)"/>
+                <StringItem index="130" value="SOS (Somali Shilling)"/>
+                <StringItem index="131" value="SRD (Surinamese Dollar)"/>
+                <StringItem index="132" value="SSP (South Sudanese Pound)"/>
+                <StringItem index="133" value="STD (S&#xe3;o Tom&#xe9; and Pr&#xed;ncipe Dobra)"/>
+                <StringItem index="134" value="SVC (Salvadoran Col&#xf3;n)"/>
+                <StringItem index="135" value="SZL (Swazi Lilangeni)"/>
+                <StringItem index="136" value="THB (Thai Baht)"/>
+                <StringItem index="137" value="TJS (Tajikistani Somoni)"/>
+                <StringItem index="138" value="TMT (Turkmenistan Manat)"/>
+                <StringItem index="139" value="TND (Tunisian Dinar)"/>
+                <StringItem index="140" value="TOP (Tongan Pa&apos;anga)"/>
+                <StringItem index="141" value="TRY (Turkish Lira)"/>
+                <StringItem index="142" value="TTD (Trinidad and Tobago Dollar)"/>
+                <StringItem index="143" value="TWD (New Taiwan Dollar)"/>
+                <StringItem index="144" value="TZS (Tanzanian Shilling)"/>
+                <StringItem index="145" value="UAH (Ukrainian Hryvnia)"/>
+                <StringItem index="146" value="UGX (Ugandan Shilling)"/>
+                <StringItem index="147" value="USD (United States Dollar)"/>
+                <StringItem index="148" value="UYU (Uruguayan Peso)"/>
+                <StringItem index="149" value="UZS (Uzbekistani Som)"/>
+                <StringItem index="150" value="VES (Venezuelan Bol&#xed;var Soberano)"/>
+                <StringItem index="151" value="VND (Vietnamese Dong)"/>
+                <StringItem index="152" value="VUV (Vanuatu Vatu)"/>
+                <StringItem index="153" value="WST (Samoan Tala)"/>
+                <StringItem index="154" value="XAF (Central African CFA Franc)"/>
+                <StringItem index="155" value="XAG (Silver Ounce)"/>
+                <StringItem index="156" value="XAU (Gold Ounce)"/>
+                <StringItem index="157" value="XCD (East Caribbean Dollar)"/>
+                <StringItem index="158" value="XDR (Special Drawing Rights)"/>
+                <StringItem index="159" value="XOF (West African CFA Franc)"/>
+                <StringItem index="160" value="XPD (Palladium Ounce)"/>
+                <StringItem index="161" value="XPF (CFP Franc)"/>
+                <StringItem index="162" value="XPT (Platinum Ounce)"/>
+                <StringItem index="163" value="YER (Yemeni Rial)"/>
+                <StringItem index="164" value="ZAR (South African Rand)"/>
+                <StringItem index="165" value="ZMW (Zambian Kwacha)"/>
+                <StringItem index="166" value="ZWL (Zimbabwean Dollar)"/>
+                <StringItem index="167" value=" "/>
+              </StringArray>
+            </Property>
+          </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+          </AuxValues>
+        </Component>
+        <Component class="javax.swing.JTextField" name="tnominal">
+        </Component>
+        <Component class="javax.swing.JToggleButton" name="jToggleButton1">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Konversi"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jToggleButton1ActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="java.awt.Label" name="hasil">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Dialog" size="18" style="1"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="0"/>
+          </Properties>
+        </Component>
+        <Component class="java.awt.Label" name="label2">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Kurs Asal"/>
+          </Properties>
+        </Component>
+        <Component class="java.awt.Label" name="label3">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Nominal"/>
+          </Properties>
+        </Component>
+        <Component class="java.awt.Label" name="label4">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Dialog" size="18" style="1"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Konversi Mata Uang"/>
+          </Properties>
+        </Component>
+        <Component class="java.awt.Label" name="label5">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Kurs Tujuan"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JComboBox" name="tujuan">
+          <Properties>
+            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+              <StringArray count="168">
+                <StringItem index="0" value="AED (United Arab Emirates Dirham)"/>
+                <StringItem index="1" value="AFN (Afghan Afghani)"/>
+                <StringItem index="2" value="ALL (Albanian Lek)"/>
+                <StringItem index="3" value="AMD (Armenian Dram)"/>
+                <StringItem index="4" value="ANG (Netherlands Antillean Guilder)"/>
+                <StringItem index="5" value="AOA (Angolan Kwanza)"/>
+                <StringItem index="6" value="ARS (Argentine Peso)"/>
+                <StringItem index="7" value="AUD (Australian Dollar)"/>
+                <StringItem index="8" value="AWG (Aruban Florin)"/>
+                <StringItem index="9" value="AZN (Azerbaijani Manat)"/>
+                <StringItem index="10" value="BAM (Bosnia-Herzegovina Convertible Mark)"/>
+                <StringItem index="11" value="BBD (Barbadian Dollar)"/>
+                <StringItem index="12" value="BDT (Bangladeshi Taka)"/>
+                <StringItem index="13" value="BGN (Bulgarian Lev)"/>
+                <StringItem index="14" value="BHD (Bahraini Dinar)"/>
+                <StringItem index="15" value="BIF (Burundian Franc)"/>
+                <StringItem index="16" value="BMD (Bermudan Dollar)"/>
+                <StringItem index="17" value="BND (Brunei Dollar)"/>
+                <StringItem index="18" value="BOB (Bolivian Boliviano)"/>
+                <StringItem index="19" value="BRL (Brazilian Real)"/>
+                <StringItem index="20" value="BSD (Bahamian Dollar)"/>
+                <StringItem index="21" value="BTC (Bitcoin)"/>
+                <StringItem index="22" value="BTN (Bhutanese Ngultrum)"/>
+                <StringItem index="23" value="BWP (Botswanan Pula)"/>
+                <StringItem index="24" value="BYN (Belarusian Ruble)"/>
+                <StringItem index="25" value="BYR (Belarusian Ruble)"/>
+                <StringItem index="26" value="BZD (Belize Dollar)"/>
+                <StringItem index="27" value="CAD (Canadian Dollar)"/>
+                <StringItem index="28" value="CDF (Congolese Franc)"/>
+                <StringItem index="29" value="CHF (Swiss Franc)"/>
+                <StringItem index="30" value="CLF (Chilean Unit of Account (UF))"/>
+                <StringItem index="31" value="CLP (Chilean Peso)"/>
+                <StringItem index="32" value="CNY (Chinese Yuan)"/>
+                <StringItem index="33" value="COP (Colombian Peso)"/>
+                <StringItem index="34" value="CRC (Costa Rican Col&#xf3;n)"/>
+                <StringItem index="35" value="CUC (Cuban Convertible Peso)"/>
+                <StringItem index="36" value="CUP (Cuban Peso)"/>
+                <StringItem index="37" value="CVE (Cape Verdean Escudo)"/>
+                <StringItem index="38" value="CZK (Czech Republic Koruna)"/>
+                <StringItem index="39" value="DJF (Djiboutian Franc)"/>
+                <StringItem index="40" value="DKK (Danish Krone)"/>
+                <StringItem index="41" value="DOP (Dominican Peso)"/>
+                <StringItem index="42" value="DZD (Algerian Dinar)"/>
+                <StringItem index="43" value="EGP (Egyptian Pound)"/>
+                <StringItem index="44" value="ERN (Eritrean Nakfa)"/>
+                <StringItem index="45" value="ETB (Ethiopian Birr)"/>
+                <StringItem index="46" value="EUR (Euro)"/>
+                <StringItem index="47" value="FJD (Fijian Dollar)"/>
+                <StringItem index="48" value="FKP (Falkland Islands Pound)"/>
+                <StringItem index="49" value="GBP (British Pound Sterling)"/>
+                <StringItem index="50" value="GEL (Georgian Lari)"/>
+                <StringItem index="51" value="GGP (Guernsey Pound)"/>
+                <StringItem index="52" value="GHS (Ghanaian Cedi)"/>
+                <StringItem index="53" value="GIP (Gibraltar Pound)"/>
+                <StringItem index="54" value="GMD (Gambian Dalasi)"/>
+                <StringItem index="55" value="GNF (Guinean Franc)"/>
+                <StringItem index="56" value="GTQ (Guatemalan Quetzal)"/>
+                <StringItem index="57" value="GYD (Guyanaese Dollar)"/>
+                <StringItem index="58" value="HKD (Hong Kong Dollar)"/>
+                <StringItem index="59" value="HNL (Honduran Lempira)"/>
+                <StringItem index="60" value="HRK (Croatian Kuna)"/>
+                <StringItem index="61" value="HTG (Haitian Gourde)"/>
+                <StringItem index="62" value="HUF (Hungarian Forint)"/>
+                <StringItem index="63" value="IDR (Indonesian Rupiah)"/>
+                <StringItem index="64" value="ILS (Israeli New Sheqel)"/>
+                <StringItem index="65" value="IMP (Manx pound)"/>
+                <StringItem index="66" value="INR (Indian Rupee)"/>
+                <StringItem index="67" value="IQD (Iraqi Dinar)"/>
+                <StringItem index="68" value="IRR (Iranian Rial)"/>
+                <StringItem index="69" value="ISK (Icelandic Kr&#xf3;na)"/>
+                <StringItem index="70" value="JEP (Jersey Pound)"/>
+                <StringItem index="71" value="JMD (Jamaican Dollar)"/>
+                <StringItem index="72" value="JOD (Jordanian Dinar)"/>
+                <StringItem index="73" value="JPY (Japanese Yen)"/>
+                <StringItem index="74" value="KES (Kenyan Shilling)"/>
+                <StringItem index="75" value="KGS (Kyrgystani Som)"/>
+                <StringItem index="76" value="KHR (Cambodian Riel)"/>
+                <StringItem index="77" value="KMF (Comorian Franc)"/>
+                <StringItem index="78" value="KPW (North Korean Won)"/>
+                <StringItem index="79" value="KRW (South Korean Won)"/>
+                <StringItem index="80" value="KWD (Kuwaiti Dinar)"/>
+                <StringItem index="81" value="KYD (Cayman Islands Dollar)"/>
+                <StringItem index="82" value="KZT (Kazakhstani Tenge)"/>
+                <StringItem index="83" value="LAK (Laotian Kip)"/>
+                <StringItem index="84" value="LBP (Lebanese Pound)"/>
+                <StringItem index="85" value="LKR (Sri Lankan Rupee)"/>
+                <StringItem index="86" value="LRD (Liberian Dollar)"/>
+                <StringItem index="87" value="LSL (Lesotho Loti)"/>
+                <StringItem index="88" value="LYD (Libyan Dinar)"/>
+                <StringItem index="89" value="MAD (Moroccan Dirham)"/>
+                <StringItem index="90" value="MDL (Moldovan Leu)"/>
+                <StringItem index="91" value="MGA (Malagasy Ariary)"/>
+                <StringItem index="92" value="MKD (Macedonian Denar)"/>
+                <StringItem index="93" value="MMK (Myanmar Kyat)"/>
+                <StringItem index="94" value="MNT (Mongolian Tugrik)"/>
+                <StringItem index="95" value="MOP (Macanese Pataca)"/>
+                <StringItem index="96" value="MRO (Mauritanian Ouguiya)"/>
+                <StringItem index="97" value="MUR (Mauritian Rupee)"/>
+                <StringItem index="98" value="MVR (Maldivian Rufiyaa)"/>
+                <StringItem index="99" value="MWK (Malawian Kwacha)"/>
+                <StringItem index="100" value="MXN (Mexican Peso)"/>
+                <StringItem index="101" value="MYR (Malaysian Ringgit)"/>
+                <StringItem index="102" value="MZN (Mozambican Metical)"/>
+                <StringItem index="103" value="NAD (Namibian Dollar)"/>
+                <StringItem index="104" value="NGN (Nigerian Naira)"/>
+                <StringItem index="105" value="NIO (Nicaraguan C&#xf3;rdoba)"/>
+                <StringItem index="106" value="NOK (Norwegian Krone)"/>
+                <StringItem index="107" value="NPR (Nepalese Rupee)"/>
+                <StringItem index="108" value="NZD (New Zealand Dollar)"/>
+                <StringItem index="109" value="OMR (Omani Rial)"/>
+                <StringItem index="110" value="PAB (Panamanian Balboa)"/>
+                <StringItem index="111" value="PEN (Peruvian Sol)"/>
+                <StringItem index="112" value="PGK (Papua New Guinean Kina)"/>
+                <StringItem index="113" value="PHP (Philippine Peso)"/>
+                <StringItem index="114" value="PKR (Pakistani Rupee)"/>
+                <StringItem index="115" value="PLN (Polish Zloty)"/>
+                <StringItem index="116" value="PYG (Paraguayan Guarani)"/>
+                <StringItem index="117" value="QAR (Qatari Riyal)"/>
+                <StringItem index="118" value="RON (Romanian Leu)"/>
+                <StringItem index="119" value="RSD (Serbian Dinar)"/>
+                <StringItem index="120" value="RUB (Russian Ruble)"/>
+                <StringItem index="121" value="RWF (Rwandan Franc)"/>
+                <StringItem index="122" value="SAR (Saudi Riyal)"/>
+                <StringItem index="123" value="SBD (Solomon Islands Dollar)"/>
+                <StringItem index="124" value="SCR (Seychellois Rupee)"/>
+                <StringItem index="125" value="SDG (Sudanese Pound)"/>
+                <StringItem index="126" value="SEK (Swedish Krona)"/>
+                <StringItem index="127" value="SGD (Singapore Dollar)"/>
+                <StringItem index="128" value="SHP (Saint Helena Pound)"/>
+                <StringItem index="129" value="SLL (Sierra Leonean Leone)"/>
+                <StringItem index="130" value="SOS (Somali Shilling)"/>
+                <StringItem index="131" value="SRD (Surinamese Dollar)"/>
+                <StringItem index="132" value="SSP (South Sudanese Pound)"/>
+                <StringItem index="133" value="STD (S&#xe3;o Tom&#xe9; and Pr&#xed;ncipe Dobra)"/>
+                <StringItem index="134" value="SVC (Salvadoran Col&#xf3;n)"/>
+                <StringItem index="135" value="SZL (Swazi Lilangeni)"/>
+                <StringItem index="136" value="THB (Thai Baht)"/>
+                <StringItem index="137" value="TJS (Tajikistani Somoni)"/>
+                <StringItem index="138" value="TMT (Turkmenistan Manat)"/>
+                <StringItem index="139" value="TND (Tunisian Dinar)"/>
+                <StringItem index="140" value="TOP (Tongan Pa&apos;anga)"/>
+                <StringItem index="141" value="TRY (Turkish Lira)"/>
+                <StringItem index="142" value="TTD (Trinidad and Tobago Dollar)"/>
+                <StringItem index="143" value="TWD (New Taiwan Dollar)"/>
+                <StringItem index="144" value="TZS (Tanzanian Shilling)"/>
+                <StringItem index="145" value="UAH (Ukrainian Hryvnia)"/>
+                <StringItem index="146" value="UGX (Ugandan Shilling)"/>
+                <StringItem index="147" value="USD (United States Dollar)"/>
+                <StringItem index="148" value="UYU (Uruguayan Peso)"/>
+                <StringItem index="149" value="UZS (Uzbekistani Som)"/>
+                <StringItem index="150" value="VES (Venezuelan Bol&#xed;var Soberano)"/>
+                <StringItem index="151" value="VND (Vietnamese Dong)"/>
+                <StringItem index="152" value="VUV (Vanuatu Vatu)"/>
+                <StringItem index="153" value="WST (Samoan Tala)"/>
+                <StringItem index="154" value="XAF (Central African CFA Franc)"/>
+                <StringItem index="155" value="XAG (Silver Ounce)"/>
+                <StringItem index="156" value="XAU (Gold Ounce)"/>
+                <StringItem index="157" value="XCD (East Caribbean Dollar)"/>
+                <StringItem index="158" value="XDR (Special Drawing Rights)"/>
+                <StringItem index="159" value="XOF (West African CFA Franc)"/>
+                <StringItem index="160" value="XPD (Palladium Ounce)"/>
+                <StringItem index="161" value="XPF (CFP Franc)"/>
+                <StringItem index="162" value="XPT (Platinum Ounce)"/>
+                <StringItem index="163" value="YER (Yemeni Rial)"/>
+                <StringItem index="164" value="ZAR (South African Rand)"/>
+                <StringItem index="165" value="ZMW (Zambian Kwacha)"/>
+                <StringItem index="166" value="ZWL (Zimbabwean Dollar)"/>
+                <StringItem index="167" value=" "/>
+              </StringArray>
+            </Property>
+          </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+          </AuxValues>
+        </Component>
+        <Component class="java.awt.Label" name="hasil1">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Dialog" size="18" style="1"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Hasil Konversi :"/>
+          </Properties>
+        </Component>
+      </SubComponents>
+    </Container>
+  </SubComponents>
+</Form>
