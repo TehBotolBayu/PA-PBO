@@ -531,18 +531,29 @@ public class pengeluaran extends javax.swing.JFrame {
 
     private void tabelKreditMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelKreditMouseClicked
         int i = tabelKredit.getSelectedRow();
-        new EditKeuangan().setVisible(true);
+        new EditKredit().setVisible(true);
         DefaultTableModel dtm = (DefaultTableModel) tabelKredit.getModel();
         String ID = dtm.getValueAt(i, 0).toString();
         for (int z=0; z <  kredit.size(); z++){
             if (ID.equals(kredit.get(z).getID())){
-                EditKeuangan.txtIDDEBIT.setText(kredit.get(z).getID());
-                EditKeuangan.txtNamaDebit.setText(kredit.get(z).getNama());
-                //                    EditKeuangan.cmbJenis.getSelectedItem() = debit.get(z).getJenis();
-                EditKeuangan.txtJumlahDebit.setText(Integer.toString(kredit.get(z).getJumlah()));
-                EditKeuangan.txtCatat.setText(kredit.get(z).getCatatan());
-                EditKeuangan.txtTanggal.setText(kredit.get(z).getTanggal());
-                EditKeuangan.txtKategori.setText(kredit.get(z).getKategori());
+                EditKredit.txtIDDEBIT.setText(kredit.get(z).getID());
+                EditKredit.txtNamaDebit.setText(kredit.get(z).getNama());
+                //                    EditKredit.cmbJenis.getSelectedItem() = debit.get(z).getJenis();
+                String jenis = kredit.get(z).getJenis();
+          
+
+
+
+          
+        if("Makanan".equals(jenis)){ EditKredit.cmbJenis.setSelectedItem(EditKredit.cmbJenis.getItemAt(0)); }
+        else if("Transportasi".equals(jenis)) { EditKredit.cmbJenis.setSelectedItem(EditKredit.cmbJenis.getItemAt(1)); }
+        else if("Pakaian".equals(jenis)) { EditKredit.cmbJenis.setSelectedItem(EditKredit.cmbJenis.getItemAt(2)); }
+        else if("Lainnya".equals(jenis)) { EditKredit.cmbJenis.setSelectedItem(EditKredit.cmbJenis.getItemAt(3)); }
+                
+                EditKredit.txtJumlahDebit.setText(Integer.toString(kredit.get(z).getJumlah()));
+                EditKredit.txtCatat.setText(kredit.get(z).getCatatan());
+                EditKredit.txtTanggal.setText(kredit.get(z).getTanggal());
+                EditKredit.txtKategori.setText(kredit.get(z).getKategori());
 
             }
         }

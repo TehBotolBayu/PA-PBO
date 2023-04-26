@@ -275,6 +275,18 @@ public class menu_ubah extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnUbahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUbahActionPerformed
+        if(!Main.isNumeric(txtNomorHp.getText())){
+            JOptionPane.showMessageDialog(rootPane, "Masukkan Nomor HP dengan benar!");
+            return;
+        }
+        if(txtUsername.getText().equals("")){
+            JOptionPane.showMessageDialog(rootPane, "Username tidak boleh kosong!");
+            return;
+        }
+        if(txtpass.getText().equals("")){
+            JOptionPane.showMessageDialog(rootPane, "Password tidak boleh kosong!");
+            return;
+        }
         if("-1".equals(Main.idlogin)){
             String alamat, nama, no, pass, user;
             alamat = txtAlamat.getText();

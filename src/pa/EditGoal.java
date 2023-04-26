@@ -190,6 +190,20 @@ public class EditGoal extends javax.swing.JFrame {
     }//GEN-LAST:event_tabungActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        
+        if(!Main.isNumeric(target.getText())){
+            JOptionPane.showMessageDialog(rootPane, "Masukkan target dalam format angka!");
+            return;
+        }
+        if(!Main.isNumeric(tabung.getText())){
+            JOptionPane.showMessageDialog(rootPane, "Masukkan target dalam format angka!");
+            return;
+        }
+        if(nama.getText().equals("")){
+            JOptionPane.showMessageDialog(rootPane, "Masukkan data nama!");
+            return;
+        }
+        
         int now = GoalGUI.ListGoal.get(row).getSaldo();
         now += Integer.parseInt(tabung.getText());
         GoalGUI.ListGoal.get(row).setSaldo(now);

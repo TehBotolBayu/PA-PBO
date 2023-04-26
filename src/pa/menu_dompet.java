@@ -45,6 +45,7 @@ public class menu_dompet extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setBackground(new java.awt.Color(166, 215, 232));
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosed(java.awt.event.WindowEvent evt) {
                 formWindowClosed(evt);
@@ -68,6 +69,17 @@ public class menu_dompet extends javax.swing.JFrame {
             }
         });
         jScrollPane1.setViewportView(tabelData);
+
+        tsaldo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tsaldoActionPerformed(evt);
+            }
+        });
+        tsaldo.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                tsaldoKeyPressed(evt);
+            }
+        });
 
         ckategori.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Dompet", "Debit", "Kredit", "Tabungan", "Simpanan", "Deposit", "Hutang", "Aset", "Gaji", "Hadiah", "Harta Karun" }));
 
@@ -161,6 +173,15 @@ public class menu_dompet extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+        
+        if(!Main.isNumeric(tsaldo.getText())){
+            JOptionPane.showMessageDialog(rootPane, "Masukkan saldo dalam format angka!");
+            return;
+        }
+        if(tnama.getText().equals("")){
+            JOptionPane.showMessageDialog(rootPane, "Masukkan data nama!");
+            return;
+        }
         String nama = tnama.getText();
         int saldo = Integer.parseInt(tsaldo.getText());
         String kategori = ckategori.getSelectedItem().toString();
@@ -178,17 +199,17 @@ public class menu_dompet extends javax.swing.JFrame {
         tnama.setText(g.getNama());      
         tsaldo.setText(Integer.toString(g.getSaldo()));
         String jenis = g.getJenis();
-        if(jenis == "Dompet"){ ckategori.setSelectedItem(ckategori.getItemAt(0)); }
-        else if(jenis == "Debit") { ckategori.setSelectedItem(ckategori.getItemAt(1)); }
-        else if(jenis == "Kredit") { ckategori.setSelectedItem(ckategori.getItemAt(2)); }
-        else if(jenis == "Tabungan") { ckategori.setSelectedItem(ckategori.getItemAt(3)); }
-        else if(jenis == "Simpanan") { ckategori.setSelectedItem(ckategori.getItemAt(4)); }
-        else if(jenis == "Deposit") { ckategori.setSelectedItem(ckategori.getItemAt(5)); }
-        else if(jenis == "Hutang") { ckategori.setSelectedItem(ckategori.getItemAt(6)); }
-        else if(jenis == "Aset") { ckategori.setSelectedItem(ckategori.getItemAt(7)); }
-        else if(jenis == "Gaji") { ckategori.setSelectedItem(ckategori.getItemAt(8)); }
-        else if(jenis == "Hadiah") {  ckategori.setSelectedItem(ckategori.getItemAt(9)); }
-        else if(jenis == "Harta Karun") { ckategori.setSelectedItem(ckategori.getItemAt(10)); }
+        if("Dompet".equals(jenis)){ ckategori.setSelectedItem(ckategori.getItemAt(0)); }
+        else if("Debit".equals(jenis)) { ckategori.setSelectedItem(ckategori.getItemAt(1)); }
+        else if("Kredit".equals(jenis)) { ckategori.setSelectedItem(ckategori.getItemAt(2)); }
+        else if("Tabungan".equals(jenis)) { ckategori.setSelectedItem(ckategori.getItemAt(3)); }
+        else if("Simpanan".equals(jenis)) { ckategori.setSelectedItem(ckategori.getItemAt(4)); }
+        else if("Deposit".equals(jenis)) { ckategori.setSelectedItem(ckategori.getItemAt(5)); }
+        else if("Hutang".equals(jenis)) { ckategori.setSelectedItem(ckategori.getItemAt(6)); }
+        else if("Aset".equals(jenis)) { ckategori.setSelectedItem(ckategori.getItemAt(7)); }
+        else if("Gaji".equals(jenis)) { ckategori.setSelectedItem(ckategori.getItemAt(8)); }
+        else if("Hadiah".equals(jenis)) {  ckategori.setSelectedItem(ckategori.getItemAt(9)); }
+        else if("Harta Karun".equals(jenis)) { ckategori.setSelectedItem(ckategori.getItemAt(10)); }
         
         
        // int now = GoalGUI.ListGoal.get(row).getSaldo();
@@ -220,6 +241,15 @@ public class menu_dompet extends javax.swing.JFrame {
         tampil();
     }//GEN-LAST:event_jButton3ActionPerformed
 
+    private void tsaldoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tsaldoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tsaldoActionPerformed
+
+    private void tsaldoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tsaldoKeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tsaldoKeyPressed
+
+    
     public static String totalsaldo(String id, int saldo){
         Transaksi trs = new Transaksi( null, null, null,  0,  null,  null,  null,  null);
         MyDB.move(trs);

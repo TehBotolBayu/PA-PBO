@@ -263,6 +263,14 @@ public class GoalGUI extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         //JOptionPane.showMessageDialog(rootPane, "tes");
+        if(!Main.isNumeric(jTextField3.getText())){
+            JOptionPane.showMessageDialog(rootPane, "Masukkan target dalam format angka!");
+            return;
+        }
+        if(jTextField1.getText().equals("")){
+            JOptionPane.showMessageDialog(rootPane, "Masukkan data nama!");
+            return;
+        }        
         String ctt = jTextArea1.getText();
         String nama = jTextField1.getText();
         String target = jTextField3.getText();

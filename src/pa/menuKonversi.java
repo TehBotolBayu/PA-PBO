@@ -5,6 +5,7 @@
 package pa;
 
 import java.text.DecimalFormat;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -143,6 +144,10 @@ public class menuKonversi extends javax.swing.JFrame {
 
     private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
         // TODO add your handling code here:
+        if(!Main.isNumeric(tnominal.getText())){
+            JOptionPane.showMessageDialog(rootPane, "Masukkan nominal dalam format angka!");
+            return;
+        }
         double nominal = Double.parseDouble(tnominal.getText());
         String asalkurs = asal.getSelectedItem().toString();
         asalkurs = asalkurs.substring(0, 3);
@@ -159,7 +164,7 @@ public class menuKonversi extends javax.swing.JFrame {
         String nilai = df.format(h);
         //String nilai = Double.toString(formattedValue);
         System.out.println(nilai);
-        hasil.setText(nilai);
+        hasil.setText(tujuankurs+" "+nilai);
     }//GEN-LAST:event_jToggleButton1ActionPerformed
 
     /**

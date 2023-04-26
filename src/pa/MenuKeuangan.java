@@ -204,17 +204,30 @@ public class MenuKeuangan {
             nomor2=1;
         }
     }
-
+/*
     public static void lihat() {
+        System.out.println("aman1");
          Integer jumlahDebit = 0;
          Integer  jumlahKredit =0;
          int z=0;
         DefaultTableModel dtm = (DefaultTableModel) menu_keuangan.tabelData.getModel();
         dtm.setRowCount(0);
+        System.out.println(kredit.size());
+        System.out.println(debit.size());
+        System.out.println("aman2");
         if (kredit.size()>0 && debit.size()>0){
+            System.out.println("aman3");
+            
             while(z < kredit.size() || z < debit.size()){
+                if(z == kredit.size() || z == debit.size()){
+                    return;
+                }
+                
+                System.out.println(z);
                 if (z != kredit.size()){
+                    System.out.println("aman4");
                     if (Main.idlogin.equals(kredit.get(z).getID_user())&& kredit.get(z).getKategori().equals("Kredit")){
+                        System.out.println("aman5");
                         dtm.addRow(new Object[]{
                         kredit.get(z).getKategori(),
                         kredit.get(z).getID(),
@@ -231,7 +244,8 @@ public class MenuKeuangan {
                 }
                 if(z != debit.size()){
                       if (Main.idlogin.equals(debit.get(z).getID_user())&& debit.get(z).getKategori().equals("Debit") ){
-                        dtm.addRow(new Object[]{
+                        System.out.println("aman6");
+                          dtm.addRow(new Object[]{
                         debit.get(z).getKategori(),
                         debit.get(z).getID(),
                         debit.get(z).getTanggal(),
@@ -296,7 +310,57 @@ public class MenuKeuangan {
 
         
     }
+*/  
+    
+    public static void lihat(){
+        int totalm = 0;
+        int totalk = 0;
+        DefaultTableModel dtm = (DefaultTableModel) menu_keuangan.tabelData.getModel();
+        dtm.setRowCount(0);
+        int z = 0;
+        for(Debit db: debit){
+            if(db.getID_user().equals(Main.idlogin)){
+                        dtm.addRow(new Object[]{
+                        db.getKategori(),
+                        db.getID(),
+                        db.getTanggal(),
+                        db.getNama(),
+                        db.getJumlah(),
+                        0,
+                        db.getJenis(),
+                        db.getCatatan(),
+                        });
+                        totalm += db.getJumlah();
+            }
+            
 
+        }
+        for(Kredit kd: kredit){
+            if(kd.getID_user().equals(Main.idlogin)){
+                        dtm.addRow(new Object[]{
+                        kd.getKategori(),
+                        kd.getID(),
+                        kd.getTanggal(),
+                        kd.getNama(),
+                        0,
+                        kd.getJumlah(),
+                        kd.getJenis(),
+                        kd.getCatatan(),
+
+                    }); 
+                        totalk += kd.getJumlah();
+            }
+        }
+            totalDebit = totalm;
+            totalKredit = totalk;
+            menu_keuangan.txtTotalDebit.setText(Integer.toString(totalDebit));
+            menu_keuangan.txtTotalKredit.setText(Integer.toString(totalKredit));
+            Total = totalDebit-totalKredit;
+            menu_keuangan.txtTotal.setText(Integer.toString(Total));
+        
+        
+    }
+    
     public static void hitung() throws Exception{
         Integer jumlahDebit = 0;
          Integer  jumlahKredit =0;

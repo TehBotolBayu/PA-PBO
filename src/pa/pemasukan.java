@@ -398,7 +398,15 @@ public class pemasukan extends javax.swing.JFrame {
                 if (ID.equals(debit.get(z).getID())){
                     EditKeuangan.txtIDDEBIT.setText(debit.get(z).getID());
                     EditKeuangan.txtNamaDebit.setText(debit.get(z).getNama());
-//                    EditKeuangan.cmbJenis.getSelectedItem() = debit.get(z).getJenis();
+                    
+                    String jenis = debit.get(z).getJenis();
+                    
+        if("Bulanan".equals(jenis)){ EditKeuangan.cmbJenis.setSelectedItem(EditKeuangan.cmbJenis.getItemAt(0)); }
+        else if("Gaji".equals(jenis)) { EditKeuangan.cmbJenis.setSelectedItem(EditKeuangan.cmbJenis.getItemAt(1)); }
+        else if("Tabungan".equals(jenis)) { EditKeuangan.cmbJenis.setSelectedItem(EditKeuangan.cmbJenis.getItemAt(2)); }
+        else if("Lainnya".equals(jenis)) { EditKeuangan.cmbJenis.setSelectedItem(EditKeuangan.cmbJenis.getItemAt(3)); }
+                    
+                    
                     EditKeuangan.txtJumlahDebit.setText(Integer.toString(debit.get(z).getJumlah()));
                     EditKeuangan.txtCatat.setText(debit.get(z).getCatatan());
                     EditKeuangan.txtTanggal.setText(debit.get(z).getTanggal());

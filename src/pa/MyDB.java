@@ -136,7 +136,7 @@ public class MyDB {
     }
     
     public static void move(Dompet dpt) {
-        String sql = "SELECT * FROM tbdompet WHERE iduser = "+Main.idlogin;
+        String sql = "SELECT * FROM tbdompet WHERE iduser = '"+Main.idlogin+"'";
         Main.listdompet.clear();
         try {
             rs = stmt.executeQuery(sql);
@@ -158,7 +158,7 @@ public class MyDB {
     
     public static void move(Transaksi dpt) {
         
-        String sql = "SELECT * FROM tbtransaksi WHERE iduser = "+Main.idlogin;
+        String sql = "SELECT * FROM tbtransaksi WHERE iduser = '"+Main.idlogin+"'";
         Main.listtransaksi.clear();
         try {
             rs = stmt.executeQuery(sql);
@@ -227,8 +227,8 @@ public class MyDB {
     }
     
     public static void insertAkun(String id, String nama, String alamat, String nomorHP, String status, String username, String pass) {
-        String sql = "INSERT INTO tbakun ( nama, alamat, nomorHp, status, username, pass) VALUE('%s', '%s', '%s', '%s', '%s', '%s')";
-        sql = String.format(sql, nama, alamat, nomorHP, status, username, pass);
+        String sql = "INSERT INTO tbakun ( id_user, nama, alamat, nomorHp, status, username, pass) VALUE('%s', '%s', '%s', '%s', '%s', '%s', '%s')";
+        sql = String.format(sql, id, nama, alamat, nomorHP, status, username, pass);
         try {
             stmt.execute(sql);
                     } catch (SQLException ex) {
@@ -334,7 +334,7 @@ public class MyDB {
     
     public static void retrieveGoal() {
         GoalGUI.ListGoal.clear();
-        GoalGUI.ListGoal.addAll(selectCustomer("SELECT * FROM tbgoal WHERE iduser = " + Main.idlogin));
+        GoalGUI.ListGoal.addAll(selectCustomer("SELECT * FROM tbgoal WHERE iduser = '" + Main.idlogin + "'"));
     }
     
     public static ArrayList<Goal> selectCustomer(String query) {

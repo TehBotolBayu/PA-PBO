@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 26, 2023 at 05:41 AM
+-- Generation Time: Apr 26, 2023 at 10:21 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -28,7 +28,7 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `tbakun` (
-  `id_user` int(11) NOT NULL,
+  `id_user` text NOT NULL,
   `nama` text NOT NULL,
   `alamat` text NOT NULL,
   `nomorHp` text NOT NULL,
@@ -42,11 +42,11 @@ CREATE TABLE `tbakun` (
 --
 
 INSERT INTO `tbakun` (`id_user`, `nama`, `alamat`, `nomorHp`, `status`, `username`, `pass`) VALUES
-(-1, 'admin', 'samarinda', '9110', 'Admin', 'admin', '123'),
-(1, 'udin', '123', '123', 'User', 'kk', '123'),
-(3, '123baru', '123baru', '123baru', 'User', 'baru123', '12'),
-(4, '12312', '123', '123', 'User', '123', '123'),
-(5, '1', '1', '1', 'User', '1', '1');
+('-1', 'Admin', 'admin', '123', 'Admin', 'admin', '123'),
+('U2', '1', '1', '1', 'User', '1', '1'),
+('U3', '1', '1', '1', 'User', '11', '1'),
+('U5', '12', '12', '12', 'User', '12', '12'),
+('U7', '12', '12', '12', 'User', '12', '12');
 
 -- --------------------------------------------------------
 
@@ -70,7 +70,14 @@ CREATE TABLE `tbdompet` (
 INSERT INTO `tbdompet` (`id`, `nama`, `jenis`, `idmatauang`, `saldo`, `iduser`) VALUES
 (1, 'saya', 'Dompet', 'IDR', 10000, '4'),
 (4, 'ee', 'Dompet', 'IDR', 123, '5'),
-(5, 'kedua', 'Dompet', 'IDR', 123, '4');
+(5, 'kedua', 'Dompet', 'IDR', 123, '4'),
+(6, 'xxx', 'Dompet', 'IDR', 100, '4'),
+(7, 'Masuk', 'Dompet', 'IDR', 1000000, '3U'),
+(8, 'w', 'Dompet', 'IDR', 1, '1'),
+(9, 'w', 'Dompet', 'IDR', 1, '1'),
+(10, 'w2', 'Kredit', 'IDR', 1, '1'),
+(11, 'ee', 'Dompet', 'IDR', 123, 'U5'),
+(12, '12', 'Gaji', 'IDR', 120000, 'U7');
 
 -- --------------------------------------------------------
 
@@ -100,7 +107,13 @@ INSERT INTO `tbgoal` (`id`, `nama`, `jenis`, `idmatauang`, `saldo`, `iduser`, `c
 (5, 'Nama', 'goal', 'Rupiah', 0, '2', 'Catatan', 9),
 (6, 'Nama', 'goal', 'Rupiah', 0, '4', 'Catatan', 999),
 (7, 'Nama2', 'goal', 'Rupiah', 0, '4', 'Catatan', 999),
-(8, 'Nama23', 'goal', 'Rupiah', 0, '4', 'Catatan', 999);
+(8, 'Nama23', 'goal', 'Rupiah', 0, '4', 'Catatan', 999),
+(9, 'gial', 'goal', 'Rupiah', 0, '1U', 'buat beli figur', 10000000),
+(11, 'tabungan', 'goal', 'Rupiah', 0, '3U', 'beli difur', 10000000),
+(12, 'eee', 'goal', 'Rupiah', 0, 'U3', 'gg', 5000),
+(13, 'eee', 'goal', 'Rupiah', 0, 'U3', 'gg', 5000),
+(14, 'eee', 'goal', 'Rupiah', 0, 'U3', 'gg', 33),
+(15, 'Nama', 'tabungan', 'Rupiah', 130, 'U5', 'Catatan', 123123);
 
 -- --------------------------------------------------------
 
@@ -118,6 +131,26 @@ CREATE TABLE `tbkeuangan` (
   `kategori` text NOT NULL,
   `Id_user` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `tbkeuangan`
+--
+
+INSERT INTO `tbkeuangan` (`id`, `nama`, `jenis`, `jumlah`, `tanggal`, `catatan`, `kategori`, `Id_user`) VALUES
+('-1D0', '123', 'Bulanan', 123, '123', '123', 'Debit', '-1'),
+('-1D1', '12', 'Bulanan', 12, '12', '1212', 'Debit', '-1'),
+('-1D2', 'f', 'Tabungan', 12, '2', '2', 'Debit', '-1'),
+('-1K0', '123', 'Makanan', 123, '123', '123', 'Kredit', '-1'),
+('-1K1', '123', 'Pakaian', 123, '123', '123', 'Kredit', '-1'),
+('1UD1', '123', 'Bulanan', 123, '123', '123', 'Debit', '1U'),
+('1UK1', '123', 'Makanan', 123, '123', '123', 'Kredit', '1U'),
+('3UD0', 'Uang Masuk', 'Bulanan', 100000000, '2023 - 2 - 1', 'Uang', 'Debit', '3U'),
+('3UD1', 'Tabungan', 'Tabungan', 20000, '2023 - 2 -3', 'Uang', 'Debit', '3U'),
+('U2D0', '12', 'Bulanan', 12, '12', '12', 'Debit', 'U2'),
+('U2K0', '12', 'Makanan', 12, '12', '12', 'Kredit', 'U2'),
+('U7D0', 'rr', 'Bulanan', 5, '1', '1', 'Debit', 'U7'),
+('U7D1', '12', 'Bulanan', 12, '12', '12', 'Debit', 'U7'),
+('U7K0', '123', 'Makanan', 131, '13', '13', 'Kredit', 'U7');
 
 -- --------------------------------------------------------
 
@@ -141,7 +174,7 @@ CREATE TABLE `tbtransaksi` (
 --
 
 INSERT INTO `tbtransaksi` (`id`, `nama`, `catatan`, `jumlah`, `kategori`, `iddompet`, `iduser`, `idmatauang`) VALUES
-(8, 'dsfsdf', '', 100000000, 'Pengeluaran', '1', '4', 'IDR');
+(11, 'SA', '12', 12, 'Pengeluaran', '12', 'U7', 'IDR');
 
 --
 -- Indexes for dumped tables
@@ -151,7 +184,7 @@ INSERT INTO `tbtransaksi` (`id`, `nama`, `catatan`, `jumlah`, `kategori`, `iddom
 -- Indexes for table `tbakun`
 --
 ALTER TABLE `tbakun`
-  ADD PRIMARY KEY (`id_user`);
+  ADD PRIMARY KEY (`id_user`(10));
 
 --
 -- Indexes for table `tbdompet`
@@ -182,28 +215,22 @@ ALTER TABLE `tbtransaksi`
 --
 
 --
--- AUTO_INCREMENT for table `tbakun`
---
-ALTER TABLE `tbakun`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
-
---
 -- AUTO_INCREMENT for table `tbdompet`
 --
 ALTER TABLE `tbdompet`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `tbgoal`
 --
 ALTER TABLE `tbgoal`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `tbtransaksi`
 --
 ALTER TABLE `tbtransaksi`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

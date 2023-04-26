@@ -126,8 +126,8 @@ import java.util.ArrayList;
     
     @Override
     public void register() throws IOException{
-//        nomor +=1;
-        String id = nomor + "U";
+        nomor +=1;
+        String id = "U"+ nomor;
         String addnama = register.rnama.getText();
         String addNomorhp = register.rnohp.getText();
         String addAlamat = register.ralamat.getText();
@@ -136,7 +136,6 @@ import java.util.ArrayList;
         UserPersonal userUpdate = new UserPersonal(addAlamat, addusername, addPass, id, addNomorhp, addnama, "User");
         user.add(userUpdate);
         MyDB.insertAkun(id, addnama, addAlamat, addNomorhp, "User", addusername, addPass);
-        nomor+=1;
         
     }
 

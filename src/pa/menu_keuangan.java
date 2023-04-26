@@ -13,7 +13,7 @@ import java.awt.ComponentOrientation;
  * @author USER
  */
 public class menu_keuangan extends javax.swing.JFrame {
-
+    
     /**
      * Creates new form menu_keuangan
      */
@@ -365,7 +365,7 @@ public class menu_keuangan extends javax.swing.JFrame {
     }//GEN-LAST:event_txtTotalActionPerformed
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
-        new menu_user().setVisible(true);
+//        new menu_admin().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnBackActionPerformed
 

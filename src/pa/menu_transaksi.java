@@ -5,6 +5,7 @@
 package pa;
 
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -205,6 +206,14 @@ public class menu_transaksi extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+        if(!Main.isNumeric(tjumlah.getText())){
+            JOptionPane.showMessageDialog(rootPane, "Masukkan jumlah dalam format angka!");
+            return;
+        }
+        if(tnama.getText().equals("")){
+            JOptionPane.showMessageDialog(rootPane, "Masukkan data nama!");
+            return;
+        }
         String nama = tnama.getText();
         String catatan = tcatatan.getText();
         String kategori = ckategori.getSelectedItem().toString();

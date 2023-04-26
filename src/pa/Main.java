@@ -17,6 +17,7 @@ import static pa.MenuKeuangan.debitt;
 import static pa.MenuKeuangan.kreditt;
 import static pa.MyDB.conn;
 import static pa.MyDB.stmt;
+import static pa.UserPersonal.no_urut;
 
 public class Main{
     static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -36,7 +37,21 @@ public class Main{
         MyDB.move(kreditt);
         MyDB.move(user1);
         MyDB.move(dpt);
+       no_urut();
+
         new menu_utama().setVisible(true);        
+    }
+    
+    public static boolean isNumeric(String s){
+        if(s == null){
+            return false;
+        } 
+        try {
+            int d = Integer.parseInt(s);
+        } catch (NumberFormatException nfe){
+            return false;
+        }
+        return true;
     }
 }
 
