@@ -534,7 +534,9 @@ public class menu_user extends javax.swing.JFrame {
 
     private void mhapus1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mhapus1ActionPerformed
         // TODO add your handling code here:
-        new menu_dompet().setVisible(true);
+        menu_dompet eg = new menu_dompet();
+        eg.getContentPane().setBackground(new Color(148,198,231));
+        eg.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_mhapus1ActionPerformed
 
@@ -548,7 +550,9 @@ public class menu_user extends javax.swing.JFrame {
 
     private void mhapus2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mhapus2ActionPerformed
         // TODO add your handling code here:
-        new menu_transaksi().setVisible(true);
+        menu_transaksi eg = new menu_transaksi();
+        eg.getContentPane().setBackground(new Color(148,198,231));
+        eg.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_mhapus2ActionPerformed
 

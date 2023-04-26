@@ -296,7 +296,7 @@ public class GoalGUI extends javax.swing.JFrame {
     private void tabelDataMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelDataMouseClicked
        EditGoal eg = new EditGoal(tabelData.getSelectedRow());
        eg.getContentPane().setBackground(new Color(148,198,231));
-       eg.setVisible(true);  
+       eg.setVisible(true);
     }//GEN-LAST:event_tabelDataMouseClicked
 
     private void closed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_closed

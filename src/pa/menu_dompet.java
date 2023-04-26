@@ -33,7 +33,6 @@ public class menu_dompet extends javax.swing.JFrame {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         tabelData = new javax.swing.JTable();
-        label1 = new java.awt.Label();
         tnama = new javax.swing.JTextField();
         tsaldo = new javax.swing.JTextField();
         ckategori = new javax.swing.JComboBox<>();
@@ -43,6 +42,7 @@ public class menu_dompet extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -68,8 +68,6 @@ public class menu_dompet extends javax.swing.JFrame {
             }
         });
         jScrollPane1.setViewportView(tabelData);
-
-        label1.setText("Manajemen Dompet");
 
         ckategori.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Dompet", "Debit", "Kredit", "Tabungan", "Simpanan", "Deposit", "Hutang", "Aset", "Gaji", "Hadiah", "Harta Karun" }));
 
@@ -100,6 +98,8 @@ public class menu_dompet extends javax.swing.JFrame {
 
         jLabel3.setText("Kategori");
 
+        jLabel4.setText("Manajemen Dompet");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -123,9 +123,9 @@ public class menu_dompet extends javax.swing.JFrame {
                                 .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING))))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(47, 47, 47)
-                        .addComponent(label1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(32, Short.MAX_VALUE))
+                        .addGap(56, 56, 56)
+                        .addComponent(jLabel4)))
+                .addContainerGap(26, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -133,8 +133,8 @@ public class menu_dompet extends javax.swing.JFrame {
                 .addGap(22, 22, 22)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(label1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(26, 26, 26)
+                        .addComponent(jLabel4)
+                        .addGap(30, 30, 30)
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(tnama, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -295,8 +295,8 @@ public class menu_dompet extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JScrollPane jScrollPane1;
-    private java.awt.Label label1;
     private static javax.swing.JTable tabelData;
     private javax.swing.JTextField tnama;
     private javax.swing.JTextField tsaldo;
