@@ -332,7 +332,6 @@ public class GoalGUI extends javax.swing.JFrame {
     private void bKembaliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bKembaliActionPerformed
         // TODO add your handling code here:
         this.dispose();
-        new menu_user().setVisible(true);
     }//GEN-LAST:event_bKembaliActionPerformed
 
 
