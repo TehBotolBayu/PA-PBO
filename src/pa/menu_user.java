@@ -23,6 +23,7 @@ public class menu_user extends javax.swing.JFrame {
     
     public menu_user() {
         new MyDB();
+        MyDB.move(Main.dpt);
         initComponents();
         LabelNama.setText(Main.namaLogin.toUpperCase());
 //        if()
@@ -495,10 +496,13 @@ public class menu_user extends javax.swing.JFrame {
 
     private void mhapus1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mhapus1MouseEntered
         // TODO add your handling code here:
+        jabout.setText("merupakan menu yang berfungsi untuk manajemen dompet");
+        jabout.setComponentOrientation(ComponentOrientation.LEFT_TO_RIGHT); mhapus1.setBackground(Color.WHITE);
     }//GEN-LAST:event_mhapus1MouseEntered
 
     private void mhapus1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mhapus1MouseExited
         // TODO add your handling code here:
+        mhapus1.setBackground(new Color(25,55,109));
     }//GEN-LAST:event_mhapus1MouseExited
 
     private void mhapus1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mhapus1ActionPerformed
@@ -511,10 +515,13 @@ public class menu_user extends javax.swing.JFrame {
 
     private void mhapus2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mhapus2MouseEntered
         // TODO add your handling code here:
+        jabout.setText("merupakan menu yang berfungsi untuk manajemen transaksi pada dompet");
+        jabout.setComponentOrientation(ComponentOrientation.LEFT_TO_RIGHT); mhapus2.setBackground(Color.WHITE);
     }//GEN-LAST:event_mhapus2MouseEntered
 
     private void mhapus2MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mhapus2MouseExited
         // TODO add your handling code here:
+        mhapus2.setBackground(new Color(25,55,109));
     }//GEN-LAST:event_mhapus2MouseExited
 
     private void mhapus2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mhapus2ActionPerformed

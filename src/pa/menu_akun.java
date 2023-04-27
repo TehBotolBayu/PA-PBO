@@ -246,6 +246,8 @@ public class menu_akun extends javax.swing.JFrame {
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
 
+        txtID.setEditable(false);
+
         jPanel4.setBackground(new java.awt.Color(204, 204, 255));
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N

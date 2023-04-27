@@ -203,25 +203,24 @@ public class login extends javax.swing.JFrame {
             if (username.equals(user.get(i).getUsername()) && pass.equals(user.get(i).getPass())){
                 kondisi =1;
                 Main.idlogin = user.get(i).getId_user();
-                Main.namaLogin = user.get(i).getNama();
-                menu_user menuuser = new menu_user();
-                 Main.statusLogin = user.get(i).getStatus();
-                menuuser.setVisible(true);
-                this.dispose();                
-            }
+                Main.namaLogin = user.get(i).getNama(); 
+                Main.statusLogin = user.get(i).getStatus();
+                new menu_user().setVisible(true);
+                this.dispose();
+                return;
+            } 
         }
-
         for(int i=0; i <  admin.size(); i++){
             if (username.equals(admin.get(i).getUsername()) && pass.equals(admin.get(i).getPass())){
                 kondisi =1;
                 Main.idlogin = admin.get(i).getId_user();
                 Main.namaLogin = admin.get(i).getNamaAdmin();
-                 Main.statusLogin = admin.get(i).getStatus();
+                Main.statusLogin = admin.get(i).getStatus();
                 new menu_admin().setVisible(true);
                 this.dispose();
+                return;
             }
         }
-        
         for(int i=0; i <  bisnis.size(); i++){
             if (username.equals(bisnis.get(i).getUsername()) && pass.equals(bisnis.get(i).getPass())){
                 kondisi =1;
@@ -230,10 +229,9 @@ public class login extends javax.swing.JFrame {
                 Main.statusLogin = bisnis.get(i).getStatus();
                 new menu_bisnis().setVisible(true);
                 this.dispose();
+                return;
             }
         }
-
-
         if (kondisi==0){
             JOptionPane.showMessageDialog(this,"Password dan Username anda salah");
         }

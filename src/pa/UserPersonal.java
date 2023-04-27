@@ -49,21 +49,19 @@ import static pa.MyDB.stmt;
      public static void no_urut(){
         nomor=0;
 //        System.out.println(user.size());
-        for (int i=0; i <  user.size(); i++){
-            if (i == user.size()-1){
 //                System.out.println(i);
-                String id = user.get(i).getId_user();
+                String id = user.get(user.size()-1).getId_user();
 //                System.out.println(id);
 
                 nomor = Integer.parseInt(id.substring(1));
 //                System.out.println(nomor);
 
-            }
+            
             
                
         }
         
-    }
+    
     
     @Override
     public void HapusAkun() throws Exception{
@@ -153,6 +151,7 @@ import static pa.MyDB.stmt;
     
     @Override
     public void register() throws IOException{
+        no_urut();
        nomor+=1;
         String id = "U"+ nomor;
         String addnama = register.rnama.getText();

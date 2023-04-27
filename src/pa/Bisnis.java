@@ -81,6 +81,7 @@ public class Bisnis extends Aktor implements RoleBisnis{
     
     @Override
     public void register() throws IOException {
+        no_urut();
         nomorUrut +=1;
         String id = "B"+  nomorUrut;
         String addnama = register.rnama.getText();
@@ -95,14 +96,11 @@ public class Bisnis extends Aktor implements RoleBisnis{
     
     public static void no_urut(){
         nomorUrut=0;
-        
-        for (int i=0; i <  bisnis.size(); i++){
-            if ("Bisnis".equals(bisnis.get(i).getStatus())){
-                String id = bisnis.get(i).getId_user();
-                nomorUrut = Integer.parseInt(id.substring(1));
-            }   
-        }
-}
+        String id;
+        id = bisnis.get(bisnis.size()-1).getId_user();
+        nomorUrut = Integer.parseInt(id.substring(1));
+              
+    }
 
     @Override
     public void UbahAkun() throws IOException {
