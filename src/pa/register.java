@@ -304,7 +304,7 @@ public class register extends javax.swing.JFrame {
     }//GEN-LAST:event_rdatadiriActionPerformed
 
     private void rregister2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rregister2ActionPerformed
-        JOptionPane.showMessageDialog(rootPane, Main.bisnis.get(Main.bisnis.size()-1).getId(), "WARNING", 0);
+//        JOptionPane.showMessageDialog(rootPane, Main.bisnis.get(Main.bisnis.size()-1).getId(), "WARNING", 0);
         if(rusername1.getText().equals("") || rpassword.getText().equals("")){
             JOptionPane.showMessageDialog(rootPane, "data diri harus diisi", "WARNING", 0);
         }
@@ -324,6 +324,12 @@ public class register extends javax.swing.JFrame {
                         return;
                     }
                 }
+                for(int i=0; i <  Main.bisnis.size(); i++){
+                    if (rusername1.getText().equals(Main.bisnis.get(i).getUsername())){
+                        JOptionPane.showMessageDialog(rootPane, "Username sudah terdaftar");
+                        return;
+                    }
+                }
                 UserPersonal userr = new UserPersonal();
                 try {
                     userr.register();
@@ -334,6 +340,12 @@ public class register extends javax.swing.JFrame {
             } else {
                 for(int i=0; i <  Main.bisnis.size(); i++){
                     if (rusername1.getText().equals(Main.bisnis.get(i).getUsername())){
+                        JOptionPane.showMessageDialog(rootPane, "Username sudah terdaftar");
+                        return;
+                    }
+                }
+                for(int i=0; i <  Main.user.size(); i++){
+                    if (rusername1.getText().equals(Main.user.get(i).getUsername())){
                         JOptionPane.showMessageDialog(rootPane, "Username sudah terdaftar");
                         return;
                     }
