@@ -34,11 +34,6 @@ public class menu_dompet extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         tabelData = new javax.swing.JTable();
         jPanel2 = new javax.swing.JPanel();
-        label1 = new java.awt.Label();
-        label2 = new java.awt.Label();
-        jLabel5 = new javax.swing.JLabel();
-        LabelNama = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -78,22 +73,6 @@ public class menu_dompet extends javax.swing.JFrame {
         jScrollPane1.setViewportView(tabelData);
 
         jPanel2.setBackground(new java.awt.Color(25, 55, 109));
-
-        label1.setBackground(new java.awt.Color(255, 255, 255));
-
-        label2.setBackground(new java.awt.Color(255, 255, 255));
-
-        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel5.setText("Selamat Datang");
-
-        LabelNama.setFont(new java.awt.Font("Tahoma", 1, 19)); // NOI18N
-        LabelNama.setForeground(new java.awt.Color(255, 255, 255));
-        LabelNama.setText("NAMA USER");
-
-        jLabel6.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel6.setText("USER");
 
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Saldo");
@@ -165,15 +144,6 @@ public class menu_dompet extends javax.swing.JFrame {
                     .addComponent(tnama, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(jPanel2Layout.createSequentialGroup()
-                            .addGap(26, 26, 26)
-                            .addComponent(label1, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(14, 14, 14)
-                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(label2, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jLabel5)
-                                .addComponent(LabelNama)
-                                .addComponent(jLabel6)))
-                        .addGroup(jPanel2Layout.createSequentialGroup()
                             .addGap(20, 20, 20)
                             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(jLabel1)
@@ -194,18 +164,7 @@ public class menu_dompet extends javax.swing.JFrame {
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(54, 54, 54)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel5)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(LabelNama)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(label2, javax.swing.GroupLayout.PREFERRED_SIZE, 4, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(2, 2, 2)
-                        .addComponent(jLabel6))
-                    .addComponent(label1, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addGap(56, 56, 56)
                 .addComponent(jLabel4)
                 .addGap(24, 24, 24)
                 .addComponent(jLabel1)
@@ -224,9 +183,9 @@ public class menu_dompet extends javax.swing.JFrame {
                     .addComponent(jButton1)
                     .addComponent(jButton2)
                     .addComponent(jButton3))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(bKembali, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(24, 24, 24))
+                .addGap(118, 118, 118))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -252,15 +211,16 @@ public class menu_dompet extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        
+   
+        if(!Main.isNumeric(tsaldo.getText())){
+            JOptionPane.showMessageDialog(rootPane, "Masukkan saldo dalam format angka!");
+            return;
+        }
         int Jumlah = Integer.parseInt(tsaldo.getText());
         
         if (Jumlah<=1){
             JOptionPane.showMessageDialog(rootPane, "Saldo tidak boleh kurang dari RP.1");
-        }
-        else{
-        
-        if(!Main.isNumeric(tsaldo.getText())){
-            JOptionPane.showMessageDialog(rootPane, "Masukkan saldo dalam format angka!");
             return;
         }
         if(tnama.getText().equals("")){
@@ -274,7 +234,7 @@ public class menu_dompet extends javax.swing.JFrame {
         String iduser = Main.idlogin;
         MyDB.insertDompet( nama,  kategori,  idmatauang,  saldo,  iduser);
         tampil();
-        }
+        
     }//GEN-LAST:event_jButton1ActionPerformed
     static int row; 
     
@@ -423,7 +383,6 @@ public class menu_dompet extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private static javax.swing.JLabel LabelNama;
     private java.awt.Button bKembali;
     private javax.swing.JComboBox<String> ckategori;
     private javax.swing.JButton jButton1;
@@ -433,12 +392,8 @@ public class menu_dompet extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private java.awt.Label label1;
-    private java.awt.Label label2;
     private static javax.swing.JTable tabelData;
     private javax.swing.JTextField tnama;
     private javax.swing.JTextField tsaldo;

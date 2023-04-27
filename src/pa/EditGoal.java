@@ -55,11 +55,13 @@ public class EditGoal extends javax.swing.JFrame {
         tabung = new javax.swing.JTextField();
         jButton4 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setBackground(new java.awt.Color(148, 198, 231));
 
-        target.setText("Target");
         target.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 targetActionPerformed(evt);
@@ -71,7 +73,6 @@ public class EditGoal extends javax.swing.JFrame {
             }
         });
 
-        nama.setText("Nama");
         nama.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 namaActionPerformed(evt);
@@ -80,7 +81,6 @@ public class EditGoal extends javax.swing.JFrame {
 
         ctt.setColumns(20);
         ctt.setRows(5);
-        ctt.setText("Catatan");
         jScrollPane1.setViewportView(ctt);
 
         jButton1.setText(" Hapus Goal");
@@ -101,7 +101,6 @@ public class EditGoal extends javax.swing.JFrame {
 
         sisa.setText("sisa");
 
-        tabung.setText("Tabung");
         tabung.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tabungActionPerformed(evt);
@@ -119,44 +118,61 @@ public class EditGoal extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Detail Goal");
 
+        jLabel3.setText("Nama");
+
+        jLabel4.setText("Target");
+
+        jLabel5.setText("Catatan");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(147, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addGap(132, 132, 132))
             .addGroup(layout.createSequentialGroup()
                 .addGap(75, 75, 75)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel3)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(jButton4)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(tabung, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(nama, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(target, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                            .addComponent(jButton3)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton1))
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                            .addComponent(jLabel2)
-                            .addGap(18, 18, 18)
-                            .addComponent(sisa, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(82, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addGap(132, 132, 132))
+                        .addComponent(nama, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(target, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel4)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(jButton4)
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(tabung, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                    .addComponent(jButton3)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jButton1))
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                    .addComponent(jLabel2)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(sisa, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(jLabel5))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(15, 15, 15)
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(nama, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(10, 10, 10)
+                .addComponent(jLabel4)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(target, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
+                .addComponent(jLabel5)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(24, 24, 24)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -170,7 +186,7 @@ public class EditGoal extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
                     .addComponent(jButton3))
-                .addGap(14, 14, 14))
+                .addContainerGap(19, Short.MAX_VALUE))
         );
 
         pack();
@@ -196,24 +212,17 @@ public class EditGoal extends javax.swing.JFrame {
     }//GEN-LAST:event_tabungActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        int Jumlah = Integer.parseInt(target.getText());
-        int Jumlah1 = Integer.parseInt(tabung.getText());
 
-        
-        if (Jumlah<=1 || Jumlah1 <=1){
-            JOptionPane.showMessageDialog(rootPane, "Target atau tabungan tidak boleh kurang dari 1");
-        }
-        else{
-        if(!Main.isNumeric(target.getText())){
-            JOptionPane.showMessageDialog(rootPane, "Masukkan target dalam format angka!");
-            return;
-        }
         if(!Main.isNumeric(tabung.getText())){
             JOptionPane.showMessageDialog(rootPane, "Masukkan tabungan dalam format angka!");
             return;
         }
-        if(nama.getText().equals("")){
-            JOptionPane.showMessageDialog(rootPane, "Masukkan data nama!");
+
+        int Jumlah = Integer.parseInt(tabung.getText());
+
+        
+        if (Jumlah <=1){
+            JOptionPane.showMessageDialog(rootPane, "Target atau tabungan tidak boleh kurang dari 1");
             return;
         }
         
@@ -221,7 +230,20 @@ public class EditGoal extends javax.swing.JFrame {
         now += Integer.parseInt(tabung.getText());
         GoalGUI.ListGoal.get(row).setSaldo(now);
         sisa.setText(Integer.toString(GoalGUI.ListGoal.get(row).getTarget() - now));
-        }
+        
+        String id = GoalGUI.ListGoal.get(row).getId();
+        String mu = GoalGUI.ListGoal.get(row).getIdmatauang();
+        int saldo = GoalGUI.ListGoal.get(row).getSaldo();
+        String ct = GoalGUI.ListGoal.get(row).getCatatan();
+        int tar = GoalGUI.ListGoal.get(row).getTarget();
+        String na = GoalGUI.ListGoal.get(row).getNama();
+        
+              
+        Goal g = new Goal(ct, tar, id, na, "tabungan", mu, saldo, Main.idlogin);
+        GoalGUI.ListGoal.set(row, g);
+        GoalGUI.db.updateGoal(g);
+        GoalGUI.tampil();
+        
         
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton4ActionPerformed
@@ -231,6 +253,16 @@ public class EditGoal extends javax.swing.JFrame {
     }//GEN-LAST:event_targetActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        
+        if(nama.getText().equals("")){
+            JOptionPane.showMessageDialog(rootPane, "Masukkan nama terlebih dahulu");
+            return;
+        }
+        
+        if(!Main.isNumeric(target.getText())){
+            JOptionPane.showMessageDialog(rootPane, "Masukkan target dalam angka");
+            return;
+        }
         int Jumlah = Integer.parseInt(target.getText());
         
         if (Jumlah<=1){
@@ -265,6 +297,9 @@ public class EditGoal extends javax.swing.JFrame {
     private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField nama;
     private javax.swing.JLabel sisa;
