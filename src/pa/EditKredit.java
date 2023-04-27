@@ -189,7 +189,7 @@ public class EditKredit extends javax.swing.JDialog {
 
         jLabel14.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel14.setForeground(new java.awt.Color(0, 0, 102));
-        jLabel14.setText("Nama Debit");
+        jLabel14.setText("Nama Kredit");
 
         jLabel10.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(0, 0, 102));
