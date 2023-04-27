@@ -337,6 +337,8 @@ public class register extends javax.swing.JFrame {
                     Logger.getLogger(register.class.getName()).log(Level.SEVERE, null, ex);
                 }
                 JOptionPane.showMessageDialog(rootPane, "Berhasil mendaftar");
+                                this.dispose();
+                new login().setVisible(true);
             } else {
                 for(int i=0; i <  Main.bisnis.size(); i++){
                     if (rusername1.getText().equals(Main.bisnis.get(i).getUsername())){
@@ -356,7 +358,9 @@ public class register extends javax.swing.JFrame {
                 } catch (IOException ex) {
                     Logger.getLogger(register.class.getName()).log(Level.SEVERE, null, ex);
                 }
-                JOptionPane.showMessageDialog(rootPane, "Berhasil mendaftar");                
+                JOptionPane.showMessageDialog(rootPane, "Berhasil mendaftar");   
+                this.dispose();
+                new login().setVisible(true);
             }
         }
     }//GEN-LAST:event_rregister2ActionPerformed

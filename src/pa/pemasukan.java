@@ -238,6 +238,8 @@ public class pemasukan extends javax.swing.JFrame {
             }
         });
 
+        txtIDDEBIT.setEditable(false);
+
         txtJumlahDebit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtJumlahDebitActionPerformed(evt);

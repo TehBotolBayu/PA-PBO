@@ -384,6 +384,8 @@ public class pengeluaran extends javax.swing.JFrame {
             }
         });
 
+        txtIDKredit.setEditable(false);
+
         txtJumlahKredit.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtJumlahKreditKeyTyped(evt);

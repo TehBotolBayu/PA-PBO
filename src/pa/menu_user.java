@@ -452,7 +452,7 @@ public class menu_user extends javax.swing.JFrame {
 
         // TODO add your handling code here:
         new GoalGUI().setVisible(true);
-//        this.dispose();
+        this.dispose();
         
         
     }//GEN-LAST:event_mgoalsActionPerformed

@@ -351,7 +351,7 @@ public class menu_transaksi extends javax.swing.JFrame {
 
     private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
         // TODO add your handling code here:
-        new menu_user().setVisible(true);
+//        new menu_user().setVisible(true);
     }//GEN-LAST:event_formWindowClosed
 
     private void ckategoriActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ckategoriActionPerformed
@@ -368,7 +368,7 @@ public class menu_transaksi extends javax.swing.JFrame {
 
     private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutActionPerformed
         // TODO add your handling code here:
-        new menu_utama().setVisible(true);
+        new menu_user().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnLogoutActionPerformed
     

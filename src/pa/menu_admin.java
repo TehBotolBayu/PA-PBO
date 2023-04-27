@@ -294,7 +294,7 @@ public class menu_admin extends javax.swing.JFrame {
 
     private void mkursActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mkursActionPerformed
         new menuKonversi().setVisible(true);
-        this.dispose();
+//        this.dispose();
     }//GEN-LAST:event_mkursActionPerformed
 
     private void mkursMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mkursMouseExited
