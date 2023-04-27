@@ -246,7 +246,15 @@ public class menu_akun extends javax.swing.JFrame {
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
 
+        txtStatus.setEditable(false);
+
         txtID.setEditable(false);
+
+        txtNama.setEditable(false);
+
+        txtNomorHp.setEditable(false);
+
+        txtUsername.setEditable(false);
 
         jPanel4.setBackground(new java.awt.Color(204, 204, 255));
 
@@ -306,6 +314,8 @@ public class menu_akun extends javax.swing.JFrame {
                 .addComponent(jLabel10)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
+
+        txtAlamat.setEditable(false);
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
