@@ -27,16 +27,14 @@ Final Project Object Oriented Programming
 ## Kebutuhan Fungsional/Hak Aktor
 | Aktor                 |     Aktifitas                             |
 |-----------------------|-------------------------------------------|
-| Admin                 | -                |
-|                       | -                |
-|                       | -                |
-|                       | -                |
+| Admin                 | - Lihat Akun Bisnis                       |
+|                       | - Lihat Akun User                         |
+|                       | - Menggunakan Konversi                    |
 | User Bisnis           | - Manajemen Pembukuan                     |
-|                       | -                |
-|                       | -                |
-|                       | -                |
-|                       | -                |
-| User Biasa (Reguler)  | - Manajemen Transaksi Dompet              |
-|                       | -                |
-|                       | -                |
-|                       | -                |
+|                       | - Manajemen Akun Pribadi                  |
+|                       | - Menggunakan Konversi                    |
+| User Biasa (Reguler)  | - Manajemen Dompet                        |
+|                       | - Manajemen Akun Pribadi                  |
+|                       | - Manajemen Transaksi                     |
+|                       | - Manajemen Goals                         |
+|                       | - Menggunakan Konvers                     |
