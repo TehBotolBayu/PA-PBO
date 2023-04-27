@@ -152,6 +152,7 @@ public class menu_utama extends javax.swing.JFrame {
 
     private void mkeluarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mkeluarActionPerformed
         this.dispose();
+        System.exit(0);
     }//GEN-LAST:event_mkeluarActionPerformed
 
     private void mloginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mloginActionPerformed

@@ -60,6 +60,8 @@ public class EditKeuangan extends javax.swing.JDialog {
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
 
+        txtIDDEBIT.setEditable(false);
+
         txtJumlahDebit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtJumlahDebitActionPerformed(evt);
@@ -72,6 +74,8 @@ public class EditKeuangan extends javax.swing.JDialog {
         });
 
         cmbJenis.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Modal Awal", "Laba Produksi", "Lainnya" }));
+
+        txtKategori.setEditable(false);
 
         btnEdit.setBackground(new java.awt.Color(153, 153, 255));
         btnEdit.setFont(new java.awt.Font("Dialog", 0, 11)); // NOI18N
@@ -215,10 +219,13 @@ public class EditKeuangan extends javax.swing.JDialog {
                             .addComponent(jLabel6)
                             .addComponent(jLabel7)
                             .addComponent(jLabel14)
-                            .addComponent(jLabel9)
-                            .addComponent(jLabel10)
-                            .addComponent(jLabel11)
-                            .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addComponent(jLabel9)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel10)
+                                    .addComponent(jLabel11)
+                                    .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -233,15 +240,18 @@ public class EditKeuangan extends javax.swing.JDialog {
                 .addComponent(jLabel7)
                 .addGap(29, 29, 29)
                 .addComponent(jLabel13)
-                .addGap(36, 36, 36)
-                .addComponent(jLabel9)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel8)
-                .addGap(22, 22, 22)
-                .addComponent(jLabel10)
-                .addGap(31, 31, 31)
-                .addComponent(jLabel11)
-                .addContainerGap(51, Short.MAX_VALUE))
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGap(36, 36, 36)
+                        .addComponent(jLabel9))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabel8)
+                        .addGap(22, 22, 22)
+                        .addComponent(jLabel10)
+                        .addGap(31, 31, 31)
+                        .addComponent(jLabel11)))
+                .addContainerGap(81, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
