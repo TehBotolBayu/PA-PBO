@@ -24,3 +24,19 @@ Final Project Object Oriented Programming
 | GUI Yang Digunakan    | Java GUI                        |
 | Penjelasan            | Program Ini Merupakan Sistem Berbasis Java Yang Berfungsi Untuk Melakukan Manajemen Keuangan Seperti Menghitung Pemasukan dan Pengeluaran, Menabung, Konversi Mata Uang dan sebagainya|
 
+## Kebutuhan Fungsional/Hak Aktor
+| Aktor                 |     Aktifitas                             |
+|-----------------------|-------------------------------------------|
+| Admin                 | -                |
+|                       | -                |
+|                       | -                |
+|                       | -                |
+| User Bisnis           | - Manajemen Pembukuan                     |
+|                       | -                |
+|                       | -                |
+|                       | -                |
+|                       | -                |
+| User Biasa (Reguler)  | - Manajemen Transaksi Dompet              |
+|                       | -                |
+|                       | -                |
+|                       | -                |
